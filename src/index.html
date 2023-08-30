@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameBattle | Integrador JS</title>
+
+    <link
+      rel="shortcut icon"
+      href="./assets/img/search.svg"
+      type="image/x-icon"
+    />
+
+    <!-- <link href="/src/dist/output.css" rel="stylesheet" /> -->
+     <script src="https://cdn.tailwindcss.com"></script>
+
+     <link rel="stylesheet" href="./assets/css/style.css">
+    
+  </head>
+
+  <body class="bg-[#1a1a1a]">
+    <header>
+      <nav class="w-screen flex items-center justify-between py-4">
+        <div class="flex items-center">
+          <figure class="w-9 mx-2 cursor-pointer">
+           <i class="fa-solid fa-bars-staggered text-white text-2xl hover:text-gray-500"></i>
+          </figure>
+
+          <figure class="w-24">
+            <img
+              class="drop-shadow-[2px_2px_2px_gray]"
+              src="./assets/img/logo2.svg"
+              alt="logo"
+            />
+          </figure>
+        </div>
+
+        <div class="w-2/5 flex justify-around">
+          <label for="search">
+            <input class="hidden" type="text" id="search" />
+       <i class="fa-solid fa-magnifying-glass  text-white text-xl hover:text-gray-500"></i>
+          </label>
+
+          <figure class="w-6">
+          <i class="fa-regular fa-user text-white text-xl hover:text-gray-500"></i>
+          </figure>
+
+          <div class="w-6 flex cursor-pointer text-gray-500 mr-8 font-bold">
+            
+           <i class="fa-solid fa-bag-shopping text-white text-xl hover:text-gray-500"></i>
+            <span class="ml-2">(0)</span>
+          </div>
+
+          <ul
+            class="absolute top-0 left-0 w-3/4 h-screen text-white text-l font-semibold leading-[2.5rem] bg-[#1a1a1a] border-r border-r-slate-50 z-50 hidden opacity-0"
+          >
+          <li class="text-end text-2xl pr-8 py-8 cursor-pointer">X</li>
+            <li><a class="hover:text-orange-500" href="">Fortnite</a></li>
+            <li><a class="hover:text-orange-500" href=""> Minecraft</a></li>
+            <li><a class="hover:text-orange-500" href="">Demo</a></li>
+            <li><a class="hover:text-orange-500" href="">Contact</a></li>
+            <li><a class="hover:text-orange-500" href="">Blog</a></li>
+
+            <ul
+              class="absolute bottom-0 w-full flex justify-around bg-neutral-900 p-8"
+            >
+              <li>
+                <a href=""
+                  ><img
+                    class="w-6 hover:text-orange-500"
+                    src="./assets/img/facebook.png"
+                    alt=""
+                /></a>
+              </li>
+              <li>
+                <a href=""
+                  ><img
+                    class="w-6 hover:text-orange-500"
+                    src="./assets/img/instagram.png"
+                    alt=""
+                /></a>
+              </li>
+              <li>
+                <a href=""
+                  ><img
+                    class="w-6 hover:text-orange-500"
+                    src="./assets/img/pinterest.png"
+                    alt=""
+                /></a>
+              </li>
+            </ul>
+          </ul>
+          <div
+            class="bg-black opacity-70 blur-sm fixed top-0 left-0 w-screen h-screen z-0 hidden "
+          ></div>
+        </div>
+      </nav>
+
+      <section class="w-screen flex relative overflow-x-hidden">
+
+        <figure class="w-screen  min-w-full relative flex flex-col items-center justify-center">
+          <img class="opacity-40" src="./assets/img/banner1.jpg" alt="">
+          <div class="absolute text-white text-center">
+            <p class="text-sm">Star Wars Up Coming</p>
+            <h2 class="text-2xl uppercase my-4 font-bold font-serif">game guide unofficial</h2>
+            <a class="underline " href="#">Shop Now</a>
+          </div>
+        </figure>
+
+        <figure class="w-screen  min-w-full relative flex flex-col items-center justify-center">
+          <img class="opacity-40" src="./assets/img/banner2_.jpg" alt="">
+           <div class="absolute text-white text-center">
+              <p class="text-sm">Best Shooting Game</p>
+
+              <h2 class="text-2xl uppercase my-4 font-bold font-serif">Shadowgun War Games</h2>
+
+            <a class="underline " href="#">Shop Now</a>
+           </div>
+        </figure>
+
+        <ol class=" absolute bottom-0 z-10 justify-center flex gap-2 w-screen">
+         <li class="my-2"><a class="text-center bg-white rounded-[20px] text-xs block w-4 text-white active" href=""> 1 </a></li>
+          <li class="my-2"><a class="text-center bg-white rounded-[20px] text-xs block w-4 text-white" href=""> 1 </a></li>
+        </ol>
+
+      </section>
+
+      <section class=" mt-8 flex flex-col items-center text-center">
+
+          <div class=" flex flex-col items-center mt-4">            
+           <i class="fa-solid fa-truck text-4xl text-white mb-4"></i>
+            <div>
+              <p class="text-white font-bold">Free Delivery</p>
+              <p class="text-gray-400">Free shipping on all order</p>
+            </div>
+          </div>
+
+           <div class=" flex flex-col items-center  mt-8"> 
+          <i class="fa-solid fa-sack-dollar text-4xl text-white mb-4"></i>
+            <div>
+              <p class="text-white font-bold">Money Return</p>
+              <p class="text-gray-400">Back garantee in 7 days</p>
+            </div>
+          </div>
+
+          <div class=" flex flex-col items-center mt-8"> 
+            <img class="w-10 mb-4" src="./assets/img/discount.svg" alt="discount">
+            <div>
+              <p class="text-white font-bold">Member Discount</p>
+              <p class="text-gray-400">On every order over $130.00</p>
+            </div>
+          </div>
+
+           <div class=" flex flex-col items-center mt-8"> 
+            <div class="service-icon service-iconc69ec997-d841-43bc-98c9-bd18a3b67d42"></div>
+           <i class="fa-solid fa-hand-holding-dollar  text-4xl text-white mb-4"></i>
+            <div>
+              <p class="text-white font-bold">Return Policy</p>
+              <p class="text-gray-400">Support 24 hours a day</p>
+            </div>
+          </div>
+      </section>
+    
+    </header>
+
+    <main>
+
+      <section class="my-10 overflow-hidden">
+        <div class="bg-[url('https://wallpaperset.com/w/full/8/a/e/5928.jpg')] bg-cover w-11/12 mx-auto  text-white">
+
+          <div class="w-1/2 ml-auto mb-4 py-2">
+              <p class="text-lg">Best Action Game</p>
+              <h2 class="uppercase font-serif font-bold  my-4 text-xl">dead rising zombies</h2>
+               <button type="button" class="bg-white px-8 py-2 mb-8 text-black font-semibold hover:bg-gray-500">Shop Now</button>
+          </div>
+        
+        </div>
+
+         <div class="bg-[url('https://wallpaperset.com/w/full/4/c/4/5920.jpg')] bg-cover w-11/12 mx-auto  text-white">
+
+            <div class="w-1/2 ml-auto mb-4 py-2">
+               <p class="text-lg">3D Pixel Racing</p>
+              <h2 class="uppercase font-serif font-bold  my-4 text-xl">Fast Drive Racing</h2>
+               <button type="button" class="bg-white px-8 py-2 mb-8 text-black font-semibold hover:bg-gray-500">Shop Now</button>
+             </div>
+         
+        </div>
+      </section>
+
+      <section>
+        
+        <h2 class="text-white text-center text-xl font-bold">Special Category</h2>
+        <span class="border border-blue-700 w-12 mx-auto block my-4"></span>
+
+        <div class="w-screen relative mb-8">
+          <figure class="relative w-11/12 mx-auto flex justify-center items-center" >
+            <img src="https://wallpaperset.com/w/full/1/5/a/5937.jpg" alt="">
+            <div class="absolute flex justify-between w-full p-4">
+              <button class="rounded-full border block "> <i class="fa-solid fa-chevron-left text-white px-2"></i> </button>
+               <button class="rounded-full border block "> <i class="fa-solid fa-chevron-right text-white px-2"></i> </button>
+            </div>
+          </figure>
+
+          <h3 class="text-center my-4 text-white font-semibold">Latest Pubg Lite Game</h3>
+          <button class="w-full mx-auto text-gray-500
+          underline font-semibold hover:no-underline text-lg" type="button">Shop Now</button>
+        </div>
+        
+      </section>
+
+       <hr class="my-8">
+
+      <section>
+         <h2 class="text-white text-center text-xl font-bold">Our Products</h2>
+          <span class="border border-blue-700 w-12 mx-auto block my-4"></span>
+
+          <ul class="flex justify-around w-3/4 mx-auto text-white">
+            <li><a href="#">Featured</a></li>
+            <li><a href="#">Bestseller</a></li>
+            <li><a href="#">Special</a></li>
+          </ul>
+
+          <section class="w-11/12 mx-auto flex flex-wrap justify-center">
+            <!-- card-conatiner -->
+            <div class=" flex flex-col justify-center p-2 w-32  my-4">
+              <figure >
+                <img src="https://gamewar-codezeel.myshopify.com/cdn/shop/products/12_dc57ffaa-3b81-4023-9cb9-c7b48a097369_949x.jpg?v=1671088147" alt="">
+              </figure>
+              <!-- card-info -->
+              <div class="flex flex-col justify-center items-center my-2 overflow-hidden">
+                <span>xxxxx</span>
+                <span class="text-white text-center
+                my-2"><a href="http://" target="_blank" rel="noopener noreferrer">Nombre del prod</a></span>
+                <span class="text-gray-500 font-semibold">$100.00</span>
+              </div>
+            </div>
+
+             <div class=" flex flex-col justify-center p-2 w-32  my-4">
+              <figure >
+                <img src="https://gamewar-codezeel.myshopify.com/cdn/shop/products/12_dc57ffaa-3b81-4023-9cb9-c7b48a097369_949x.jpg?v=1671088147" alt="">
+              </figure>
+              <!-- card-info -->
+              <div class="flex flex-col justify-center items-center my-2 overflow-hidden">
+                <span>xxxxx</span>
+                <span class="text-white text-center"><a href="http://" target="_blank" rel="noopener noreferrer">Nombre del prod</a></span>
+                <span class="text-gray-500 font-semibold">$100.00</span>
+              </div>
+            </div>
+
+            <div class=" flex flex-col justify-center p-2 w-32  my-4">
+              <figure >
+                <img src="https://gamewar-codezeel.myshopify.com/cdn/shop/products/12_dc57ffaa-3b81-4023-9cb9-c7b48a097369_949x.jpg?v=1671088147" alt="">
+              </figure>
+              <!-- card-info -->
+              <div class="flex flex-col justify-center items-center my-2 overflow-hidden">
+                <span>xxxxx</span>
+                <span class="text-white text-center"><a href="http://" target="_blank" rel="noopener noreferrer">Nombre del prod</a></span>
+                <span class="text-gray-500 font-semibold">$100.00</span>
+              </div>
+            </div>
+            <div class="w-screen flex justify-center my-8">
+              <button class="bg-gray-500 px-16 py-2 font-semibold text-white hover:bg-white hover:text-gray-500">View All Pro</button>
+
+            </div>
+          </section>
+      </section>
+
+      <section class="bg-[url('https://wallpaperset.com/w/full/8/6/8/5967.jpg')] bg-fixed bg-cover">
+         
+        <div>
+          <figure>
+            <img src="" alt="">
+          </figure>
+        </div>
+
+      </section>
+
+    </main>
+   <!-- fontawesome -->
+        <script src="https://kit.fontawesome.com/b8d7fad790.js" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+
