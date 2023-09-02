@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+        <!-- <link href="/src/dist/output.css" rel="stylesheet" /> -->
+     <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#101010]">
+            <header >
+            <nav >
+                <!-- logo -->
+                <figure class="w-24 my-8 mx-8">
+                    <a href="/src/index.html">  
+                        <img
+                            class="drop-shadow-[2px_2px_2px_gray]"
+                            src="../img/logo2.svg"
+                            alt="logo"
+                            />
+                    </a>
+                </figure>
+
+                <section class="bg-[url('https://wallpaperset.com/w/full/8/e/0/5819.jpg')] bg-cover w-full p-16 flex flex-col justify-center items-center text-white">
+                    
+                    <h2 class=" my-4 text-2xl font-semibold">Create Account</h2>
+                    <span><a href="/src/index.html">Home</a></span>
+                </section>
+            </nav>
+        </header>
+           <main>            
+            <div class="w-11/12  border mx-auto justify-center items-center mt-20">
+                <h2 class="text-white text-4xl text-center my-8">Create Account</h2>
+
+              <form action="/register" method="post" novalidate>
+                   <!-- First Name-->
+                   <div class="w-11/12 mx-auto relative my-6">
+                       <input type="text" name="name" id="name" placeholder="First name" autocomplete="off" class="border pt-4  pb-2 bg-transparent w-full peer text-white pl-4">                     
+                       <label class="absolute left-4 text-[0] text-white
+                       peer-[:not(:placeholder-shown)]:text-[12px] peer-[:not(:placeholder-shown)]:top-0 pointer-events-none" for="name">First name:</label>
+                       <small></small>
+                   </div>
+                   <!-- Last Name-->
+                   <div class="w-11/12 mx-auto relative my-6">
+                       <input type="text" name="lastName" id="lastName" placeholder="Last name" autocomplete="off" class="border pt-4  pb-2 bg-transparent w-full peer text-white pl-4">                     
+                       <label class="absolute left-4 text-[0] text-white
+                       peer-[:not(:placeholder-shown)]:text-[12px] peer-[:not(:placeholder-shown)]:top-0 pointer-events-none" for="name">Last name:</label>
+                       <small></small>
+                   </div>
+                   <!-- email -->
+                   <div class="w-11/12 mx-auto relative my-6">
+                       <input type="text" name="email" id="email" placeholder="Email" autocomplete="off" class="border pt-4  pb-2 bg-transparent w-full peer text-white pl-4">                     
+                       <label class="absolute left-4 text-[0] text-white
+                       peer-[:not(:placeholder-shown)]:text-[12px] peer-[:not(:placeholder-shown)]:top-0 pointer-events-none" for="email">Email:</label>
+                       <small></small>
+                   </div>
+
+                   <!-- password -->
+                   <div class="w-11/12 mx-auto relative my-6">
+                       <input type="password" name="password" id="password" placeholder="Password" class="border pt-4  pb-2 bg-transparent w-full peer text-white pl-4">                        
+                       <label class="absolute left-4 text-[0] text-white
+                       peer-[:not(:placeholder-shown)]:text-[12px] peer-[:not(:placeholder-shown)]:top-0 pointer-events-none" for="password">Password:</label>
+                       <small></small>
+                   </div>
+
+                   <div class="flex justify-center items-center flex-col">
+                      
+                       <button id="btnSubmit" class="my-8 px-8 py-2 text-white bg-blue-700 hover:bg-blue-800
+                       transition" type="submit">Create</button>
+                        
+                   </div>
+                </form>
+            </div>
+        </main>
+        <footer id="footerContainer">
+
+        </footer>
+        <script src="/src/assets/js/reg.js"></script>
+</body>
+</html>
