@@ -477,7 +477,7 @@
         <div>
           <details>
             <summary class="flex justify-between items-center m-2 text-white font-semibold">
-              <h2>Contact Us</h2>
+             <h2 class="hover:cursor-pointer">Contact Us</h2>
               <i class="fa-solid fa-chevron-down"></i>
             </summary>
             <ul class=" text-gray-500">
@@ -498,7 +498,7 @@
         <div class="my-4">
           <details>
             <summary class="flex justify-between items-center m-2 text-white font-semibold">
-              <h2>Information</h2>
+              <h2 class="hover:cursor-pointer">Information</h2>
               <i class="fa-solid fa-chevron-down"></i>
             </summary>
             <ul class=" text-gray-500 [&_li]:my-2">
@@ -526,13 +526,14 @@
           <h2 class=" text-white font-semibold">Our Newsletter</h2>
           <p class="my-4 text-gray-500">There are many variations of passages of form humour, or randomised</p>
 
-          <form action="" class="relative w-full flex justify-center items-center">
+          <form action="" class="relative w-full flex justify-center items-center" novalidate>
             <input class="w-full px-4 py-2 my-4 peer" type="email" name="" id="newsletter--footer" placeholder="Your email" required=""
             autocomplete="email" id="newsletter">
             <label for="newsletter--footer" class="absolute pl-4 pointer-events-none left-0 peer-focus:text-[8px] peer-focus:top-4 peer-[:not(:placeholder-shown)]:text-[8px] peer-[:not(:placeholder-shown)]:top-4">Your email</label>
             <button id="subscribe" type="submit" class="text-[0px] flex justify-center items-center">
               subscribe<i class="fa-regular fa-paper-plane text-base absolute right-2 text-blue-700"></i>
             </button>
+             <small class="text-red-500"></small>
           </form>
           <ul class="flex w-3/4 text-white justify-around ">
             <li><a href="" class="hover:text-gray-500"><i class="fa-brands fa-twitter"></i></a></li>

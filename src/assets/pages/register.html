@@ -32,27 +32,27 @@
             <div class="w-11/12  border mx-auto justify-center items-center mt-20">
                 <h2 class="text-white text-4xl text-center my-8">Create Account</h2>
 
-              <form action="/register" method="post" novalidate>
+              <form id="form_reg" action="/register" method="post" novalidate>
                    <!-- First Name-->
                    <div class="w-11/12 mx-auto relative my-6">
                        <input type="text" name="name" id="name" placeholder="First name" autocomplete="off" class="border pt-4  pb-2 bg-transparent w-full peer text-white pl-4">                     
                        <label class="absolute left-4 text-[0] text-white
                        peer-[:not(:placeholder-shown)]:text-[12px] peer-[:not(:placeholder-shown)]:top-0 pointer-events-none" for="name">First name:</label>
-                       <small></small>
+                       <small class="text-red-500"></small>
                    </div>
                    <!-- Last Name-->
                    <div class="w-11/12 mx-auto relative my-6">
                        <input type="text" name="lastName" id="lastName" placeholder="Last name" autocomplete="off" class="border pt-4  pb-2 bg-transparent w-full peer text-white pl-4">                     
                        <label class="absolute left-4 text-[0] text-white
                        peer-[:not(:placeholder-shown)]:text-[12px] peer-[:not(:placeholder-shown)]:top-0 pointer-events-none" for="name">Last name:</label>
-                       <small></small>
+                      <small class="text-red-500"></small>
                    </div>
                    <!-- email -->
                    <div class="w-11/12 mx-auto relative my-6">
                        <input type="text" name="email" id="email" placeholder="Email" autocomplete="off" class="border pt-4  pb-2 bg-transparent w-full peer text-white pl-4">                     
                        <label class="absolute left-4 text-[0] text-white
                        peer-[:not(:placeholder-shown)]:text-[12px] peer-[:not(:placeholder-shown)]:top-0 pointer-events-none" for="email">Email:</label>
-                       <small></small>
+                       <small class="text-red-500"></small>
                    </div>
 
                    <!-- password -->
@@ -60,7 +60,7 @@
                        <input type="password" name="password" id="password" placeholder="Password" class="border pt-4  pb-2 bg-transparent w-full peer text-white pl-4">                        
                        <label class="absolute left-4 text-[0] text-white
                        peer-[:not(:placeholder-shown)]:text-[12px] peer-[:not(:placeholder-shown)]:top-0 pointer-events-none" for="password">Password:</label>
-                       <small></small>
+                       <small class="text-red-500"></small>
                    </div>
 
                    <div class="flex justify-center items-center flex-col">
@@ -72,9 +72,13 @@
                 </form>
             </div>
         </main>
-        <footer id="footerContainer">
+        <footer id="footerContainer" class=" pt-16 pb-2 my-8">
 
         </footer>
+          <!-- fontawesome -->
+        <script src="https://kit.fontawesome.com/b8d7fad790.js" crossorigin="anonymous"></script>
+        <script src="/src/assets/js/newsletter.js"></script>
         <script src="/src/assets/js/reg.js"></script>
+        
 </body>
 </html>
