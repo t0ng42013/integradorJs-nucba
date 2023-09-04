@@ -1,0 +1,139 @@
+[
+    {
+
+   
+    "productos": {
+        
+      "auriculares": [
+        {
+            "id":1,
+          "compania": "Logitech",
+          "nombre": "Auriculares Astro A20 Inalámbricos ",
+          "cantidad": 22,
+          "precio": 73.9
+        },
+        {
+            "id":2,
+          "compania": "Logitech",
+          "nombre": "Auricular Logitech G Pro Gaming Usb ",
+          "cantidad": 10,
+          "precio": 95.95
+        }
+      ],
+      "teclados": [
+        {
+          "nombre": "Teclado Gaming Logitech G Pro TKL LOL 2  ",
+          "cantidad": 15,
+          "precio": 103.9
+        },
+        {
+          "nombre": "Teclado Logitech G915 Tkl Lightspeed Wireless RGB Low profile  ",
+          "cantidad": 5,
+          "precio": 144.4
+        }
+      ],
+      "mouse": [
+        {
+          "nombre": "Mouse Logitech MX Vertical Ergonomico Wireless ",
+          "cantidad": 25,
+          "precio": 85.9
+        }
+      ],"microfonos": []
+    }
+   
+  },
+  {
+    "id": 2,
+    "compania": "Hyperx",
+    "productos": {
+    "auriculares": [
+      {
+        "nombre": "Auricular HyperX Cloud Stinger Core Wireless + 7.1 ",
+        "cantidad": 25,
+        "precio": 69.4
+      },
+      {
+        "nombre": "Auricular Hyperx Cloud Flight PS4/PS5 ",
+        "cantidad": 0,
+        "precio": 110.6
+      }
+    ],
+    "teclados": [
+      {
+        "nombre": "Teclado Hyperx Alloy Origins 60 Switch Red  ",
+        "cantidad": "35",
+        "precio": 69.4
+      },
+      {
+        "nombre": "Teclado Mecánico HyperX Alloy Origins Switch Blue ",
+        "cantidad": 5,
+        "precio": 95.6
+      },
+      {
+        "nombre": "Teclado HyperX Alloy Elite 2 RGB Mecanico Switch Red  ",
+        "cantidad": 3,
+        "precio": 128.6
+      }
+    ],
+    "mouse": [    
+    ],
+    "microfonos": [
+      {
+        "nombre": "Micrófono HyperX QuadCast S White ",
+        "cantidad": 2,
+        "precio": 177.750
+      }
+    ]
+    }
+  },
+  {
+    "id": 3,
+    "compania": "Reddragon",
+    "productos": {
+    "auriculares": [
+      {
+        "nombre": "Auricular Redragon Zeus X RGB Ps4/Pc ",
+        "cantidad": 15,
+        "precio": 41.250
+      },
+      {
+        "nombre": "Auricular Inalámbrico Redragon H818 Pelops 2.4G ",
+        "cantidad": 10,
+        "precio": 47.500
+      },
+      {
+        "nombre": "Auricular Redragon Zeus X Wireless Inalambrico H510-WL ",
+        "cantidad": 10,
+        "precio": 74.600
+      }
+    ],
+    "teclados": [
+      {
+        "nombre": "Teclado Redragon Fizz Pro White/Grey k616-Rgb ",
+        "cantidad": "55",
+        "precio": 38.750
+      },
+      {
+        "nombre": "Teclado Mecanico Redragon K599 Deimos RGB Red ",
+        "cantidad": 15,
+        "precio": 44.600      },
+      {
+        "nombre": "Teclado Mecánico Redragon Yama K550 Black Switch Purple SP  ",
+        "cantidad": 13,
+        "precio": 49.900
+      }
+    ],
+    "mouse": [
+      {
+        "nombre": "Mouse Gamer Redragon Storm Elite white M988 ",
+        "cantidad": 22,
+        "precio": 23.000
+      }
+    ],
+    "microfonos": []
+    }
+  }
+]
+
+
+
