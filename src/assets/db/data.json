@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "Ratón para juegos Logitech G502 Hero",
+        "name": "Logitech G502 Hero",
         "category": "Ratones",
         "brand": "Logitech",
         "price": 129.99,
@@ -10,7 +10,7 @@
     },
     {
         "id": 2,
-        "name": "Ratón para juegos Razer Viper Ultimate",
+        "name": "Razer Viper Ultimate",
         "category": "Ratones",
         "brand": "Razer",
         "price": 129.99,
@@ -19,7 +19,7 @@
     },
     {
         "id": 3,
-        "name": "Ratón para juegos ASUS ROG Gladius III",
+        "name": "ASUS ROG Gladius III",
         "category": "Ratones",
         "brand": "ASUS",
         "price": 79.99,
@@ -28,7 +28,7 @@
     },
     {
         "id": 4,
-        "name": "Ratón para juegos Corsair Sabre RGB Pro",
+        "name": "Corsair Sabre RGB Pro",
         "category": "Ratones",
         "brand": "Corsair",
         "price": 109.99,
@@ -37,7 +37,7 @@
     },
     {
         "id": 5,
-        "name": "Ratón para juegos HyperX Pulsefire Haste",
+        "name": "HyperX Pulsefire Haste",
         "category": "Ratones",
         "brand": "HyperX",
         "price": 49.99,
@@ -46,7 +46,7 @@
     },
     {
         "id": 6,
-        "name": "Teclado para juegos Logitech G915 TKL",
+        "name": "Logitech G915 TKL",
         "category": "Teclados",
         "brand": "Logitech",
         "price": 199.99,
@@ -55,7 +55,7 @@
     },
     {
         "id": 7,
-        "name": "Auriculares para juegos Logitech G Pro X",
+        "name": "Logitech G Pro X",
         "category": "Auriculares",
         "brand": "Logitech",
         "price": 199.99,
@@ -64,7 +64,7 @@
     },
     {
         "id": 8,
-        "name": "Auriculares para juegos Razer BlackShark V2 Pro",
+        "name": "Razer BlackShark V2 Pro",
         "category": "Auriculares",
         "brand": "Razer",
         "price": 299.99,
@@ -73,7 +73,7 @@
     },
     {
         "id": 9,
-        "name": "Auriculares para juegos ASUS ROG Strix Go 2.4",
+        "name": "ASUS ROG Strix Go 2.4",
         "category": "Auriculares",
         "brand": "ASUS",
         "price": 149.99,
@@ -82,7 +82,7 @@
     },
     {
         "id": 10,
-        "name": "Auriculares para juegos Corsair HS80 RGB Wireless",
+        "name": "Corsair HS80 RGB Wireless",
         "category": "Auriculares",
         "brand": "Corsair",
         "price": 199.99,
@@ -91,7 +91,7 @@
     },
     {
         "id": 11,
-        "name": "Monitor para juegos ASUS ROG Swift PG27UQ",
+        "name": "ASUS ROG Swift PG27UQ",
         "category": "Monitores",
         "brand": "ASUS",
         "price": 1.499,
@@ -100,7 +100,7 @@
     },
     {
         "id": 12,
-        "name": "Monitor para juegos Acer Predator X27",
+        "name": "Acer Predator X27",
         "category": "Monitores",
         "brand": "Acer",
         "price": 1.499,
@@ -109,7 +109,7 @@
     },
     {
     "id": 13,
-    "name": "Monitor para juegos LG UltraGear 27GN950",
+    "name": "LG UltraGear 27GN950",
     "category": "Monitores",
     "brand": "LG",
     "price": 1.299,
@@ -118,7 +118,7 @@
   },
   {
     "id": 14,
-    "name": "Monitor para juegos Samsung Odyssey Neo G9",
+    "name": "Samsung Odyssey Neo G9",
     "category": "Monitores",
     "brand": "Samsung",
     "price": 2.599,
@@ -127,7 +127,7 @@
   },
   {
     "id": 15,
-    "name": "Monitor para juegos ASUS ROG Swift PG35VQ",
+    "name": "ASUS ROG Swift PG35VQ",
     "category": "Monitores",
     "brand": "ASUS",
     "price": 1.999,
@@ -136,7 +136,7 @@
   },
   {
     "id": 16,
-    "name": "Monitor para juegos Acer Predator X35",
+    "name": "Acer Predator X35",
     "category": "Monitores",
     "brand": "Acer",
     "price": 1.999,
@@ -145,7 +145,7 @@
   },
   {
     "id": 17,
-    "name": "Monitor para juegos Dell Alienware AW3423DW",
+    "name": "Dell Alienware AW3423DW",
     "category": "Monitores",
     "brand": "Dell",
     "price": 1.899,
