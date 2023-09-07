@@ -2,7 +2,6 @@
 // const clave = '252b9f6f3bf54643bbf6908899982298';
 
 const container = document.getElementById('prod-container');
-const btnProd = document.getElementById('v');
 const containerOfer = document.getElementById("container-offer");
 const btnFeatured = document.getElementById("Featured");
 const btnBestseller = document.getElementById("Bestseller");
@@ -10,15 +9,22 @@ const btnSpecial = document.getElementById("Special");
 const btnShop = document.getElementById("shop");
 const menuShop = document.getElementById("menuShop");
 const overlay = document.getElementById("overlay");
-console.log(overlay)
+const btnUser = document.getElementById("user");
+const menuUser = document.getElementById("userMenu");
+const btnMenu = document.getElementById("menu");
+const menuList = document.getElementById('menu-list');
+const closeMenu = document.getElementById("closeMenu");
+const btnMore = document.getElementById("btnMore");
+const btnProductsAll = document.getElementById('btnView');
+
 
 // Declara estado como una variable global
 let estado;
 
 
 const createProdTemplate = (productos) => {
-    const{name, price, image, category} = productos;
- 
+  const { name, price, image, category } = productos;
+
   return `
         <div class="flex flex-col  w-32 my-4 ">
             <figure class="overflow-hidden">
@@ -36,69 +42,106 @@ const createProdTemplate = (productos) => {
     `;
 };
 
-const renderProd = (productosData) => {
-    container.innerHTML += productosData.map(createProdTemplate).join('');
-    
+const renderProd = (productos) => {
+  container.innerHTML += productos.map(createProdTemplate).join('');
+
 };
 
 const renderOffer = productosData => {
-    let offe= productosData.filter(producto => producto.price > 99)   
-    containerOfer.innerHTML += offe.map(createProdTemplate).join('');
+  let offe = productosData.filter(producto => producto.price > 99)
+  containerOfer.innerHTML += offe.map(createProdTemplate).join('');
 };
 
-const mostrarMas = () => {
+const mostrarMas = () => { 
   estado.currentProd += 1;
   let { product, currentProd } = estado;
+  if (currentProd >= estado.prodLimit || estado.prodLimit === 1) {  
+    btnMore.classList.add("text-[0px]"); // Oculta el botón si se alcanzó el límite  
+  }
   renderProd(product[currentProd]);
   // Verifica si se alcanzó el límite de productos disponibles
-  if (currentProd >= estado.prodLimit) {    ;
-    btnProd.classList = "hidden"; // Oculta el botón si se alcanzó el límite
+};
+
+const mostrarFiltro= ( filteredData) => { 
+  const productosDivididos = divideProduct(2, filteredData);
+  estado.product = productosDivididos;  
+  estado.prodLimit = productosDivididos.length-1;
+  renderProd(estado.product[estado.currentProd]);  
+  estado.currentProd++;
+  if (estado.currentProd >= estado.prodLimit  || estado.prodLimit === 1) {
+    btnMore.classList.add("text-[0px]");
+  } else {
+    btnMore.classList.remove("text-[0px]");
+    btnMore.classList.add("text-3xl");
   }
 };
 
 const renderByFilter = (productosData, filterFunction) => {
   container.innerHTML = '';
-  btnProd.classList.add('hidden');
   const filteredData = productosData.filter(filterFunction);
-  renderProd(filteredData);
+  estado.currentProd = 0;  
+  mostrarFiltro(filteredData);
 };
 
 const priceRangeFilter = (minPrice, maxPrice) => {
   return (producto) => producto.price > minPrice && producto.price < maxPrice;
 };
-
-const ShowCart = () => {
-  
-  menuShop.classList.toggle('hidden');
-  overlay.classList.toggle('hidden');
-  
+// ! toggle navegacion
+const toggleElement = (element1, element2, element3, element4) => {
+  element1.classList.toggle("hidden");
+  element3.classList.add("hidden");
+  element4.classList.add("hidden");
+  element1.classList.contains("hidden")
+    ? element2.classList.add("hidden")
+    : element2.classList.remove("hidden");
 };
+
+const divideProduct = (size, products) => {
+  let productsList = [];
+
+  for (let i = 0; i < products.length; i += size) {
+    productsList.push(products.slice(i, i + size));
+  }
+  return productsList;
+};
+
+const productsAll = (productosData) => {
+  window.location.href = ('/src/assets/pages/collection.html');
+};
+
+
 const init = async () => {
   const productosData = await requestProd();
-  
-  const divideProduct = (size) => {
-    let productsList = [];
-    for (let i = 0; i < productosData.length; i += size) {
-      productsList.push(productosData.slice(i, i + size));
-    }
-    return productsList;
-  };
 
   estado = {
-    product: divideProduct(4),
+    product: divideProduct(4, productosData),
     currentProd: 0,
-    prodLimit: divideProduct(6).length,
+    prodLimit: divideProduct(6, productosData).length,
     active: null,
   };
+
   renderProd(estado.product[0]);
   renderOffer(productosData);
-  btnProd.addEventListener("click", mostrarMas);
-  btnFeatured.addEventListener("click", () => renderByFilter(productosData, priceRangeFilter(150, 350))
+  btnMore.addEventListener("click", mostrarMas);
+  // btnMore.addEventListener('click', ()=> mostrartodo(productosData));
+  btnFeatured.addEventListener("click", () => renderByFilter(productosData, priceRangeFilter(100, 350))
   );
-  btnBestseller.addEventListener("click", () => renderByFilter(productosData,priceRangeFilter(1,10)));
-  btnSpecial.addEventListener("click", () => renderByFilter(productosData,priceRangeFilter(2,3)));
+  btnBestseller.addEventListener("click", () => renderByFilter(productosData, priceRangeFilter(1, 10)));
+  btnSpecial.addEventListener("click", () => renderByFilter(productosData, priceRangeFilter(2, 3)));
 
-  btnShop.addEventListener("click", () => ShowCart());  
+  btnShop.addEventListener("click", () =>
+    toggleElement(menuShop, overlay, menuUser, menuList)
+  );
+  btnMenu.addEventListener("click", () =>
+    toggleElement(menuList, overlay, menuUser, menuShop)
+  );
+  btnUser.addEventListener("click", () =>
+    toggleElement(menuUser, overlay, menuList, menuShop)
+  );
+  closeMenu.addEventListener("click", () =>
+    toggleElement(menuList, overlay, menuUser, menuShop)
+  );
+  btnProductsAll.addEventListener('click', () =>productsAll(productosData));
 };
 
 init();

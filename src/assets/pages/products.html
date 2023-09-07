@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+
+    <!-- <link href="/src/dist/output.css" rel="stylesheet" /> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#101010]">
+
+    <nav class="w-screen flex items-center justify-between py-4">
+        <div class="flex items-center">
+            <!-- btn men -->
+            <figure class="w-9 mx-2 cursor-pointer">
+                <i id="menu" class="fa-solid fa-bars-staggered text-white text-2xl hover:text-gray-500"></i>
+            </figure>
+
+            <figure class="w-24">
+                <img class="drop-shadow-[2px_2px_2px_gray]" src="/src/assets/img/logo2.svg" alt="logo" />
+            </figure>
+        </div>
+
+        <div class="w-2/5 flex justify-around [&>label]:cursor-pointer">
+            <label for="search">
+                <input class="hidden" type="text" id="search" />
+                <i class="fa-solid fa-magnifying-glass  text-white text-xl hover:text-gray-500"></i>
+            </label>
+
+            <label id="user" class="w-6">
+                <i class="fa-regular fa-user text-white text-xl hover:text-gray-500"></i>
+            </label>
+
+
+            <label id="shop" class="w-6 flex text-gray-500 mr-8 font-bold">
+                <i class="fa-solid fa-bag-shopping text-white text-xl hover:text-gray-500"></i>
+                <span id="cantidadShop" class="ml-2">(0)</span>
+            </label>
+            <!-- cart -->
+            <ul id="menu-list"
+                class="absolute top-0 left-0 w-3/4 h-screen text-white text-l font-semibold leading-[2.5rem] bg-[#1a1a1a] border-r border-r-slate-50 z-50 hidden ">
+                <li class="text-end text-2xl pr-8 py-8 "> <span class="cursor-pointer" id="closeMenu">X</span></li>
+                <li><a class="hover:text-orange-500" href="">Fortnite</a></li>
+                <li><a class="hover:text-orange-500" href=""> Minecraft</a></li>
+                <li><a class="hover:text-orange-500" href="">Demo</a></li>
+                <li><a class="hover:text-orange-500" href="">Contact</a></li>
+                <li><a class="hover:text-orange-500" href="">Blog</a></li>
+
+                <ul class="absolute bottom-0 w-full flex justify-around bg-neutral-900 p-8">
+                    <li>
+                        <a href=""><img class="w-6 hover:text-orange-500" src="./assets/img/facebook.png" alt="" /></a>
+                    </li>
+                    <li>
+                        <a href=""><img class="w-6 hover:text-orange-500" src="./assets/img/instagram.png" alt="" /></a>
+                    </li>
+                    <li>
+                        <a href=""><img class="w-6 hover:text-orange-500" src="./assets/img/pinterest.png" alt="" /></a>
+                    </li>
+                </ul>
+            </ul>
+            <!-- user -->
+            <ul id="userMenu"
+                class="border absolute top-[70px] right-0 pl-8 pr-16 py-4 text-white text-lg font-semibold leading-[2.5rem] bg-[#101010] z-50 hidden ">
+                <li><a class="hover:text-gray-500" href="./assets/pages/login.html">Log in</a></li>
+                <li><a class="hover:text-gray-500" href="./assets/pages/register.html">Register</a></li>
+            </ul>
+            <!--! shop -->
+            <ul id="menuShop"
+                class="border h-screen w-3/4 fixed top-[70px] right-0  p-4 text-white text-lg font-semibold leading-[2.5rem] bg-[#101010] z-50 hidden ">
+                <li>
+                    <div class="flex gap-4">
+                        <img class="w-12 object-cover" src="./assets/img/1058-producto-2-9547.jpg" alt="">
+                        <div class="flex flex-col text-sm">
+                            <span class="pb-2 text-gray-500 cursor-pointer">Logitech G502 Hero</span>
+                            <span>1 x $129.99</span>
+                        </div>
+                        <i id="trash" class="fa-regular fa-trash-can hover:text-gray-500 cursor-pointer"></i>
+                    </div>
+                </li>
+            </ul>
+            <!-- efecto overlay -->
+            <div id="overlay"
+                class="bg-black opacity-90 blur-xl fixed top-[70px] left-0 w-screen h-screen z-10 hidden "></div>
+        </div>
+    </nav>
+
+    <section
+        class="bg-[url('https://wallpaperset.com/w/full/8/e/0/5819.jpg')] bg-cover w-full p-16 flex flex-col justify-center items-center text-white">
+
+        <h2 id="ProductName" class=" my-4 text-2xl font-semibold">Product</h2>
+        <span><a href="/src/index.html">Home</a></span>
+    </section>
+   
+
+<main class=" py-16 px-8">
+    <div >
+        <img class="w-1/2 mx-auto py-8" src="/src/assets/img/1058-producto-2-9547.jpg" alt="">
+        <h3 class="text-white text-2xl font-semibold">Martin Goes on the Attack </h3>
+        <span class="text-gray-500 text-2xl py-4 block">$240.00</span>
+        <p class="text-white">Nam tristique porta ligula, vel viverra sem eleifend nec. Nulla sed purus augue, eu euismod tellus. Nam mattis eros nec mi sagittis sagittis. Vestibulum suscipit cursus bibendum. Integer at justo eget sem auctor auctor eget vitae arcu. Nam tempor malesuada... </p>
+    </div>
+
+    <hr class="my-8">
+
+    <div> 
+       <div class="text-white">
+        <span class="font-semibold p-2 w-5/12 inline-block">type</span> <span class="text-gray-500">:Platform games</span><br>
+        <span class="font-semibold p-2 w-5/12 inline-block">Vendor</span> <span class="text-gray-500">:NHFL7</span><br>
+        <span class="font-semibold p-2 w-5/12 inline-block">Sku</span> <span class="text-green-500">: In stock</span><br>
+        <span class="font-semibold p-2 w-5/12 inline-block">Availability</span class="text-gray-500"> <span class="text-gray-500">:Platform games</span><br>
+
+       </div>
+    </div>
+    
+    <div class=" text-white p-4">
+        <label for="">Quantity</label>
+        <quantity-input class="border p-4 ml-4">
+           <button>-</button>
+           <input class="bg-transparent p-4 w-16 [appearance:textfield] text-center" type="number" name="quantity" id="" min="1" value="1">
+           <button>+</button>
+        </quantity-input>       
+    </div>
+
+    <div class="my-8">
+        <button class="px-8 py-2 bg-blue-500 text-white hover:bg-blue-400">Add to cart</button>
+        <button class="px-8 py-2 bg-white text-black">Buy it Now</button>
+    </div>
+
+
+</main>
+
+
+ <footer id="footerContainer" class="pt-16 pb-2 my-8"></footer>
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/b8d7fad790.js" crossorigin="anonymous"></script>
+    <!-- foot -->
+    <script src="/src/assets/js/newsletter.js"></script>
+    <!-- db -->
+    <script src="/src/assets/js/request.js"></script>
+    <script src="/src/assets/js/navbar.js"></script>
+
+</body>
+
+</html>
