@@ -1,25 +1,43 @@
 const productAllContainers = document.getElementById("productContainer");
 const navProducts = document.getElementById("navProducts");
-const closeDetail = document.querySelectorAll('.closeDetail');
+const closeDetail = document.querySelectorAll(".closeDetail");
 const btnApply = document.getElementById("btnApply");
-const menuFilter = document.getElementById('menuFilter&sort');
-const btnFilterSort = document.getElementById('btnFilterSort');
-const ulConta=document.getElementById('ulConta');
-const ulBrand = document.getElementById('ulBrand');
+const menuFilter = document.getElementById("menuFilter&sort");
+const btnFilterSort = document.getElementById("btnFilterSort");
+const ulConta = document.getElementById("ulConta");
+const ulBrand = document.getElementById("ulBrand");
+const btnClearAvail = document.getElementById("btnClearAvail");
+const btnClear = document.querySelectorAll(".btnClearAvail");
+const hgtPrice = document.getElementById("hightPrice");
+const iptPriceMin = document.getElementById("iptPriceMin");
+const iptPriceMax = document.getElementById("iptPriceMax");
+const aplyPrice = document.getElementById("aplyPrice");
+const select = document.querySelector("#SortBy-mobile");
+const aplyBrand = document.getElementById("btnBrandAppl");
 
 
-
-let estadoRadio;
-let  data;
+let estadoRadio = false;
+let data;
 let nuevaData = [];
+let maxPrice;
 
+
+//obtiene cantidad de productos en stock y de poco stock y el producto de mayor precio
 const obtenerCantProductos = async () => {
-    const data = await productosData();
+  const data = await productosData();
   navProducts.textContent = `${data.length} products`;
+
+  let datan = data.map((dato) => {
+    dato.price = precioMasAlto(dato.price);
+    return dato;
+  });
+  maxPrice = datan.reduce((max, dat) => (dat.price > max ? dat.price : max), 0);
+  hgtPrice.textContent = `The highest price is ${maxPrice}.`;
+
   return data;
 };
 
-// template del producto card
+// template del producto 
 const createProdTemplate = (productos) => {
   const { name, price, image, category } = productos;
 
@@ -45,31 +63,31 @@ const renderProd = (productos) => {
   productAllContainers.innerHTML += productos.map(createProdTemplate).join("");
 };
 //llamo a la bd por los productos
- const productosData = async () => {
-    const data = await requestProd();    
-    renderProd(data);
-    return data;
- };
+const productosData = async () => {
+  const data = await requestProd();
+  renderProd(data);
+  return data;
+};
 
 //funcion para cerrar el el menu de filtrado
- const closeDetailFunc = (e) => {    
-    const detail = e.target.closest('details');    
-    detail.hasAttribute('open')?detail.removeAttribute('open'): detail.setAtributes('open', 'true');
+const closeDetailFunc = (e) => {
+  const detail = e.target.closest("details");
+  detail.hasAttribute("open")
+    ? detail.removeAttribute("open")
+    : detail.setAtributes("open", "true");
 };
-//funcion para ver cuanta disponibilidad hay de un producto
- const disponibilidad = async () => {
-    const data = await requestProd(); 
-    const stock = data.filter(prod => prod.cantidad >= 10);
-    const outStock = data.filter(prod => prod.cantidad <10);
-    return {stock, outStock};
- };
+//funcion para ver los productos en stock y de poco stock
+const disponibilidad = async () => {
+  const data = await requestProd();
+  const stock = data.filter((prod) => prod.cantidad >= 10);
+  const outStock = data.filter((prod) => prod.cantidad < 10);
+  return { stock, outStock };
+};
 //renderiza los li html y mustra cantidades de stock
- const templateStock = async () => {
-    a = await disponibilidad(); //mejorr nombre
-    
-    const{stock ,outStock}= a;
-   const htmlLiStock = closeDetail[0].nextElementSibling.innerHTML = ` 
-  <li class="relative flex items-center">
+const templateStock = (stocks) => {
+  const { stock, outStock } = stocks;  
+  return`
+    <li class="relative flex items-center">
     <label for="Filter-Availability-mobile-1" class="p-4 w-full flex items-center">
       <input class="absolute appearance-none flex justify-around items-center peer" type="radio" name="availability" value="inStock" id="Filter-Availability-mobile-1">
       <span class="opacity-0"></span>
@@ -98,18 +116,17 @@ const renderProd = (productos) => {
     </label>
   </li>
 `;
-    return htmlLiStock
- };
 
+};
 
- const templateBrand = (brand) => {
-  console.log(brand)
-  const nombre = brand.map(a=>a.brand)
-   return `      <li class="relative flex items-center">
-                                <label for="${nombre[0]}" class="p-4 w-full flex items-center">
+const templateBrand = (nuevaData) => {
+  const nombre = nuevaData.map((arr) => arr.brand);
+  const [brand] = nombre; 
+  return `      <li class="relative flex items-center">
+                                <label for="${brand}" class="p-4 w-full flex items-center">
                                     <input class="absolute appearance-none flex justify-around items-center peer"
                                         type="radio" name="brand" value="nombre"
-                                        id="${nombre[0]}">
+                                        id="${brand}">
 
                                     <span class="opacity-0"></span>
 
@@ -125,71 +142,73 @@ const renderProd = (productos) => {
                                             stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
                                     </svg>
 
-                                    ${nombre[0]} (${brand.length}) 
+                                    ${brand} (${brand.length}) 
                                 </label>
                             </li>`;
- };
- 
- const renderBrand = async (nuevaData) =>{
-   data = await productosData();
-   brandList = [
-     "Logitech",
-     "Razer",
-     "ASUS",
-     "Corsair",
-     "HyperX",
-     "Acer",
-     "LG",
-     "Samsung",
-     "Dell",
-   ];
+};
 
-   for (let i = 0; i < brandList.length; i++) {
-     nuevaData[i] = data.filter((prd) => prd.brand === brandList[i]);
-   }
-   console.log(nuevaData)
-   ulBrand.innerHTML += await nuevaData.map(templateBrand).join("");
+const renderBrand = async (nuevaData) => {
+  data = await productosData();
+  brandList = [
+    "Logitech",
+    "Razer",
+    "ASUS",
+    "Corsair",
+    "HyperX",
+    "Acer",
+    "LG",
+    "Samsung",
+    "Dell",
+  ];
+
+  for (let i = 0; i < brandList.length; i++) {
+    nuevaData[i] = data.filter((prd) => prd.brand === brandList[i]);
+  }
   
- };
+  ulBrand.innerHTML += await nuevaData.map(templateBrand).join("");
+
+  return nuevaData;
+};
 renderBrand(nuevaData);
 
-
+const filterBrand = async ({target}) => {
+ nuevaData;
+  
+};
 
 //funcion para ver opcion del input
 const opcionInputRadio = async () => {
-   const htmlLiStock = await templateStock(); 
-   ulConta.innerHTML = htmlLiStock;
-   const inStock = ulConta.querySelector("#Filter-Availability-mobile-1");
-   const outStock = ulConta.querySelector("#Filter-Availability-mobile-2");
-  
-  inStock.addEventListener('change', () => estadoRadio = inStock );
-  outStock.addEventListener('change', () =>estadoRadio = (outStock));
+  let stocks = await disponibilidad();
+  // const htmlLiStock = await templateStock();
+  // ulConta.innerHTML = htmlLiStock; 
+  ulConta.innerHTML = templateStock(stocks);
+  const inStock = ulConta.querySelector("#Filter-Availability-mobile-1");
+  const outStock = ulConta.querySelector("#Filter-Availability-mobile-2");
+
+  inStock.addEventListener("change", () => (estadoRadio = inStock));
+  outStock.addEventListener("change", () => (estadoRadio = outStock));
 
   return estadoRadio;
 };
 
 opcionInputRadio();
 
-
 const btnApplya = async () => {
-  const productos = await obtenerCantProductos();
-  if (estadoRadio.checked && estadoRadio.value === 'inStock') {
+  const productos = await productosData();
+  if (estadoRadio.checked && estadoRadio.value === "inStock") {
     // Filtrar y renderizar productos "In stock"
-    productAllContainers.innerHTML = '';
-    const checked = productos.filter(producto => producto.cantidad >= 10);
-    menuFilter.classList.add("hidden"); 
-    
-    btnFilterSort.innerHTML += ` <button class="px-10 py-1 border">
-                               Clear</button>`;
+    productAllContainers.innerHTML = "";
+    const checked = productos.filter((producto) => producto.cantidad >= 10);
+    menuFilter.classList.add("hidden");
     renderProd(checked);
   } else if (estadoRadio.checked && estadoRadio.value === "outStock") {
     // Filtrar y renderizar productos "Out of stock"
     productAllContainers.innerHTML = "";
-    const outOfStockProducts = productos.filter((producto) => producto.cantidad < 10
+    const outOfStockProducts = productos.filter(
+      (producto) => producto.cantidad < 10
     );
     menuFilter.classList.add("hidden");
     renderProd(outOfStockProducts);
-    console.log('first')
   } else {
     // Ninguna opción está marcada, maneja esto según tu caso
     // Por ejemplo, puedes renderizar todos los productos nuevamente
@@ -199,20 +218,169 @@ const btnApplya = async () => {
 };
 
 const btnFilterSortFunc = () => {
-  menuFilter.classList.toggle('hidden');
+  menuFilter.classList.toggle("hidden");
   // menuFilter.classList.contains('hidden')?overlay.classList.add('hidden'):overlay.classList.remove('hidden');
 };
+//fucion clear para sacar los filtros
+const btncloseFilter = async () => {
+  menuFilter.classList.add("hidden");
+  let detail = document.querySelectorAll(".closeDetail");
+  detail = [...detail]; //paso el nodeList a array
+  detail.forEach((btn) => {
+    if (btn.closest("details").hasAttribute("open")) {
+      btn.closest("details").removeAttribute("open");
+    }
+  });
+  estadoRadio.checked = false; //sacamos check del radio
+  btnFilterSort.innerHTML =
+    '<button class="px-8 py-2 text-white bg-blue-500 my-16 ml-8"> filter by</button>'; //eliminamos boton de filtro
+  renderProd(await obtenerCantProductos());
+};
 
+const validarPrice = async () => {
+  let valid = false;
+  let max = iptPriceMax.value;
+  let min = iptPriceMin.value;
+  await maxPrice;
+  maxPrice = parseFloat(maxPrice.toString().replace(".", ""));
+  //validando que no este vacio y que solo ingrese numeros
+  if (!min.length || isNaN(min)) {
+    iptPriceMin.style.border = "1px solid red";
+    valid = false;
+    return;
+  }
+  if (!max.length || isNaN(max)) {
+    iptPriceMax.style.border = "1px solid red";
+    valid = false;
+    return;
+  }
 
+  if (min < 0) {
+    iptPriceMin.style.border = "1px solid red";
+    valid = false;
+    return;
+  }
 
+  if (max > maxPrice) {
+    iptPriceMax.style.border = "1px solid red";
+    valid = false;
+    return;
+  }
+  if (min > max) {
+    iptPriceMin.style.border = "1px solid red";
+    iptPriceMax.style.border = "1px solid red";
+    valid = false;
+    return;
+  }
+  //si todo es correcto
+  iptPriceMin.style.border = "1px solid green";
+  iptPriceMax.style.border = "1px solid green";
 
+  valid = true;
+  return valid;
+};
 
-const load = () =>{
-  document.addEventListener('DOMContentLoaded',obtenerCantProductos);
-  closeDetail.forEach(btn => btn.addEventListener('click', closeDetailFunc));
-  btnApply.addEventListener('click',btnApplya);
-  btnFilterSort.addEventListener('click',btnFilterSortFunc);
+const conversor = (price) => {
+  partes = price.toString().split(".");
+  if (partes[1].length !== 3) {
+    return (price = parseFloat(partes[0]));
+  }
+  price = parseFloat(price.toString().replace(".", ""));
+  return price;
+};
+
+const precioModifi = (data) => {
+  let nuevaData = data.map((producto) => {
+    return {
+      ...producto,
+      price: conversor(producto.price),
+    };
+  });
+  return nuevaData;
+};
+
+const filterPrice = async () => {
+  if (await validarPrice()) {
+    await data;
+    productAllContainers.innerHTML = "";
+    let precioConv = precioModifi(data);
+    let filtrado = precioConv.filter(
+      (producto) =>
+        producto.price >= iptPriceMin.value &&
+        producto.price <= iptPriceMax.value
+    );
+    renderProd(filtrado);
+    console.log(data);
+    menuFilter.classList.add("hidden");
+    return;
+  }
+};
+
+const precioMasAlto = (numero) => {
+  const cadenaNumero = numero.toString(); // Convierte el número en una cadena
+  const partes = cadenaNumero.split("."); // Divide la cadena en dos partes
+
+  if (partes.length !== 2) {
+    // Si no se divide en dos partes (parte entera y parte decimal), no tiene tres decimales
+    return;
+  }
+
+  const parteDecimal = partes[1]; // Obtiene la parte decimal
+
+  if (parteDecimal.length === 3) {
+    // Si la longitud de la parte decimal es igual a 3, tiene tres decimales
+    const numeroSinComa = parseFloat(cadenaNumero.replace(",", ""));
+    return numeroSinComa;
+  }
+};
+
+const filtradoSortBy = async (sortBy) => {
+  await data;
+  if (sortBy === "title-ascending") {
+    let fil = data.sort((a, b) => a.name.localeCompare(b.name));
+    productAllContainers.innerHTML = "";
+    renderProd(fil);
+    menuFilter.classList.add("hidden");
+    return;
+  } else if (sortBy === "title-descending") {
+    menuFilter.classList.add("hidden");
+    let fil = data.sort((a, b) => b.name.localeCompare(a.name));
+    productAllContainers.innerHTML = "";
+    renderProd(fil);
+    menuFilter.classList.add("hidden");
+    return;
+  } else if (sortBy === "price-ascending") {
+    let fil = precioModifi(data).sort((a, b) => a.price - b.price);
+    productAllContainers.innerHTML = "";
+    renderProd(fil);
+    menuFilter.classList.add("hidden");
+    return;
+  } else if (sortBy === "price-descending") {
+    let fil = precioModifi(data).sort((a, b) => b.price - a.price);
+    productAllContainers.innerHTML = "";
+    renderProd(fil);
+    menuFilter.classList.add("hidden");
+    return;
+  }
+};
+
+//funcion sortBy:
+select.addEventListener("change", ({ target }) => {
+  const value = target.value;
+  // Aquí se hace algo con el valor del select
+  filtradoSortBy(value, (async) => {
+    return;
+  });
+});
+
+const load = () => {
+  document.addEventListener("DOMContentLoaded", obtenerCantProductos);
+  closeDetail.forEach((btn) => btn.addEventListener("click", closeDetailFunc));
+  btnApply.addEventListener("click", btnApplya);
+  btnFilterSort.addEventListener("click", btnFilterSortFunc);
+  btnClearAvail.addEventListener("click", btncloseFilter);
+  btnClear.forEach((btn) => btn.addEventListener("click", btncloseFilter));
+  aplyPrice.addEventListener("click", filterPrice);
+  aplyBrand.addEventListener("click", filterBrand);
 };
 load();
-
-

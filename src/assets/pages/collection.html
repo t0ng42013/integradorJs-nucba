@@ -21,7 +21,7 @@
             </figure>
             <!-- logo -->
             <figure class="w-24">
-                <img class="drop-shadow-[2px_2px_2px_gray]" src="./assets/img/logo2.svg" alt="logo" />
+                <img class="drop-shadow-[2px_2px_2px_gray]" src="/src/assets/img/logo2.svg" alt="logo" />
             </figure>
         </div>
 
@@ -109,7 +109,7 @@
 
             <hr>
 
-            <div  class="">
+            <div >
                 <details class="py-2 px-4">
                     <summary class="relative cursor-pointer list-none">
                         <div class="flex  justify-between items-center">
@@ -125,7 +125,7 @@
                         </div>
                     </summary>
 
-                    <div class="absolute top-[130px] left-0 w-full bottom-0 bg-[#101010] z-30 py-1 px-4">
+                    <div class="absolute top-[100px] left-0 w-full bottom-0 bg-[#101010] z-30 py-1 px-4">
                         <!-- btn cerrar details -->
                         <button class="closeDetail w-full flex items-center" aria-expanded="true" type="button">
                             <i class="fa-solid fa-arrow-right rotate-180 mr-4"></i>
@@ -135,9 +135,9 @@
                            
                         </ul>
                         <!-- botones -->
-                        <div class="flex justify-between pt-16">
-                            <button class="px-10 py-1 border">
-                                <a href="/collections/featured" class="mobile-facets__clear button">Clear</a>
+                        <div class="relative z-40 flex justify-between pt-16">
+                            <button id="btnClearAvail" class="btnClearAvail px-10 py-1 border">
+                               Clear
                             </button>
                             <button id="btnApply" type="button" class="px-10 py-1 border">Apply</button>
                         </div>
@@ -153,25 +153,25 @@
                         </div>
                     </summary>
 
-                    <div class="absolute top-[130px] left-0 w-full bottom-0 bg-[#101010] z-30 py-1 px-4">
+                    <div class="absolute top-[100px] left-0 w-full bottom-0 bg-[#101010] z-30 py-1 px-4">
                         <button class="closeDetail w-full flex items-center" aria-expanded="true" type="button">
                             <i class="fa-solid fa-arrow-right rotate-180 mr-4"></i>
                             Price
                         </button>
-                        <p>The highest price is $370.00</p>
+                        <p id="hightPrice" class="my-4 text-center">The highest price is $370.00</p>
                         <div class="flex w-full justify-evenly">
                             <span>$</span>
-                            <input class="w-2/6 bg-transparent border" type="number" placeholder="from">
+                            <input id="iptPriceMin" class="w-2/6 bg-transparent border" type="number" placeholder="from">
                             <span>$</span>
-                            <input class="w-2/6 bg-transparent border" type="number" placeholder="to">
+                            <input id="iptPriceMax" class="w-2/6 bg-transparent border" type="number" placeholder="to">
                         </div>
 
                         <!-- botones -->
                         <div class="flex justify-between pt-16">
-                            <button class="px-10 py-1 border">
-                                <a href="/collections/featured" class="mobile-facets__clear button">Clear</a>
+                            <button class="btnClearAvail px-10 py-1 border">
+                                Clear
                             </button>
-                            <button type="button" class="px-10 py-1 border">Apply</button>
+                            <button id="aplyPrice" type="button" class="px-10 py-1 border">Apply</button>
                         </div>
                     </div>
 
@@ -186,44 +186,20 @@
                         </div>
                     </summary>
 
-                    <div class="transition absolute top-[130px] left-0 w-full bottom-0 bg-[#101010] z-30 py-1 px-4">
+                    <div class="absolute top-[100px] left-0 w-full bottom-0 bg-[#101010] z-30 py-1 px-4">
                         <button class="closeDetail w-full flex items-center" aria-expanded="true" type="button">
                             <i class="fa-solid fa-arrow-right rotate-180 mr-4"></i>
                             Brand
                         </button>
-                        <ul id="ulBrand" role="list">
-                            <!-- <li class="relative flex items-center">
-                                <label for="Filter-Availability-mobile-1" class="p-4 w-full flex items-center">
-                                    <input class="absolute appearance-none flex justify-around items-center "
-                                        type="checkbox" name="filter.v.availability" value="1"
-                                        id="Filter-Availability-mobile-1">
-
-                                    <span class="opacity-0"></span>
-
-                                    <svg class="relative mr-8" width="1.6rem" height="1.6rem" viewBox="0 0 16 16"
-                                        aria-hidden="true" focusable="false">
-                                        <rect width="16" height="16" stroke="currentColor" fill="none" stroke-width="1">
-                                        </rect>
-                                    </svg>
-
-                                    <svg class="absolute" width="1.1rem" height="0.7rem" viewBox="0 0 11 7" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M1.5 3.5L2.83333 4.75L4.16667 6L9.5 1" stroke="currentColor"
-                                            stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
-                                    </svg>
-
-                                    In stock (13)
-                                </label>
-                            </li> -->
-
-
+                        <ul class="overflow-y-scroll h-2/5" id="ulBrand" role="list">
+                            
                         </ul>
                         <!-- botones -->
                         <div class="flex justify-between pt-16">
-                            <button class="px-10 py-1 border">
-                                <a href="/collections/featured" class="mobile-facets__clear button">Clear</a>
+                            <button class="btnClearAvail px-10 py-1 border">
+                               Clear
                             </button>
-                            <button type="button" class="px-10 py-1 border">Apply</button>
+                            <button id="btnBrandAppl" type="button" class="px-10 py-1 border">Apply</button>
                         </div>
                     </div>
 
@@ -241,11 +217,10 @@
                     <option value="price-ascending">Price, low to high</option>
                     <option value="price-descending">Price, high to low</option>
                 </select>
-                <!-- <svg class="icon icon-caret" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 979.95 531.49"><path d="M22.14,246a40.74,40.74,0,0,0-.3,57.6l445.9,450a40.68,40.68,0,0,0,57.6.3c.2-.1.2-.3.4-.5.7-.6,1.6-.8,2.3-1.5L977.94,306a40.77,40.77,0,1,0-57.4-57.9l-423.3,419.5L79.74,246.24a40.83,40.83,0,0,0-57.6-.2Z" transform="translate(-10.07 -234.26)"></path></svg> -->
-                <!-- botones -->
+             
                 <div class="flex justify-between pt-16">
-                    <button class="px-10 py-1 border">
-                        <a href="/collections/featured" class="mobile-facets__clear button">Clear</a>
+                    <button class="btnClearAvail px-10 py-1 border">
+                        Clear
                     </button>
                     <button type="button" class="px-10 py-1 border">Apply</button>
                 </div>
