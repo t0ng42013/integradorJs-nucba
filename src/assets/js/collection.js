@@ -13,14 +13,13 @@ const iptPriceMin = document.getElementById("iptPriceMin");
 const iptPriceMax = document.getElementById("iptPriceMax");
 const aplyPrice = document.getElementById("aplyPrice");
 const select = document.querySelector("#SortBy-mobile");
+const btnBrand = document.getElementById("brandFil");
 const aplyBrand = document.getElementById("btnBrandAppl");
-
 
 let estadoRadio = false;
 let data;
 let nuevaData = [];
 let maxPrice;
-
 
 //obtiene cantidad de productos en stock y de poco stock y el producto de mayor precio
 const obtenerCantProductos = async () => {
@@ -37,9 +36,9 @@ const obtenerCantProductos = async () => {
   return data;
 };
 
-// template del producto 
+// template del producto
 const createProdTemplate = (productos) => {
-  const { name, price, image, category } = productos;
+  const {id, name, price, image, category } = productos;
 
   return `
         <div class="flex flex-col  w-32 my-4 ">
@@ -50,7 +49,7 @@ const createProdTemplate = (productos) => {
             <div class="flex flex-col justify-center items-center my-2 overflow-hidden">
                 <span></span>
                 <span class="text-white text-center">
-                    <a href="http://" target="_blank" rel="noopener noreferrer">${name}</a>
+                        <a href="/src/assets/pages/products.html?id=${id}&name=${name}" target="_blank" rel="noopener noreferrer">${name}</a>
                 </span>
                 <span class="text-gray-500 font-semibold">$${price}</span>
             </div>
@@ -85,8 +84,8 @@ const disponibilidad = async () => {
 };
 //renderiza los li html y mustra cantidades de stock
 const templateStock = (stocks) => {
-  const { stock, outStock } = stocks;  
-  return`
+  const { stock, outStock } = stocks;
+  return `
     <li class="relative flex items-center">
     <label for="Filter-Availability-mobile-1" class="p-4 w-full flex items-center">
       <input class="absolute appearance-none flex justify-around items-center peer" type="radio" name="availability" value="inStock" id="Filter-Availability-mobile-1">
@@ -116,12 +115,11 @@ const templateStock = (stocks) => {
     </label>
   </li>
 `;
-
 };
 
 const templateBrand = (nuevaData) => {
   const nombre = nuevaData.map((arr) => arr.brand);
-  const [brand] = nombre; 
+  const [brand] = nombre;
   return `      <li class="relative flex items-center">
                                 <label for="${brand}" class="p-4 w-full flex items-center">
                                     <input class="absolute appearance-none flex justify-around items-center peer"
@@ -164,23 +162,33 @@ const renderBrand = async (nuevaData) => {
   for (let i = 0; i < brandList.length; i++) {
     nuevaData[i] = data.filter((prd) => prd.brand === brandList[i]);
   }
-  
+
   ulBrand.innerHTML += await nuevaData.map(templateBrand).join("");
 
   return nuevaData;
 };
 renderBrand(nuevaData);
 
-const filterBrand = async ({target}) => {
- nuevaData;
-  
+const brandClick = ({ target }) => {
+  const resulFilter = data.filter((nombre) => nombre.brand === target.id);
+  productAllContainers.innerHTML = "";
+
+  renderProd(resulFilter);
+  aplyBrand.addEventListener("click", () => {
+    menuFilter.classList.add("hidden");
+  });
+};
+
+const filterBrand = () => {
+  const iptNombre = document.querySelectorAll("#ulBrand li");
+  let listBrand = [...iptNombre];
+  listBrand.forEach((btn) => btn.addEventListener("click", brandClick));
 };
 
 //funcion para ver opcion del input
 const opcionInputRadio = async () => {
   let stocks = await disponibilidad();
-  // const htmlLiStock = await templateStock();
-  // ulConta.innerHTML = htmlLiStock; 
+  
   ulConta.innerHTML = templateStock(stocks);
   const inStock = ulConta.querySelector("#Filter-Availability-mobile-1");
   const outStock = ulConta.querySelector("#Filter-Availability-mobile-2");
@@ -381,6 +389,6 @@ const load = () => {
   btnClearAvail.addEventListener("click", btncloseFilter);
   btnClear.forEach((btn) => btn.addEventListener("click", btncloseFilter));
   aplyPrice.addEventListener("click", filterPrice);
-  aplyBrand.addEventListener("click", filterBrand);
+  btnBrand.addEventListener("click", filterBrand);
 };
 load();
