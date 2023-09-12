@@ -66,12 +66,31 @@
                 class="border absolute top-[70px] right-0 pl-8 pr-16 py-4 text-white text-lg font-semibold leading-[2.5rem] bg-[#101010] z-50 hidden ">
                 <li><a class="hover:text-gray-500" href="./assets/pages/login.html">Log in</a></li>
                 <li><a class="hover:text-gray-500" href="./assets/pages/register.html">Register</a></li>
+          
             </ul>
             <!--! shop -->
-            <ul id="menuShop"
-                class="border h-screen w-3/4 fixed top-[70px] right-0  p-4 text-white text-lg font-semibold leading-[2.5rem] bg-[#101010] z-50 hidden">
-             
+            <div id="menuShop" class="border h-screen w-3/4 fixed top-[70px] right-0  p-4 text-white text-lg font-semibold leading-[2.5rem] bg-[#101010] z-50 hidden">               
+                 <ul id="menuShopUl"></ul>
+
+                 <hr class="mb-4 mt-16">
+
+                 <div class="flex justify-between items-center">
+                    <div class="flex flex-col">
+                        <span>Total item</span>
+                        <span
+                        id="totalItem">0</span>
+                    </div>
+                   <div class="flex flex-col">
+                    <span>subtotal</span>
+                    <span id="subTotal">$0</span>
+                   </div>
+                 </div>
+                 <button class="px-16 py-2 bg-gray-500 my-4 mx-auto w-full">Buy Now</button>
+            </div>
+           
+
             </ul>
+            
             <!-- efecto overlay -->
             <div id="overlay"
                 class="bg-black opacity-90 blur-xl fixed top-[70px] left-0 w-screen h-screen z-10 hidden "></div>

@@ -82,7 +82,7 @@ const disponibilidad = async () => {
   const outStock = data.filter((prod) => prod.cantidad < 10);
   return { stock, outStock };
 };
-//renderiza los li html y mustra cantidades de stock
+//renderizmenushopa los li html y mustra cantidades de stock
 const templateStock = (stocks) => {
   const { stock, outStock } = stocks;
   return `

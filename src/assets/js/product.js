@@ -9,6 +9,9 @@ const iptNumber = document.getElementById("iptNumber");
 const btnMas = document.getElementById("btnMas");
 const btnCart = document.getElementById("btnCart");
 const cantidadShop = document.getElementById("cantidadShop");
+const totalItem = document.getElementById("totalItem");
+const subTotal = document.getElementById("subTotal");
+
 
 const PRODUCT_ID_PARAM = "id";
 
@@ -25,39 +28,26 @@ function traerProductos() {
 
 const validarProductos =async (producto, productos) => {
   if (productos.some((prod) => prod.id === producto.id)) {
-    let quantity = await handleQuantityChange();
-
-    const productosActualizados = productos.map((produ) => {
-      if (producto.id === produ.id) {
-        // Actualiza la cantidad del producto deseado
-        return { ...producto, cantidad: quantity };
-      } else {
-        return producto;
-      }
-    });
-    guardarProductos(productosActualizados);
-  
-    return;
+    ListaNueva = productos.filter(prd => prd.id !== producto.id);
+    ListaNueva.push(producto);
+    guardarProductos(ListaNueva);
+    renderMiniCard();
+   return;   
   }
-
-
-  productos.push(producto);
+   productos.push(producto);
    guardarProductos(productos);
- return;
+   renderMiniCard();
+  return;
+ 
 };
 
-const cantCart = async (cantidad)=>{ 
-  const product = await getProduct();
-console.log(typeof cantidad);
-  return product.cantidad - cantidad;
-};
 
 // Función para agregar un producto al carrito
 const agregarAlCarrito= async(producto)=> {
   const productos = await traerProductos();
   validarProductos(producto, productos);
 
-renderMiniCard();
+  return ;
 }
 
 const getProduct = async () => {
@@ -141,17 +131,21 @@ function deleteCard({ target }) {
 }
 
 const renderMiniCard = async () => {
-  const productos = await traerProductos();
-  let cantidad = await handleQuantityChange(); 
+  const productos = await traerProductos(); 
   const listaHTML = productos.map((producto) => templateProductCart(producto))
   .join("");
   // Agrega la lista al contenedor menuShop
-  menuShop.innerHTML = listaHTML;
-  console.log(productos)
+  menuShopUl.innerHTML = listaHTML;
   cantidadCompras();
   let trash = document.querySelectorAll("#trash");
   trash = [...trash];
   trash.forEach((tras) => tras.addEventListener("click", (e) => deleteCard(e)));
+  totalItem.textContent = await cantidadCompras();
+  subTotal.textContent = (productos.reduce((total, producto) => {
+    return total + producto.price  * producto.cantidad;
+  }, 0)).toFixed(2);
+
+  console.log(productos)
 };
 
 renderMiniCard();
@@ -162,10 +156,12 @@ btnCart.addEventListener("click", async () => {
   let cantidad = await handleQuantityChange();
   product.cantidad = cantidad;
   agregarAlCarrito(product);
-  renderMiniCard();
 });
 
 const cantidadCompras = async () => {
   compras = await traerProductos();
   cantidadShop.textContent = `(${compras.length})`;
+  return compras.length;
 };
+
+// window.addEventListener('scroll',() => menuShop.classList.add('hidden'))
