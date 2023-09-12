@@ -10,7 +10,6 @@ const btnMas = document.getElementById("btnMas");
 const btnCart = document.getElementById("btnCart");
 const cantidadShop = document.getElementById("cantidadShop");
 
-
 const PRODUCT_ID_PARAM = "id";
 
 // Función para guardar los productos en el local storage
@@ -24,11 +23,41 @@ function traerProductos() {
   return productos || [];
 }
 
-// Función para agregar un producto al carrito
-function agregarAlCarrito(producto) {
-  const productos = traerProductos();
+const validarProductos =async (producto, productos) => {
+  if (productos.some((prod) => prod.id === producto.id)) {
+    let quantity = await handleQuantityChange();
+
+    const productosActualizados = productos.map((produ) => {
+      if (producto.id === produ.id) {
+        // Actualiza la cantidad del producto deseado
+        return { ...producto, cantidad: quantity };
+      } else {
+        return producto;
+      }
+    });
+    guardarProductos(productosActualizados);
+  
+    return;
+  }
+
+
   productos.push(producto);
-  localStorage.setItem("productos", JSON.stringify(productos));
+   guardarProductos(productos);
+ return;
+};
+
+const cantCart = async (cantidad)=>{ 
+  const product = await getProduct();
+console.log(typeof cantidad);
+  return product.cantidad - cantidad;
+};
+
+// Función para agregar un producto al carrito
+const agregarAlCarrito= async(producto)=> {
+  const productos = await traerProductos();
+  validarProductos(producto, productos);
+
+renderMiniCard();
 }
 
 const getProduct = async () => {
@@ -70,56 +99,68 @@ const handleQuantityChange = async (event) => {
         // Compara con cadena en lugar de número
         return;
       }
-      cantidad--;
+      cantidad--;     
     } else {
       if (iptNumber.value >= quantity.cantidad) {
         return;
       }
-      cantidad++;
+      cantidad++;      
     }
   }
 
   iptNumber.value = cantidad;
-
   return cantidad;
 };
 
 btnMenos.addEventListener("click", handleQuantityChange);
 btnMas.addEventListener("click", handleQuantityChange);
 
-const templateProductCart = (product, cantidad) => {
-  const { image, name, price } = product;
+const templateProductCart = (product) => {
+  const { id, image, name, price, cantidad } = product;
   return `
      <li class="py-4">
                     <div class="flex gap-4">
                         <img class="w-12 object-cover" src="${image}" alt="${name}">
                         <div class="flex flex-col text-sm">
                             <span class="pb-2 text-gray-500 ">${name}</span>
-                            <span>$${cantidad} x $${price}</span>
+                            <span>${cantidad} x $${price}</span>
                         </div>
-                        <i id="trash" class="fa-regular fa-trash-can hover:text-gray-500 cursor-pointer"></i>
+                        <i id="trash" data-id="${id}" class="fa-regular fa-trash-can hover:text-gray-500 cursor-pointer"></i>
                     </div>
                 </li>
     `;
 };
+//borrar producto del carro (tachito)
+function deleteCard({ target }) {
+  let id = parseInt(target.getAttribute("data-id"));
+  let products = traerProductos();
+  let ListaNueva = products.filter((product) => product.id !== id);
+  // Eliminar el producto del local storage
+  guardarProductos(ListaNueva);
+  renderMiniCard();
+}
 
 const renderMiniCard = async () => {
   const productos = await traerProductos();
-  let cantidad = await handleQuantityChange();
-
-  const listaHTML = productos
-    .map((producto) => templateProductCart(producto, cantidad))
-    .join("");
-    // Agrega la lista al contenedor menuShop
-    menuShop.innerHTML = listaHTML;
-    cantidadCompras();
-    const trash = document.getElementById("trash");//cambiar a queryAll y agregar evento a cada tacho
-    console.log(trash);
+  let cantidad = await handleQuantityChange(); 
+  const listaHTML = productos.map((producto) => templateProductCart(producto))
+  .join("");
+  // Agrega la lista al contenedor menuShop
+  menuShop.innerHTML = listaHTML;
+  console.log(productos)
+  cantidadCompras();
+  let trash = document.querySelectorAll("#trash");
+  trash = [...trash];
+  trash.forEach((tras) => tras.addEventListener("click", (e) => deleteCard(e)));
 };
+
 renderMiniCard();
 
+//agregar productos al carro
 btnCart.addEventListener("click", async () => {
   const product = await getProduct();
+  let cantidad = await handleQuantityChange();
+  product.cantidad = cantidad;
   agregarAlCarrito(product);
   renderMiniCard();
 });
@@ -128,10 +169,3 @@ const cantidadCompras = async () => {
   compras = await traerProductos();
   cantidadShop.textContent = `(${compras.length})`;
 };
-
-const eliminarProduct =async () => {
-    templateProductCart();
-const trash = document.getElementById("trash");
-console.log(trash)
-};
-// eliminarProduct();
