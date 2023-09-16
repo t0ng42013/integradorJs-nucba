@@ -24,9 +24,8 @@
                 <img class="drop-shadow-[2px_2px_2px_gray]" src="/src/assets/img/logo2.svg" alt="logo" />
             </figure>
         </div>
-
+        <!-- buscador -->
         <div class="w-2/5 flex justify-around [&>label]:cursor-pointer">
-            <!-- buscador -->
             <label for="search">
                 <input class="hidden" type="text" id="search" />
                 <i class="fa-solid fa-magnifying-glass  text-white text-xl hover:text-gray-500"></i>
@@ -50,44 +49,53 @@
                 <li><a class="hover:text-orange-500" href="">Demo</a></li>
                 <li><a class="hover:text-orange-500" href="">Contact</a></li>
                 <li><a class="hover:text-orange-500" href="">Blog</a></li>
-
+                <!-- redes -->
                 <ul class="absolute bottom-0 w-full flex justify-around bg-neutral-900 p-8">
                     <li>
-                        <a href=""><img class="w-6 hover:text-orange-500" src="./assets/img/facebook.png" alt="" /></a>
+                        <a href="https://www.facebook.com/?locale=es_LA"><i
+                                class="fa-brands fa-facebook w-6 hover:text-gray-500"></i></a>
                     </li>
                     <li>
-                        <a href=""><img class="w-6 hover:text-orange-500" src="./assets/img/instagram.png" alt="" /></a>
+                        <a href="https://www.instagram.com/"><i
+                                class="fa-brands fa-instagram w-6 hover:text-gray-500"></i></a>
                     </li>
                     <li>
-                        <a href=""><img class="w-6 hover:text-orange-500" src="./assets/img/pinterest.png" alt="" /></a>
+                        <a href="https://ar.pinterest.com/"><i
+                                class="fa-brands fa-pinterest w-6 hover:text-gray-500"></i></a>
                     </li>
                 </ul>
             </ul>
             <!-- user menu -->
             <ul id="userMenu"
                 class="border absolute top-[70px] right-0 pl-8 pr-16 py-4 text-white text-lg font-semibold leading-[2.5rem] bg-[#101010] z-50 hidden ">
-                <li><a class="hover:text-gray-500" href="/src/assets/pages/login.html">Log in</a></li>
-                <li><a class="hover:text-gray-500" href="/src/assets/pages/register.html">Register</a></li>
+                <li><a class="hover:text-gray-500" href="./assets/pages/login.html">Log in</a></li>
+                <li><a class="hover:text-gray-500" href="./assets/pages/register.html">Register</a></li>
+
             </ul>
             <!--! shop -->
-               <div id="menuShop" class="border h-screen w-3/4 fixed top-[70px] right-0  p-4 text-white text-lg font-semibold leading-[2.5rem] bg-[#101010] z-50 hidden">               
-                 <ul id="menuShopUl"></ul>
+            <div id="menuShop"
+                class="border overflow-y-auto pb-24 h-screen w-3/4 fixed top-[70px] right-0  p-4 text-white text-lg font-semibold leading-[2.5rem] bg-[#101010] z-50 hidden">
+                <ul id="menuShopUl"></ul>
 
-                 <hr class="mb-4 mt-16">
+                <hr class="mb-4 mt-16">
 
-                 <div class="flex justify-between items-center">
+                <div class="flex justify-between items-center">
                     <div class="flex flex-col">
                         <span>Total item</span>
-                        <span
-                        id="totalItem">0</span>
+                        <span id="totalItem">0</span>
                     </div>
-                   <div class="flex flex-col">
-                    <span>subtotal</span>
-                    <span id="subTotal">$0</span>
-                   </div>
-                 </div>
-                 <button id="btnBuy" class="px-16 py-2 bg-gray-500 my-4 mx-auto w-full">Buy Now</button>
+                    <div class="flex flex-col">
+                        <span>subtotal</span>
+                        <span id="subTotal">$0</span>
+                    </div>
+                </div>
+                <button id="btnBuy" class="px-16 py-2 bg-gray-500 my-4 mx-auto w-full">Buy Now</button>
             </div>
+
+            <!-- card Notification -->
+            <div id="cardNotification" class="fixed top-[80px] left-0 w-full z-40 hidden text-white">
+            </div>
+
             <!-- efecto overlay -->
             <div id="overlay"
                 class="bg-black opacity-90 blur-xl fixed top-[70px] left-0 w-screen h-screen z-10 hidden "></div>

@@ -12,7 +12,7 @@ let estado;
 
 
 const createProdTemplate = (productos) => {
-  const { name, price, image, category } = productos;
+  const { id,name, price, image, category } = productos;
 
   return `
         <div class="flex flex-col  w-32 my-4 ">
@@ -23,7 +23,7 @@ const createProdTemplate = (productos) => {
             <div class="flex flex-col justify-center items-center my-2 overflow-hidden">
                 <span></span>
                 <span class="text-white text-center">
-                    <a href="http://" target="_blank" rel="noopener noreferrer">${name}</a>
+                     <a href="/src/assets/pages/products.html?id=${id}&name=${name}"  rel="noopener noreferrer">${name}</a>noreferrer">${name}</a>
                 </span>
                 <span class="text-gray-500 font-semibold">$${price}</span>
             </div>

@@ -92,6 +92,7 @@ btnMas.addEventListener("click", handleQuantityChange);
 btnCart.addEventListener("click", async () => {
   const product = await getProduct();
   let cantidad = await handleQuantityChange();
+  mostrarNotificacion(product);
   product.cantidad = cantidad;
   agregarAlCarrito(product);
 });

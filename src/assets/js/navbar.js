@@ -11,6 +11,10 @@ const cantidadShop = document.getElementById("cantidadShop");
 const totalItem = document.getElementById("totalItem");
 const subTotal = document.getElementById("subTotal");
 const btnBuy = document.getElementById("btnBuy");
+const cardNotification = document.getElementById("cardNotification");
+const btnCloseNofification = document.getElementById("btnCloseNofification");
+const logeo = document.getElementById("logeo");
+const account = document.getElementById("account");
 
 
 
@@ -47,6 +51,70 @@ function traerProductos() {
   const productos = JSON.parse(localStorage.getItem("productos"));
   return productos || [];
 }
+/*************************CARD NOTIFICATION****************/
+//HTML NOTIFICATION
+const templateResumeCard = async (producto) => {
+return (cardNotification.innerHTML = `
+<div class=" bg-[#1a1a1a] w-11/12 flex flex-col justify-center items-center mx-auto">
+    <div class="flex m-4 justify-between">
+        <img class="border" src=${producto.image} alt="${
+  producto.name
+}" width="70" height="70" loading="lazy">
+
+         <div class=" w-3/4 pl-8">
+        <h3 class="cart-notification-product__name h4 font-semibold">${
+          producto.name
+        }</h3></div>
+
+        <div class=" px-4">
+            <button><i id="btnCloseNofification" class="fa-solid fa-xmark text-2xl"></i></button>
+        </div>
+    </div>
+    <div class="flex">
+        <button id="btnViewCart" class="px-16 py-2 bg-gray-500 m-4 hover:bg-blue-500"> View my cart  <span>(${await cantidadCompras()})  </span></button>
+    </div>
+    <button id="btnContinue" class="py-4 mx-auto underline hover:no-underline" >Continue shopping</button>
+</div>
+`);
+};
+
+//funcion para mostrar notificacion
+const mostrarNotificacion = () => {
+  cardNotification.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+  alturaVentana = window.screenY;
+  overlay.style.top = `${alturaVentana}px`;
+};
+
+cardNotification.addEventListener('click', (e) => {
+if (e.target.id === "btnCloseNofification" || e.target.id === "btnContinue") {
+  cardNotification.classList.add("hidden");
+  overlay.classList.add("hidden"); 
+   document.body.style.overflow = "visible";
+   alturaVentana = window.screenY;
+   overlay.style.top = `${alturaVentana}px`; 
+}
+
+if (e.target.id === "btnViewCart") {
+   cardNotification.classList.add("hidden");  
+   overlay.classList.add("hidden");
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
+
+  setTimeout(() => {
+    menuShop.classList.remove("hidden");   
+    overlay.classList.remove("hidden"); 
+    overlay.style.top = '80px';
+  }, 1000);
+
+}
+
+
+});
 
 //*********** cart ******************************** */
 const cantidadCompras = async () => {
@@ -58,6 +126,7 @@ const cantidadCompras = async () => {
 //template HTML
 const templateProductCart = (product) => {
   const { id, image, name, price, cantidad } = product;
+  templateResumeCard(product);
   return `
      <li class="py-4">
                     <div class="flex gap-4">
@@ -70,6 +139,7 @@ const templateProductCart = (product) => {
                     </div>
                 </li>
     `;
+    
 };
 
 //borrar producto del carro (tachito)
@@ -110,13 +180,31 @@ const btnBuyActive = async () => {
  !compras?btnBuy.style.cursor ='not-allowed':btnBuy.style.cursor='pointer'; 
 };
 
-
 //funcion para boton de compras
 const BuyNow = () => {
 if(getActiveUser() === null){
   window.location.href = "/src/assets/pages/login.html";
 }
 alert('Gracias por su compra!');
+};
+
+const UserActive = () => {
+  if (getActiveUser() === null) {
+    logeo.innerHTML = `Log In  <i class="fa-solid fa-right-to-bracket w-4 ml-4"></i>`;
+    account.textContent = "Register";
+  }else{
+   logeo.innerHTML = `Log Out  <i class="fa-solid fa-right-from-bracket w-4 ml-4"></i>`;
+   logeo.addEventListener('click', () => {
+     sessionStorage.removeItem('activeUser')
+     logeo.href = "";
+     window.location.reload;
+   });
+  
+    account.innerHTML = `Account  <i class="fa-solid fa-user-pen w-4 ml-4"></i>`;
+    account.addEventListener('click', () => {
+      account.href="";
+    })
+  }
 };
 
 btnShop.addEventListener("click", () => toggleElement(menuShop,overlay,menuUser,menuList));
@@ -130,4 +218,5 @@ closeMenu.addEventListener("click", () =>
 );
 btnBuy.addEventListener("click", () =>BuyNow());
 
-window.addEventListener("DOMContentLoaded", renderMiniCard());
+window.addEventListener("DOMContentLoaded", renderMiniCard);
+window.addEventListener("DOMContentLoaded", UserActive);
