@@ -51,8 +51,7 @@ const isValidAccount = () => {
 
     valid = true;
     alert('Ingreso exitoso');
-    message.textContent = '';
-    logForm.reset();
+    message.textContent = '';   
     return valid; 
 };
 
@@ -63,6 +62,7 @@ const validateLogin = (e) => {
         const user = users.find(user => user.email.trim().toLowerCase() === inputEmail.value.trim().toLowerCase());
         saveToSessionStorage(user);
         console.log('Ingreso exitoso');
+        e.preventDefault();
         window.location.href ='/src/index.html';
     }
 };

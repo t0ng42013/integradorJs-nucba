@@ -1,19 +1,8 @@
-// https://api.rawg.io/api/games?key=YOUR_API_KEY&dates=2019-09-01,2019-09-30&platforms=18,1,7
-// const clave = '252b9f6f3bf54643bbf6908899982298';
-
 const container = document.getElementById('prod-container');
 const containerOfer = document.getElementById("container-offer");
 const btnFeatured = document.getElementById("Featured");
 const btnBestseller = document.getElementById("Bestseller");
 const btnSpecial = document.getElementById("Special");
-const btnShop = document.getElementById("shop");
-const menuShop = document.getElementById("menuShop");
-const overlay = document.getElementById("overlay");
-const btnUser = document.getElementById("user");
-const menuUser = document.getElementById("userMenu");
-const btnMenu = document.getElementById("menu");
-const menuList = document.getElementById('menu-list');
-const closeMenu = document.getElementById("closeMenu");
 const btnMore = document.getElementById("btnMore");
 const btnProductsAll = document.getElementById('btnView');
 
@@ -86,15 +75,7 @@ const renderByFilter = (productosData, filterFunction) => {
 const priceRangeFilter = (minPrice, maxPrice) => {
   return (producto) => producto.price > minPrice && producto.price < maxPrice;
 };
-// ! toggle navegacion
-const toggleElement = (element1, element2, element3, element4) => {
-  element1.classList.toggle("hidden");
-  element3.classList.add("hidden");
-  element4.classList.add("hidden");
-  element1.classList.contains("hidden")
-    ? element2.classList.add("hidden")
-    : element2.classList.remove("hidden");
-};
+
 
 const divideProduct = (size, products) => {
   let productsList = [];
@@ -112,7 +93,6 @@ const productsAll = (productosData) => {
 
 const init = async () => {
   const productosData = await requestProd();
-
   estado = {
     product: divideProduct(4, productosData),
     currentProd: 0,
@@ -128,19 +108,6 @@ const init = async () => {
   );
   btnBestseller.addEventListener("click", () => renderByFilter(productosData, priceRangeFilter(1, 10)));
   btnSpecial.addEventListener("click", () => renderByFilter(productosData, priceRangeFilter(2, 3)));
-
-  btnShop.addEventListener("click", () =>
-    toggleElement(menuShop, overlay, menuUser, menuList)
-  );
-  btnMenu.addEventListener("click", () =>
-    toggleElement(menuList, overlay, menuUser, menuShop)
-  );
-  btnUser.addEventListener("click", () =>
-    toggleElement(menuUser, overlay, menuList, menuShop)
-  );
-  closeMenu.addEventListener("click", () =>
-    toggleElement(menuList, overlay, menuUser, menuShop)
-  );
   btnProductsAll.addEventListener('click', () =>productsAll(productosData));
 };
 

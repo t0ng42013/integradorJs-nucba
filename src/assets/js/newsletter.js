@@ -8,16 +8,6 @@ const saveToLS = () => {
  const background = "https://wallpaperset.com/w/full/a/a/1/5931.jpg";
 
 const footNewsletter = document.getElementById("footerContainer");
-const isEmailValid = (input) => {
-  // Expresión regular para validar direcciones de correo electrónico
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-  // Obtén el valor del input y elimina espacios en blanco al principio y al final
-  const inputValue = input.value.trim();
-
-  // Prueba si el valor coincide con la expresión regular
-  return emailRegex.test(inputValue);
-};
 
 const createFooter = () => `
      <div class="px-4 bg-[url(${background})] ">
