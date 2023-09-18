@@ -99,8 +99,5 @@ btnCart.addEventListener("click", async () => {
 
 window.addEventListener('DOMContentLoaded',renderMiniCard());
 
-//   compras = await traerProductos();
-//   cantidadShop.textContent = `(${compras.length})`;
-//   return compras.length;
-// };
+
 

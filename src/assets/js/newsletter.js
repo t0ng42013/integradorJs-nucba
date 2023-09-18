@@ -2,10 +2,10 @@
 const subscribe = JSON.parse(localStorage.getItem('subscribe')) || [];
 //guardar subscribe
 const saveToLS = () => {
-    localStorage.setItem('subscribe', JSON.stringify(subscribe));
+  localStorage.setItem('subscribe', JSON.stringify(subscribe));
 };
 
- const background = "https://wallpaperset.com/w/full/a/a/1/5931.jpg";
+const background = "https://wallpaperset.com/w/full/a/a/1/5931.jpg";
 
 const footNewsletter = document.getElementById("footerContainer");
 
@@ -40,19 +40,15 @@ const createFooter = () => `
               <i class="fa-solid fa-chevron-down"></i>
             </summary>
             <ul class=" text-gray-500 [&_li]:my-2">
-             <li><a href="">                           Shipping & Refund
+             <li><a href="/src/assets/pages/information.html?name=Refund">                           Shipping & Refund
                           </a></li>
-             <li><a href="">
-                            Terms and Conditions
-                          </a></li>
-             <li><a href="">
-                            Sitemap
-                          </a></li>
-             <li><a href="">
+             <li><a href="/src/assets/pages/information.html?name=Terms">
+                            Terms and Conditions 
+                          </a></li>            
+             <li><a href="/src/assets/pages/information.html?name=Buyers">
                             Policy for Buyers
                           </a></li>
-             <li><a href=""></a>
-                            Policy for Sellers
+             <li><a href="/src/assets/pages/information.html?name=Sellers">Policy for Sellers</a>                     
                           </li>
             </ul>
           </details>
@@ -73,11 +69,11 @@ const createFooter = () => `
         </button>
           </form>
           <ul class="flex w-3/4 text-white justify-around ">
-            <li><a href="" class="hover:text-gray-500"><i class="fa-brands fa-twitter"></i></a></li>
-            <li><a href="" class="hover:text-gray-500"><i class="fa-brands fa-facebook"></i></a></li>
-            <li><a href="" class="hover:text-gray-500"><i class="fa-brands fa-pinterest"></i></a></li>
-            <li><a href="" class="hover:text-gray-500"><i class="fa-brands fa-instagram"></i></a></li>
-            <li><a href="" class="hover:text-gray-500"><i class="fa-brands fa-youtube"></i></a></li>
+            <li><a href="#" class="hover:text-gray-500"><i class="fa-brands fa-twitter"></i></a></li>
+            <li><a href="#" class="hover:text-gray-500"><i class="fa-brands fa-facebook"></i></a></li>
+            <li><a href="#" class="hover:text-gray-500"><i class="fa-brands fa-pinterest"></i></a></li>
+            <li><a href="#" class="hover:text-gray-500"><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a href="#" class="hover:text-gray-500"><i class="fa-brands fa-youtube"></i></a></li>
           </ul>
         </div>
 
@@ -102,44 +98,44 @@ const createFooter = () => `
 `;
 
 const renderFoot = () => {
-    footNewsletter.innerHTML = createFooter();
-    footNewsletter.style.background = 'url(https://wallpaperset.com/w/full/a/a/1/5931.jpg)';
-    const formNew = document.getElementById('form_news');
-    const inputNew = document.getElementById("newsletter--footer");
-    //validamos el input
-    const inputValidNews = (input) => {
-        let valid = false;
-        if (!isEmailValid(input)) {
-            input.style.border = '1px solid red';
-            return;
-        }
-  
-        
-        if (subscribe.some(subscribe => subscribe.includes(input.value))) {
-            alert("Este correo electrónico ya está suscrito.");
-            return;
-        };
+  footNewsletter.innerHTML = createFooter();
+  footNewsletter.style.background = 'url(https://wallpaperset.com/w/full/a/a/1/5931.jpg)';
+  const formNew = document.getElementById('form_news');
+  const inputNew = document.getElementById("newsletter--footer");
+  //validamos el input
+  const inputValidNews = (input) => {
+    let valid = false;
+    if (!isEmailValid(input)) {
+      input.style.border = '1px solid red';
+      return;
+    }
 
-        input.style.border = "none";
-        valid = true;
-        return valid;
-    };
-//validamos el form
-    const formN = (e) => {
-        e.preventDefault();
-        
-        if (inputValidNews(inputNew)) {
-            subscribe.push(inputNew.value);
-            
-            saveToLS(subscribe);
-            inputNew.value = "";
-            alert("¡Gracias por suscribirte!");
-        }
 
+    if (subscribe.some(subscribe => subscribe.includes(input.value))) {
+      alert("Este correo electrónico ya está suscrito.");
+      return;
     };
 
+    input.style.border = "none";
+    valid = true;
+    return valid;
+  };
+  //validamos el form
+  const formN = (e) => {
+    e.preventDefault();
 
-    formNew.addEventListener('submit', formN);
+    if (inputValidNews(inputNew)) {
+      subscribe.push(inputNew.value);
+
+      saveToLS(subscribe);
+      inputNew.value = "";
+      alert("¡Gracias por suscribirte!");
+    }
+
+  };
+
+
+  formNew.addEventListener('submit', formN);
 };
 
 

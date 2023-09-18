@@ -1,675 +1,479 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GameBattle | Integrador JS</title>
 
-    <link
-      rel="shortcut icon"
-      href="./assets/img/search.svg"
-      type="image/x-icon"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameBattle | Integrador JS</title>
 
-    <!-- <link href="/src/dist/output.css" rel="stylesheet" /> -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="shortcut icon" href="./assets/img/search.svg" type="image/x-icon" />
 
-    <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
+  <!-- <link href="/src/dist/output.css" rel="stylesheet" /> -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  <body class="bg-[#101010]">
-    <header>
-       <nav class="w-screen flex items-center justify-between py-4">
-        <div class="flex items-center">
-            <!-- btn menu  -->
-            <figure class="w-9 mx-2 cursor-pointer">
-                <i id="menu" class="fa-solid fa-bars-staggered text-white text-2xl hover:text-gray-500"></i>
-            </figure>
-            <!-- logo -->
-            <figure class="w-24">
-                <img class="drop-shadow-[2px_2px_2px_gray]" src="/src/assets/img/logo2.svg" alt="logo" />
-            </figure>
-        </div>
-        <!-- buscador -->
-        <div class="w-2/5 flex justify-around [&>label]:cursor-pointer">
-            <label for="search">
-                <input class="hidden" type="text" id="search" />
-                <i class="fa-solid fa-magnifying-glass  text-white text-xl hover:text-gray-500"></i>
-            </label>
-            <!-- btn user -->
-            <label id="user" class="w-6">
-                <i class="fa-regular fa-user text-white text-xl hover:text-gray-500"></i>
-            </label>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
 
-            <!-- carrito -->
-            <label id="shop" class="w-6 flex text-gray-500 mr-8 font-bold">
-                <i class="fa-solid fa-bag-shopping text-white text-xl hover:text-gray-500"></i>
-                <span id="cantidadShop" class="ml-2">(0)</span>
-            </label>
-            <!-- menu opciones -->
-            <ul id="menu-list"
-                class="absolute pl-4 top-0 left-0 w-3/4 h-screen text-white text-l font-semibold leading-[2.5rem] bg-[#1a1a1a] border-r border-r-slate-50 z-50 hidden ">
-                <li class="text-end text-2xl pr-8 py-8 "> <span class="cursor-pointer" id="closeMenu">X</span></li>
-                <li><a class="hover:text-orange-500" href="">Fortnite</a></li>
-                <li><a class="hover:text-orange-500" href=""> Minecraft</a></li>
-                <li><a class="hover:text-orange-500" href="">Demo</a></li>
-                <li><a class="hover:text-orange-500" href="">Contact</a></li>
-                <li><a class="hover:text-orange-500" href="">Blog</a></li>
-                <!-- redes -->
-                <ul class="absolute left-0 bottom-0 w-full flex justify-around bg-neutral-900 p-8">
-                    <li>
-                        <a href="https://www.facebook.com/?locale=es_LA"  target="_blank" rel="noopener noreferrer"><i
-                                class="fa-brands fa-facebook w-6 hover:text-gray-500"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/"  target="_blank" rel="noopener noreferrer"><i
-                                class="fa-brands fa-instagram w-6 hover:text-gray-500"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://ar.pinterest.com/"  target="_blank" rel="noopener noreferrer"><i
-                                class="fa-brands fa-pinterest w-6 hover:text-gray-500"></i></a>
-                    </li>
-                </ul>
-            </ul>
-            <!-- user menu -->
-            <ul id="userMenu"
-                class="border absolute top-[70px] right-0 pl-8 pr-16 py-4 text-white text-lg font-semibold leading-[2.5rem] bg-[#101010] z-50 hidden ">
-                <li><a id="logeo" class="hover:text-gray-500" href="./assets/pages/login.html">Log in</a></li>
-                <li><a id="account" class="hover:text-gray-500" href="./assets/pages/register.html">Register</a></li>
-            </ul>
+<body class="bg-[#101010] text-white">
+  <header>
+    <nav class="w-screen flex items-center justify-between py-4">
+      <div class="flex items-center">
+        <!-- btn menu  -->
+        <figure class="w-9 mx-2 cursor-pointer">
+          <i id="menu" class="fa-solid fa-bars-staggered text-white text-2xl hover:text-gray-500"></i>
+        </figure>
+        <!-- logo -->
+        <figure class="w-24">
+          <img class="drop-shadow-[2px_2px_2px_gray]" src="/src/assets/img/logo2.svg" alt="logo" />
+        </figure>
+      </div>
+      <!-- buscador -->
+      <div  class="w-2/5 flex justify-around [&>label]:cursor-pointer">
 
-           
-            <!--! shop -->
-            <div id="menuShop"
-                class="border overflow-y-auto pb-24 h-screen w-3/4 fixed top-[70px] right-0  p-4 text-white text-lg font-semibold leading-[2.5rem] bg-[#101010] z-50 hidden">
-                <ul id="menuShopUl"></ul>
+        <details id="ACsearch" class="text-white" >
+          <summary class="list-none">
+            <i class="fa-solid fa-magnifying-glass  text-white text-xl hover:text-gray-500"></i>
+          </summary>
 
-                <hr class="mb-4 mt-16">
+          <div class="absolute top-0 left-0 right-0 z-50 flex justify-center items-center  bg-[#101010]">
+            <div class="flex items-center ">
+              <div class="w-full">
+                <form action="" class="w-full">
+                  <div class="relative w-full flex items-center">
+                    <input id="search" class="text-black pr-20 py-2 px-4 my-4 peer" placeholder="Search Product Here..."
+                      type="search" />
 
-                <div class="flex justify-between items-center">
-                    <div class="flex flex-col">
-                        <span>Total item</span>
-                        <span id="totalItem">0</span>
-                    </div>
-                    <div class="flex flex-col">
-                        <span>subtotal</span>
-                        <span id="subTotal">$0</span>
-                    </div>
-                </div>
-                <button id="btnBuy" class="px-16 py-2 bg-gray-500 my-4 mx-auto w-full">Buy Now</button>
+                    <label
+                      class="absolute pl-4 pointer-events-none left-0 peer-focus:text-[8px] peer-focus:top-4 peer-[:not(:placeholder-shown)]:text-[8px] peer-[:not(:placeholder-shown)]:top-4 text-black"
+                      for="search">Search Product Here...</label>
+
+                    <button class="absolute right-0 pr-2 text-black flex items-center"> <i
+                        class="fa-solid fa-magnifying-glass "></i>
+                    </button>
+                  </div>
+                 
+
+                </form>
+
+              </div>
+
+              <button id="closeSearch" class="flex justify-center items-center h-8 w-8">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
             </div>
 
-            <!-- card Notification -->
-            <div id="cardNotification" class="fixed top-[80px] left-0 w-full z-40 hidden text-white">
-            </div>
+          </div>
 
-            <!-- efecto overlay -->
-            <div id="overlay"
-                class="bg-black opacity-90 blur-xl fixed top-[70px] left-0 w-screen h-screen z-10 hidden "></div>
+          <div id="titleSearch" class="bg-[#101010]  w-full absolute top-[70px] left-0 z-50  hidden">
+            <h2  class=" font-semibold my-4 ">Products</h2>
+            <ul id="searchContainer" class="">       
+          </div>
+        </details>
+
+        <!-- btn user -->
+        <label id="user" class="w-6">
+          <i class="fa-regular fa-user text-white text-xl hover:text-gray-500"></i>
+        </label>
+
+        <!-- carrito -->
+        <label id="shop" class="w-6 flex text-gray-500 mr-8 font-bold">
+          <i class="fa-solid fa-bag-shopping text-white text-xl hover:text-gray-500"></i>
+          <span id="cantidadShop" class="ml-2">(0)</span>
+        </label>
+        <!-- menu opciones -->
+        <ul id="menu-list"
+          class="absolute pl-4 top-0 left-0 w-3/4 h-screen text-white text-l font-semibold leading-[2.5rem] bg-[#1a1a1a] border-r border-r-slate-50 z-50 hidden ">
+          <li class="text-end text-2xl pr-8 pt-8 "> <span class="cursor-pointer" id="closeMenu">X</span></li>
+          
+          <li><a  class="hover:text-orange-500" href="/src/assets/pages/collection.html">Products</a></li>
+          <li><a id="menuFoot" class="hover:text-orange-500" href="#footerContainer">Information</a></li>
+          <li><a class="hover:text-orange-500" href="/src/assets/pages/contact.html">Contact</a></li>
+          <li><a class="hover:text-orange-500" href="#">Blog</a></li>
+          <!-- redes -->
+          <ul class="absolute left-0 bottom-0 w-full flex justify-around bg-neutral-900 p-8">
+            <li>
+              <a href="https://www.facebook.com/?locale=es_LA" target="_blank" rel="noopener noreferrer"><i
+                  class="fa-brands fa-facebook w-6 hover:text-gray-500"></i></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i
+                  class="fa-brands fa-instagram w-6 hover:text-gray-500"></i></a>
+            </li>
+            <li>
+              <a href="https://ar.pinterest.com/" target="_blank" rel="noopener noreferrer"><i
+                  class="fa-brands fa-pinterest w-6 hover:text-gray-500"></i></a>
+            </li>
+          </ul>
+        </ul>
+        <!-- user menu -->
+        <ul id="userMenu"
+          class="border absolute top-[70px] right-0 pl-8 pr-16 py-4 text-white text-lg font-semibold leading-[2.5rem] bg-[#101010] z-50 hidden ">
+          <li><a id="logeo" class="hover:text-gray-500" href="./assets/pages/login.html">Log in</a></li>
+          <li><a id="account" class="hover:text-gray-500" href="./assets/pages/register.html">Register</a></li>
+        </ul>
+
+
+        <!--! shop -->
+        <div id="menuShop"
+          class="border overflow-y-auto pb-24 h-screen w-3/4 fixed top-[70px] right-0  p-4 text-white text-lg font-semibold leading-[2.5rem] bg-[#101010] z-50 hidden">
+          <ul id="menuShopUl"></ul>
+
+          <hr class="mb-4 mt-16">
+
+          <div class="flex justify-between items-center">
+            <div class="flex flex-col">
+              <span>Total item</span>
+              <span id="totalItem">0</span>
+            </div>
+            <div class="flex flex-col">
+              <span>subtotal</span>
+              <span id="subTotal">$0</span>
+            </div>
+          </div>
+          <button id="btnBuy" class="px-16 py-2 bg-gray-500 my-4 mx-auto w-full">Buy Now</button>
         </div>
+
+        <!-- card Notification -->
+        <div id="cardNotification" class="fixed top-[80px] left-0 w-full z-40 hidden text-white">
+        </div>
+
+        <!-- efecto overlay -->
+        <div id="overlay" class="bg-black opacity-90 blur-xl fixed top-[70px] left-0 w-screen h-screen z-10 hidden ">
+        </div>
+      </div>
     </nav>
-      <!-- seccion de banner -->
-      <section class="w-screen flex relative overflow-x-hidden">
-        <!-- banner 1 -->
-        <figure
-          class="w-screen min-w-full relative flex flex-col items-center justify-center"
-        >
-          <img class="opacity-40" src="./assets/img/banner1.jpg" alt="" />
-          <div class="absolute text-white text-center">
-            <p class="text-sm">Star Wars Up Coming</p>
-            <h2 class="text-2xl uppercase my-4 font-bold font-serif">
-              game guide unofficial
-            </h2>
-            <a class="underline block mb-8" href="#">Shop Now</a>
-          </div>
-        </figure>
-        <!-- banner 2 -->
-        <figure
-          class="w-screen min-w-full relative flex flex-col items-center justify-center"
-        >
-          <img class="opacity-40" src="./assets/img/banner2_.jpg" alt="" />
-          <div class="absolute text-white text-center">
-            <p class="text-sm">Best Shooting Game</p>
-
-            <h2 class="text-2xl uppercase my-4 font-bold font-serif">
-              Shadowgun War Games
-            </h2>
-
-            <a class="underline block mb-8" href="#">Shop Now</a>
-          </div>
-        </figure>
-        <!-- botones banner -->
-        <ol class="absolute bottom-0 z-10 justify-center flex gap-2 w-screen">
-          <li class="my-2">
-            <a
-              class="text-center bg-white rounded-[20px] text-xs block w-4 text-white active"
-              href=""
-            >
-              1
-            </a>
-          </li>
-          <li class="my-2">
-            <a
-              class="text-center bg-white rounded-[20px] text-xs block w-4 text-white"
-              href=""
-            >
-              1
-            </a>
-          </li>
-        </ol>
-      </section>
-      <!-- seccion  -->
-      <section class="mt-8 flex flex-col items-center text-center">
-        <div class="flex flex-col items-center mt-4">
-          <i class="fa-solid fa-truck text-4xl text-white mb-4"></i>
-          <div>
-            <p class="text-white font-bold">Free Delivery</p>
-            <p class="text-gray-400">Free shipping on all order</p>
-          </div>
+    <!-- seccion de banner -->
+    <section class="w-screen flex relative overflow-x-hidden">
+      <!-- banner 1 -->
+      <figure id="banner1" class="w-screen min-w-full relative flex flex-col items-center justify-center duration-1000">
+        <img class="opacity-40" src="./assets/img/banner1.jpg" alt="" />
+        <div class="absolute text-white text-center">
+          <p class="text-sm">Star Wars Up Coming</p>
+          <h2 class="text-2xl uppercase my-4 font-bold font-serif">
+            game guide unofficial
+          </h2>
         </div>
+      </figure>
+      <!-- banner 2 -->
+      <figure id="banner2" class="w-screen min-w-full relative flex flex-col items-center justify-center duration-1000">
+        <img class="opacity-40" src="./assets/img/banner2_.jpg" alt="" />
+        <div class="absolute text-white text-center">
+          <p class="text-sm">Best Shooting Game</p>
 
-        <div class="flex flex-col items-center mt-8">
-          <i class="fa-solid fa-sack-dollar text-4xl text-white mb-4"></i>
-          <div>
-            <p class="text-white font-bold">Money Return</p>
-            <p class="text-gray-400">Back garantee in 7 days</p>
-          </div>
+          <h2 class="text-2xl uppercase my-4 font-bold font-serif">
+            Shadowgun War Games
+          </h2>
         </div>
-
-        <div class="flex flex-col items-center mt-8">
-          <img
-            class="w-10 mb-4"
-            src="./assets/img/discount.svg"
-            alt="discount"
-          />
-          <div>
-            <p class="text-white font-bold">Member Discount</p>
-            <p class="text-gray-400">On every order over $130.00</p>
-          </div>
+      </figure>
+      <!-- botones banner -->
+      <ol class="absolute bottom-0 z-10 justify-center flex gap-2 w-screen">
+        <li class="my-2">
+          <button id="btnBanner1" class="text-center bg-white rounded-[20px] text-xs block w-4 text-white active">
+            1
+          </button>
+        </li>
+        <li class="my-2">
+          <button id="btnBanner2" class="text-center bg-white rounded-[20px] text-xs block w-4 text-white" >
+            1
+          </button>
+        </li>
+      </ol>
+    </section>
+    <!-- seccion  -->
+    <section class="mt-8 flex flex-col items-center text-center">
+      <div class="flex flex-col items-center mt-4">
+        <i class="fa-solid fa-truck text-4xl text-white mb-4"></i>
+        <div>
+          <p class="text-white font-bold">Free Delivery</p>
+          <p class="text-gray-400">Free shipping on all order</p>
         </div>
+      </div>
 
-        <div class="flex flex-col items-center mt-8">
-          <div
-            class="service-icon service-iconc69ec997-d841-43bc-98c9-bd18a3b67d42"
-          ></div>
-          <i
-            class="fa-solid fa-hand-holding-dollar text-4xl text-white mb-4"
-          ></i>
-          <div>
-            <p class="text-white font-bold">Return Policy</p>
-            <p class="text-gray-400">Support 24 hours a day</p>
-          </div>
+      <div class="flex flex-col items-center mt-8">
+        <i class="fa-solid fa-sack-dollar text-4xl text-white mb-4"></i>
+        <div>
+          <p class="text-white font-bold">Money Return</p>list-styl
+          <p class="text-gray-400">Back garantee in 7 days</p>
         </div>
-      </section>
-    </header>
+      </div>
 
-    <main>
-      <section class="my-10 overflow-hidden">
-        <div
-          class="bg-[url('https://wallpaperset.com/w/full/8/a/e/5928.jpg')] bg-cover w-11/12 mx-auto text-white"
-        >
-          <div class="w-1/2 ml-auto mb-4 py-2">
-            <p class="text-lg">Best Action Game</p>
-            <h2 class="uppercase font-serif font-bold my-4 text-xl">
-              dead rising zombies
-            </h2>
-            <button
-              type="button"
-              class="bg-white px-8 py-2 mb-8 text-black font-semibold hover:bg-gray-500"
-            >
-              Shop Now
-            </button>
-          </div>
+      <div class="flex flex-col items-center mt-8">
+        <img class="w-10 mb-4" src="./assets/img/discount.svg" alt="discount" />
+        <div>
+          <p class="text-white font-bold">Member Discount</p>
+          <p class="text-gray-400">On every order over $130.00</p>
         </div>
+      </div>
 
-        <div
-          class="bg-[url('https://wallpaperset.com/w/full/4/c/4/5920.jpg')] bg-cover w-11/12 mx-auto text-white"
-        >
-          <div class="w-1/2 ml-auto mb-4 py-2">
-            <p class="text-lg">3D Pixel Racing</p>
-            <h2 class="uppercase font-serif font-bold my-4 text-xl">
-              Fast Drive Racing
-            </h2>
-            <button
-              type="button"
-              class="bg-white px-8 py-2 mb-8 text-black font-semibold hover:bg-gray-500"
-            >
-              Shop Now
-            </button>
-          </div>
+      <div class="flex flex-col items-center mt-8">
+        <div class="service-icon service-iconc69ec997-d841-43bc-98c9-bd18a3b67d42"></div>
+        <i class="fa-solid fa-hand-holding-dollar text-4xl text-white mb-4"></i>
+        <div>
+          <p class="text-white font-bold">Return Policy</p>
+          <p class="text-gray-400">Support 24 hours a day</p>
         </div>
-      </section>
+      </div>
+    </section>
+  </header>
 
-      <!-- seccion especial  -->
+  <main>
+    <!-- subir -->
+    <i id="arrowUp" class="hidden fa-solid fa-circle-chevron-up  right-0 bottom-0 m-8 text-4xl animate-bounce hover:text-blue-500 cursor-pointer z-50"></i>
 
-      <section>
-        <h2 class="text-white text-center text-xl font-bold">
-          Special Category
-        </h2>
-        <span class="border border-blue-700 w-12 mx-auto block my-4"></span>
 
-        <div class="w-screen relative mb-8">
-          <figure
-            class="relative w-11/12 mx-auto flex justify-center items-center"
-          >
-            <img src="https://wallpaperset.com/w/full/1/5/a/5937.jpg" alt="" />
-            <div class="absolute flex justify-between w-full p-4">
-              <button class="rounded-full border block">
-                <i class="fa-solid fa-chevron-left text-white px-2"></i>
-              </button>
-              <button class="rounded-full border block">
-                <i class="fa-solid fa-chevron-right text-white px-2"></i>
-              </button>
-            </div>
-          </figure>
-
-          <h3 class="text-center my-4 text-white font-semibold">
-            Latest Pubg Lite Game
-          </h3>
-          <button
-            class="w-full mx-auto text-gray-500 underline font-semibold hover:no-underline text-lg"
-            type="button"
-          >
+    <section class="my-10 overflow-hidden">
+      <div class="bg-[url('https://wallpaperset.com/w/full/6/8/0/5963.jpg')] bg-cover w-11/12 mx-auto  text-white">
+        <div class="w-1/2 ml-auto mb-4 py-2">
+          <p class="text-lg">Best Action Game</p>
+          <h2 class="uppercase font-serif font-bold my-4 text-xl">
+            dead rising zombies
+          </h2>
+          <button type="button" class="bg-white px-8 py-2 mb-8 text-black font-semibold hover:bg-gray-500">
             Shop Now
           </button>
         </div>
-      </section>
+      </div>
 
-      <hr class="my-8" />
-
-      <!-- our Products -->
-
-      <section>
-        <h2 class="text-white text-center text-xl font-bold">Our Products</h2>
-        <span class="border border-blue-700 w-12 mx-auto block my-4"></span>
-
-        <ul class="flex justify-around w-3/4 mx-auto my-4 text-white">
-          <li class="cursor-pointer" id="Featured">Featured</li>
-          <li class="cursor-pointer" id="Bestseller">Bestseller</li>
-          <li class="cursor-pointer" id="Special">Special</li>
-        </ul>
-
-        <!-- card-conatiner-->
-        <section
-          id="prod-container"
-          class="w-11/12 mx-auto flex flex-wrap justify-evenly"
-        ></section>
-        <div class="w-full flex justify-center items-center my-8">
-          <i
-            id="btnMore"
-            class="fa-solid fa-circle-chevron-down text-gray-800 text-3xl animate-pulse cursor-pointer"
-          ></i>
-        </div>
-        <div class="w-screen flex justify-center my-8">
-          <button
-            id="btnView"
-            type="button"
-            class="bg-gray-500 px-16 py-2 font-semibold text-white hover:bg-white hover:text-gray-500"
-          >
-            View All Pro
+      <div class="bg-[url('https://wallpaperset.com/w/full/f/d/c/5876.jpg')] bg-cover w-11/12 mx-auto text-white">
+        <div class="w-1/2 ml-auto mb-4 py-2">
+          <p class="text-lg">3D Pixel Racing</p>
+          <h2 class="uppercase font-serif font-bold my-4 text-xl">
+            Fast Drive Racing
+          </h2>
+          <button type="button" class="bg-white px-8 py-2 mb-8 text-black font-semibold hover:bg-gray-500">
+            Shop Now
           </button>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section
-        class="bg-[url('https://wallpaperset.com/w/full/9/4/c/5965.jpg')] bg-fixed bg-cover p-8 relative"
-      >
-        <div>
-          <figure>
-            <img src="" alt="" />
-            <div
-              class="w-8 h-8 flex justify-center items-center rounded-full border bg-black"
-            >
-              <svg
-                class="w-4 h-4"
-                version="1.0"
-                xmlns="http://www.w3.org/2000/svg"
-                width="512.000000pt"
-                height="512.000000pt"
-                viewBox="0 0 512.000000 512.000000"
-                preserveAspectRatio="xMidYMid meet"
-              >
-                <g
-                  transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-                  fill="#ffffff"
-                  stroke="none"
-                >
-                  <path
-                    d="M1315 4610 c-692 -181 -1152 -649 -1274 -1295 -38 -199 -41 -310 -41
+    <!-- seccion especial  -->
+
+    <section>
+      <h2 class="text-white text-center text-xl font-bold">
+        Special Category
+      </h2>
+      <span class="border border-blue-700 w-12 mx-auto block my-4"></span>
+
+      <div class="w-screen relative mb-8">
+        <figure  class="relative w-11/12 mx-auto flex justify-center items-center">
+          <div id="contentSpl" class="flex gap-6 overflow-hidden ">
+         <img src="https://wallpaperset.com/w/full/1/5/a/5937.jpg" alt="image" />
+          <img src="https://wallpaperset.com/w/full/2/e/9/5945.jpg" alt="image" />
+          <img src="https://wallpaperset.com/w/full/2/3/4/5935.jpg" alt="image" />
+          <img src="https://wallpaperset.com/w/full/e/d/2/5818.jpg" alt="image" />
+          <img src="https://wallpaperset.com/w/full/6/5/8/5823.jpg" alt="image" />
+          </div>
+     
+          
+          <div class="absolute left-0 flex justify-between w-full p-4">
+            <button id="prevSpl" class="rounded-full border block">
+              <i class="fa-solid fa-chevron-left drop-shadow-[2px_2px_1px_black] px-2"></i>
+            </button>
+            <button id="nextSpl" class="rounded-full border block">
+              <i class="fa-solid fa-chevron-right text-white px-2"></i>
+            </button>
+          </div>
+        </figure>
+
+        <h3 class="text-center my-4 text-white font-semibold">
+          Latest Pubg Lite Game
+        </h3>
+        <button class="w-full mx-auto text-gray-500 underline font-semibold hover:no-underline text-lg" type="button">
+          Shop Now
+        </button>
+      </div>
+    </section>
+
+    <hr class="my-8" />
+
+    <!-- our Products -->
+
+    <section>
+      <h2 class="text-white text-center text-xl font-bold">Our Products</h2>
+      <span class="border border-blue-700 w-12 mx-auto block my-4"></span>
+
+      <ul class="flex justify-around w-3/4 mx-auto my-4 text-white">
+        <li class="cursor-pointer" id="Featured">Featured</li>
+        <li class="cursor-pointer" id="Bestseller">Bestseller</li>
+        <li class="cursor-pointer" id="Special">Special</li>
+      </ul>
+
+      <!-- card-conatiner-->
+      <section id="prod-container" class="w-11/12 mx-auto flex flex-wrap justify-evenly"></section>
+      <div class="w-full flex justify-center items-center my-8">
+        <i id="btnMore" class="fa-solid fa-circle-chevron-down text-gray-800 text-3xl animate-pulse cursor-pointer"></i>
+      </div>
+      <div class="w-screen flex justify-center my-8">
+        <button id="btnView" type="button"
+          class="bg-gray-500 px-16 py-2 font-semibold text-white hover:bg-white hover:text-gray-500">
+          View All Pro
+        </button>
+      </div>
+    </section>
+
+    <section class="bg-[url('https://wallpaperset.com/w/full/9/4/c/5965.jpg')] bg-fixed bg-cover p-8 relative">
+      <div>
+        <figure class="flex justify-center items-center mb-8">
+          <img class="w-28 border-gray-500 border rounded-full mx-auto" src="/src/assets/img/avatar.jpg" alt="avatar" />
+          <div class="absolute mb-16 mr-16 w-8 h-8 flex justify-center items-center rounded-full border bg-black">
+            <svg class="w-4 h-4" version="1.0" xmlns="http://www.w3.org/2000/svg" width="512.000000pt"
+              height="512.000000pt" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+              <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#ffffff" stroke="none">
+                <path d="M1315 4610 c-692 -181 -1152 -649 -1274 -1295 -38 -199 -41 -310 -41
                     -1507 l0 -1168 1120 0 1120 0 0 1120 0 1120 -624 0 -625 0 -20 28 c-34 49 -88
                     164 -113 242 -20 64 -23 95 -23 215 1 126 4 149 29 225 42 128 93 216 170 298
                     122 129 304 230 510 285 l85 22 -96 223 c-52 122 -98 222 -102 222 -3 -1 -55
-                    -14 -116 -30z"
-                  ></path>
-                  <path
-                    d="M4195 4610 c-692 -181 -1152 -649 -1274 -1295 -38 -199 -41 -310 -41
+                    -14 -116 -30z"></path>
+                <path d="M4195 4610 c-692 -181 -1152 -649 -1274 -1295 -38 -199 -41 -310 -41
                     -1507 l0 -1168 1120 0 1120 0 0 1120 0 1120 -624 0 -625 0 -20 28 c-34 49 -88
                     164 -113 242 -20 64 -23 95 -23 215 1 126 4 149 29 225 42 128 93 216 170 298
                     122 129 304 230 510 285 l85 22 -96 223 c-52 122 -98 222 -102 222 -3 -1 -55
-                    -14 -116 -30z"
-                  ></path>
-                </g>
-              </svg>
-            </div>
-          </figure>
-
-          <div class="flex flex-col justify-center items-center">
-            <h2 class="">Gaston Alonso</h2>
-
-            <p class="text-center text-white">
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The
-              point of using Lorem Ipsum is that it has a more-or-less normal
-              distribution of letters, as opposed to using 'Content here,
-              content here', making it look like readable English.
-            </p>
-            <div
-              class="absolute top-1/2 flex justify-between w-full items-center"
-            >
-              <button class="rounded-full border block">
-                <i class="fa-solid fa-chevron-left text-white px-2"></i>
-              </button>
-              <button class="rounded-full border block">
-                <i class="fa-solid fa-chevron-right text-white px-2"></i>
-              </button>
-            </div>
+                    -14 -116 -30z"></path>
+              </g>
+            </svg>
           </div>
-        </div>
-      </section>
+        </figure>
 
-      <section class="my-10 overflow-hidden">
-        <div
-          class="bg-[url('https://wallpaperset.com/w/full/8/a/e/5928.jpg')] bg-cover w-11/12 mx-auto text-white"
-        >
-          <div class="w-1/2 ml-auto mb-4 py-2">
-            <p class="text-lg">Best Action Game</p>
-            <h2 class="uppercase font-serif font-bold my-4 text-xl">
-              dead rising zombies
-            </h2>
-            <button
-              type="button"
-              class="bg-white px-8 py-2 mb-8 text-black font-semibold hover:bg-gray-500"
-            >
-              Shop Now
-            </button>
-          </div>
-        </div>
+        <div class="flex flex-col justify-center items-center">
+          <h2 class="">Gaston Alonso</h2>
 
-        <div
-          class="bg-[url('https://wallpaperset.com/w/full/4/c/4/5920.jpg')] bg-cover w-11/12 mx-auto text-white"
-        >
-          <div class="w-1/2 ml-auto mb-4 py-2">
-            <p class="text-lg">3D Pixel Racing</p>
-            <h2 class="uppercase font-serif font-bold my-4 text-xl">
-              Fast Drive Racing
-            </h2>
-            <button
-              type="button"
-              class="bg-white px-8 py-2 mb-8 text-black font-semibold hover:bg-gray-500"
-            >
-              Shop Now
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h2 class="text-white text-center text-xl font-bold">
-          Deal Of The Day
-        </h2>
-        <span class="border border-blue-700 w-12 mx-auto block my-4"></span>
-
-        <!-- reloj de oferta -->
-
-        <div
-          id="offerClock"
-          class="w-11/12 mx-auto flex justify-center text-white"
-        >
-          <div
-            class="border border-gray-500 w-16 flex flex-col justify-center items-center"
-          >
-            <span id="day" class="block">5</span>
-            <span>Days</span>
-          </div>
-
-          <div
-            class="border border-gray-500 w-16 flex flex-col justify-center items-center"
-          >
-            <span id="day" class="block">22</span>
-            <span>Hour</span>
-          </div>
-
-          <div
-            class="border border-gray-500 w-16 flex flex-col justify-center items-center"
-          >
-            <span id="day" class="block">15</span>
-            <span>Min</span>
-          </div>
-
-          <div
-            class="border border-gray-500 w-16 flex flex-col justify-center items-center"
-          >
-            <span id="day" class="block">52</span>
-            <span>Sec</span>
-          </div>
-        </div>
-
-        <!-- articulos de oferta -->
-
-        <div
-          id="container-offer"
-          class="card-container-offert flex justify-center items-center gap-4 relative overflow-hidden mx-4 group"
-        >
-          <button class="rounded-full border block mb-24 absolute left-0">
-            <i class="fa-solid fa-chevron-left text-white px-2"></i>
-          </button>
-
-          <!-- card -->
-
-          <button class="rounded-full border block mb-24 absolute right-0">
-            <i class="fa-solid fa-chevron-right text-white px-2"></i>
-          </button>
-        </div>
-
-        <!-- botones left & right -->
-      </section>
-
-      <article>
-        <h2 class="text-white text-center text-xl font-bold">From The Blog</h2>
-        <span class="border border-blue-700 w-12 mx-auto block my-4"></span>
-
-        <div class="w-screen relative mb-8">
-          <figure
-            class="relative w-11/12 mx-auto flex justify-center items-center"
-          >
-            <img src="https://wallpaperset.com/w/full/6/8/1/5807.jpg" alt="" />
-            <div class="absolute flex justify-between w-full p-4">
-              <button class="rounded-full border block">
-                <i class="fa-solid fa-chevron-left text-white px-2"></i>
-              </button>
-              <button class="rounded-full border block">
-                <i class="fa-solid fa-chevron-right text-white px-2"></i>
-              </button>
-            </div>
-          </figure>
-
-          <!-- art-card-info -->
-
-          <header class="">
-            <div
-              class="flex justify-between items-center px-4 text-gray-500 my-4"
-            >
-              <span>
-                <i class="fa-regular fa-calendar"></i>
-                <time>18 feb, 2022</time>
-              </span>
-              <div>
-                <i class="fa-regular fa-comment"></i>
-                <span>0 commments</span>
-              </div>
-            </div>
-
-            <div
-              class="px-4 my-2 w-11/12 text-white font-semibold hover:text-blue-700"
-            >
-              <a href="">
-                <h2>
-                  Remote collaboration, digital twins, and the metaverse iot
-                  applications
-                </h2>
-              </a>
-            </div>
-          </header>
-        </div>
-      </article>
-
-      <hr class="my-16" />
-    </main>
-
-    <footer
-      class="bg-[url('https://wallpaperset.com/w/full/a/a/1/5931.jpg')] pt-16 pb-2"
-    >
-      <div class="px-4">
-        <!-- contact us -->
-        <div>
-          <details>
-            <summary
-              class="flex justify-between items-center m-2 text-white font-semibold"
-            >
-              <h2 class="hover:cursor-pointer">Contact Us</h2>
-              <i class="fa-solid fa-chevron-down"></i>
-            </summary>
-            <ul class="text-gray-500">
-              <li>
-                <span
-                  >Gamers - Game Store - Av. Colón 1234 <br />
-                  Córdoba, Argentina
-                </span>
-              </li>
-              <li><span class="my-4 block">(+54)012-345-6789</span></li>
-              <li>
-                <a href="mailto:tonga88@live.com.ar">example@email.com</a>
-              </li>
-            </ul>
-          </details>
-        </div>
-
-        <div></div>
-
-        <!-- information -->
-        <div class="my-4">
-          <details>
-            <summary
-              class="flex justify-between items-center m-2 text-white font-semibold"
-            >
-              <h2 class="hover:cursor-pointer">Information</h2>
-              <i class="fa-solid fa-chevron-down"></i>
-            </summary>
-            <ul class="text-gray-500 [&_li]:my-2">
-              <li><a href=""> Shipping & Refund </a></li>
-              <li><a href=""> Terms and Conditions </a></li>
-              <li><a href=""> Sitemap </a></li>
-              <li><a href=""> Policy for Buyers </a></li>
-              <li>
-                <a href=""></a>
-                Policy for Sellers
-              </li>
-            </ul>
-          </details>
-        </div>
-
-        <!--Newsletter  -->
-        <div class="m-2">
-          <h2 class="text-white font-semibold">Our Newsletter</h2>
-          <p class="my-4 text-gray-500">
-            There are many variations of passages of form humour, or randomised
+          <p class="text-center text-white">
+          Este proyecto fue una experiencia valiosa que me permitió aprender y practicar las habilidades de desarrollo web front-end. Estoy satisfecho con los resultados del proyecto y estoy seguro de que las habilidades que aprendí serán útiles en futuros proyectos.
           </p>
+    
+        </div>
+      </div>
+    </section>
 
-          <form
-            action=""
-            class="relative w-full flex justify-center items-center"
-            novalidate
-          >
-            <input
-              class="w-full px-4 py-2 my-4 peer"
-              type="email"
-              name=""
-              id="newsletter--footer"
-              placeholder="Your email"
-              required=""
-              autocomplete="email"
-              id="newsletter"
-            />
-            <label
-              for="newsletter--footer"
-              class="absolute pl-4 pointer-events-none left-0 peer-focus:text-[8px] peer-focus:top-4 peer-[:not(:placeholder-shown)]:text-[8px] peer-[:not(:placeholder-shown)]:top-4"
-              >Your email</label
-            >
-            <button
-              id="subscribe"
-              type="submit"
-              class="text-[0px] flex justify-center items-center"
-            >
-              subscribe<i
-                class="fa-regular fa-paper-plane text-base absolute right-2 text-blue-700"
-              ></i>
+    <section class="my-10 overflow-hidden">
+      <div class="bg-[url('https://wallpaperset.com/w/full/8/a/e/5928.jpg')] bg-cover w-11/12 mx-auto text-white">
+        <div class="w-1/2 ml-auto mb-4 py-2">
+          <p class="text-lg">Best Action Game</p>
+          <h2 class="uppercase font-serif font-bold my-4 text-xl">
+            dead rising zombies
+          </h2>
+          <button type="button" class="bg-white px-8 py-2 mb-8 text-black font-semibold hover:bg-gray-500">
+            Shop Now
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-[url('https://wallpaperset.com/w/full/4/c/4/5920.jpg')] bg-cover w-11/12 mx-auto text-white">
+        <div class="w-1/2 ml-auto mb-4 py-2">
+          <p class="text-lg">3D Pixel Racing</p>
+          <h2 class="uppercase font-serif font-bold my-4 text-xl">
+            Fast Drive Racing
+          </h2>
+          <button type="button" class="bg-white px-8 py-2 mb-8 text-black font-semibold hover:bg-gray-500">
+            Shop Now
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-white text-center text-xl font-bold">
+        Deal Of The Day
+      </h2>
+      <span class="border border-blue-700 w-12 mx-auto block my-4"></span>
+
+      <!-- reloj de oferta -->
+
+      <div id="offerClock" class="w-11/12 mx-auto flex justify-center text-white">
+        <div class="border border-gray-500 w-16 flex flex-col justify-center items-center">
+          <span id="day" class="block">5</span>
+          <span>Days</span>
+        </div>
+
+        <div class="border border-gray-500 w-16 flex flex-col justify-center items-center">
+          <span id="hours" class="block">22</span>
+          <span>Hour</span>
+        </div>
+
+        <div class="border border-gray-500 w-16 flex flex-col justify-center items-center">
+          <span id="min" class="block">15</span>
+          <span>Min</span>
+        </div>
+
+        <div class="border border-gray-500 w-16 flex flex-col justify-center items-center">
+          <span id="sec" class="block">52</span>
+          <span>Sec</span>
+        </div>
+      </div>
+
+      <!-- articulos de oferta -->
+      <div class="relative flex items-center mt-16">
+        <div id="containerOfer" class=" flex relative mx-4  items-center overflow-hidden">
+
+          <div id="containerOf"
+          class="flex gap-3 "></div >
+
+        </div>
+        <div class="absolute left-0 flex justify-between w-full">
+          <button id="prevOf" class="w-10 bg-blue-500 rounded-full h-10"> <i class="fa-solid fa-chevron-left text-white px-2"></i></button>
+          <button id="nextOf" class="w-10 bg-blue-500 rounded-full h-10"> <i class="fa-solid fa-chevron-right text-white px-2"></i></button>
+        </div>
+      </div>
+
+      <!-- botones left & right -->
+    </section>
+
+    <article>
+      <h2 class="text-white text-center text-xl font-bold">From The Blog</h2>
+      <span class="border border-blue-700 w-12 mx-auto block my-4"></span>
+
+      <div class="w-screen relative mb-8">
+        <figure class="relative w-11/12 mx-auto flex justify-center items-center">
+          <img src="https://wallpaperset.com/w/full/6/8/1/5807.jpg" alt="" />
+          <div class="absolute flex justify-between w-full p-4">
+            <button class="rounded-full border block">
+              <i class="fa-solid fa-chevron-left text-white px-2"></i>
             </button>
-            <small class="text-red-500"></small>
-          </form>
-          <ul class="flex w-3/4 text-white justify-around">
-            <li>
-              <a href="" class="hover:text-gray-500"
-                ><i class="fa-brands fa-twitter"></i
-              ></a>
-            </li>
-            <li>
-              <a href="" class="hover:text-gray-500"
-                ><i class="fa-brands fa-facebook"></i
-              ></a>
-            </li>
-            <li>
-              <a href="" class="hover:text-gray-500"
-                ><i class="fa-brands fa-pinterest"></i
-              ></a>
-            </li>
-            <li>
-              <a href="" class="hover:text-gray-500"
-                ><i class="fa-brands fa-instagram"></i
-              ></a>
-            </li>
-            <li>
-              <a href="" class="hover:text-gray-500"
-                ><i class="fa-brands fa-youtube"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
-      </div>
+            <button class="rounded-full border block">
+              <i class="fa-solid fa-chevron-right text-white px-2"></i>
+            </button>
+          </div>
+        </figure>
 
-      <!-- copy & card -->
-      <div class="px-4">
-        <div class="text-white my-4 text-center">
-          © 2023 Gamers - Game Store
-        </div>
+        <!-- art-card-info -->
 
-        <div>
-          <ul class="flex w-3/4 justify-around mx-auto text-white">
-            <li><i class="fa-brands fa-cc-visa"></i></li>
-            <li><i class="fa-brands fa-cc-mastercard"></i></li>
-            <li><i class="fa-brands fa-paypal"></i></li>
-            <li><i class="fa-brands fa-bitcoin"></i></li>
-          </ul>
-        </div>
+        <header class="">
+          <div class="flex justify-between items-center px-4 text-gray-500 my-4">
+            <span>
+              <i class="fa-regular fa-calendar"></i>
+              <time>18 feb, 2022</time>
+            </span>
+            <div>
+              <i class="fa-regular fa-comment"></i>
+              <span>0 commments</span>
+            </div>
+          </div>
+
+          <div class="px-4 my-2 w-11/12 text-white font-semibold hover:text-blue-700">
+            <a href="">
+              <h2>
+                Remote collaboration, digital twins, and the metaverse iot
+                applications
+              </h2>
+            </a>
+          </div>
+        </header>
       </div>
-    </footer>
-    <!-- fontawesome -->
-    <script
-      src="https://kit.fontawesome.com/b8d7fad790.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- db -->
-    <script src="./assets/js/request.js"></script>
-    <script src="./assets/js/navbar.js"></script>
-    <script src="./assets/js/index.js"></script>
-  </body>
+    </article>
+
+    <hr class="my-16" />
+  </main>
+
+  
+    <footer id="footerContainer" class="pt-16 pb-2 my-8"></footer>
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/b8d7fad790.js" crossorigin="anonymous"></script>
+  <!-- db -->
+  <script src="./assets/js/request.js"></script>
+  <script src="./assets/js/newsletter.js"></script>
+  <script src="./assets/js/navbar.js"></script>
+  <script src="./assets/js/index.js"></script>
+</body>
+
 </html>

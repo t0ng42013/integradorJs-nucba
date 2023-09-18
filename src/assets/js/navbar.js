@@ -15,6 +15,14 @@ const cardNotification = document.getElementById("cardNotification");
 const btnCloseNofification = document.getElementById("btnCloseNofification");
 const logeo = document.getElementById("logeo");
 const account = document.getElementById("account");
+const lbSearch = document.getElementById("lbSearch");
+const search = document.getElementById("search");
+const closeSearch = document.getElementById("closeSearch");
+const ACsearch = document.getElementById("ACsearch");
+const searchContainer = document.getElementById("searchContainer");
+const titleSearch = document.getElementById("titleSearch");
+const menuFoot = document.getElementById("menuFoot");
+const arrowUp = document.getElementById("arrowUp");
 
 
 
@@ -23,12 +31,15 @@ const toggleElement = (element1, element2, element3, element4) => {
     element1.classList.toggle("hidden");  
     element3.classList.add("hidden");
     element4.classList.add("hidden");
-    element1.classList.contains("hidden")?element2.classList.add("hidden"):element2.classList.remove("hidden");
+
+    element1.classList.contains("hidden")
+    ?element2.classList.add("hidden")
+    :element2.classList.remove("hidden");
 
      element1.classList.contains("hidden")
      ? document.body.style.overflow = "visible"
      : document.body.style.overflow = "hidden"
-    
+
 }
 
 //********************User Active******************* */
@@ -151,6 +162,15 @@ function deleteCard({ target }) {
   guardarProductos(ListaNueva);
   renderMiniCard();
 }
+//funcion para menajar los precios para mas de mil
+const conversor = (price) => {
+  partes = price.toString().split(".");
+  if (partes[1].length !== 3) {
+    return (price = parseFloat(partes[0]));
+  }
+  price = parseFloat(price.toString().replace(".", ""));
+  return price;
+};
 
 const renderMiniCard = async () => {
   const productos = await traerProductos();
@@ -166,7 +186,7 @@ const renderMiniCard = async () => {
   totalItem.textContent = await cantidadCompras();
   subTotal.textContent = productos
     .reduce((total, producto) => {
-      return total + producto.price * producto.cantidad;
+      return total + conversor(producto.price) * producto.cantidad;
     }, 0)
     .toFixed(2); 
     btnBuyActive();
@@ -180,14 +200,15 @@ const btnBuyActive = async () => {
  !compras?btnBuy.style.cursor ='not-allowed':btnBuy.style.cursor='pointer'; 
 };
 
-//funcion para boton de compras
+//funcion para boton de compras comprueba la session storage
 const BuyNow = () => {
+
 if(getActiveUser() === null){
   window.location.href = "/src/assets/pages/login.html";
 }
 alert('Gracias por su compra!');
 };
-
+//funcion para menejo de usuario y logeo
 const UserActive = () => {
   if (getActiveUser() === null) {
     logeo.innerHTML = `Log In  <i class="fa-solid fa-right-to-bracket w-4 ml-4"></i>`;
@@ -207,6 +228,22 @@ const UserActive = () => {
   }
 };
 
+
+//template para search
+const templateSearch = (prod) => {
+  const {id,name,price,image} = prod
+  return `
+   <li class="my-2 w-full"> <a class="flex" href="/src/assets/pages/products.html?id=${id}&name=${name}">
+                  <img class="h-10 m-2" src=${image} alt="name">
+                  <div>
+                    <h3>${name}name</h3>
+                    <span>${price}price</span>
+                  </div>
+                </a>
+              </li>
+  `;
+};
+
 btnShop.addEventListener("click", () => toggleElement(menuShop,overlay,menuUser,menuList));
 btnMenu.addEventListener("click", () => toggleElement(menuList, overlay, menuUser, menuShop)
 );
@@ -217,6 +254,62 @@ closeMenu.addEventListener("click", () =>
   toggleElement(menuList, overlay, menuUser, menuShop)
 );
 btnBuy.addEventListener("click", () =>BuyNow());
+menuFoot.addEventListener('click', ()=> {
+  overlay.classList.add('hidden')
+  menuList.classList.add('hidden')
+  document.body.style.overflow = 'visible';
+window.scrollTo({
+  top: document.body.scrollHeight, // Desplazarse hasta el final de la página
+  left: 0,
+  behavior: "smooth"
+});
+});
+//traigo los datos y los filtro por el input
+search.addEventListener('input',async ()=> {
+    let valor = search.value.toLowerCase();
+    let products = await requestProd();
+
+    resul = products.filter( product =>
+      product.name.toLowerCase().includes(valor) 
+    )
+     titleSearch.classList.remove("hidden");
+    searchContainer.innerHTML += resul.map(product => templateSearch(product)).join('');
+});
+
+//cerrar details search
+closeSearch.addEventListener("click", () =>{
+ ACsearch.removeAttribute('open')
+search.value = '';
+searchContainer.innerHTML = '';
+ titleSearch.classList.add("hidden");
+});
+  //cuando abro la lupa resetea los valores de busqueda
+ACsearch.addEventListener('click', () =>{
+  search.value = '';
+  searchContainer.innerHTML = '';
+ 
+});
 
 window.addEventListener("DOMContentLoaded", renderMiniCard);
 window.addEventListener("DOMContentLoaded", UserActive);
+window.addEventListener("DOMContentLoaded", ()=>{
+  window.addEventListener("scroll", () => {
+    arrowUp.style.display = "none";
+    if (document.documentElement.scrollTop > 400) {
+      // Muestra el botón cuando se hace suficiente scroll (ajusta este valor según tu preferencia)
+      arrowUp.style.display = "block";
+      arrowUp.style.position = "fixed";
+      arrowUp.addEventListener('click',()=>{window.scrollTo({
+        top:0,
+        left:0,
+        behavior:"smooth"
+        })
+        ;})
+        
+    } else {
+      // Oculta el botón si no se ha hecho suficiente scroll
+      arrowUp.style.display = "none";
+    }
+  });
+
+});

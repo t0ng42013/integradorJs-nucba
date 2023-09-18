@@ -288,14 +288,6 @@ const validarPrice = async () => {
   return valid;
 };
 
-const conversor = (price) => {
-  partes = price.toString().split(".");
-  if (partes[1].length !== 3) {
-    return (price = parseFloat(partes[0]));
-  }
-  price = parseFloat(price.toString().replace(".", ""));
-  return price;
-};
 
 const precioModifi = (data) => {
   let nuevaData = data.map((producto) => {
