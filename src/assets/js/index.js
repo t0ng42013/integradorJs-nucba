@@ -17,17 +17,19 @@ const prevOf = document.getElementById("prevOf");
 const nextOf = document.getElementById("nextOf");
 const minutos = document.getElementById("min");
 const sec = document.getElementById("sec");
-
+const prevBlog = document.getElementById("prevBlog");
+const nextBlog = document.getElementById("nextBlog");
+const containerBlog = document.querySelector('.blog');
 
 // Declara estado como una variable global
 let estado;
-
+let card = 1;
 
 const createProdTemplate = (productos) => {
   const { id,name, price, image, category } = productos;
 
   return `
-        <div class="flex flex-col  w-32 my-4 ">
+        <div class="flex flex-col  w-32 my-4 sm:w-44 sm:ml-4">
             <figure class="overflow-hidden">
                 <img class="hover:scale-125 transition" src="${image}" alt="${category}">
             </figure>
@@ -118,7 +120,7 @@ const productsAll = (productosData) => {
      return;
    }
  };
-
+//timer ofertas
 const timerFun = () => {
   let seg = 59;
   let min = 59;
@@ -136,8 +138,24 @@ setInterval(() => {
 };
 
 window.addEventListener('DOMContentLoaded', timerFun); 
+/**************************************************** */
 
+window.addEventListener("scroll", revealElements);
 
+function revealElements() {
+  const elements = document.querySelectorAll(".scroll-reveal");
+
+  elements.forEach((element) => {
+    const elementTop = element.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if (elementTop < windowHeight) {
+      element.classList.add("reveal");
+    }
+  });
+}
+
+/**************************************************** */
 
 const init = async () => {
   const productosData = await requestProd();
@@ -148,12 +166,26 @@ const init = async () => {
     active: null,
   };
 
- 
-
- prevSpl.addEventListener('click', () => contentSpl.scrollLeft -= 400);
- nextSpl.addEventListener('click', () => contentSpl.scrollLeft += 400);
+ prevSpl.addEventListener('click', () => contentSpl.scrollLeft -= 80);
+ nextSpl.addEventListener('click', () => contentSpl.scrollLeft += 80);
  nextOf.addEventListener('click', () =>  containerOfer.scrollLeft += 80);
  prevOf.addEventListener('click', () =>  containerOfer.scrollLeft -= 80);
+ prevBlog.addEventListener('click', () =>  {
+  if(card > 1 && card <= 5){
+  containerBlog.style.transform += 'translateX(20%)';
+  card--;
+  }else{
+    card = 1;
+    containerBlog.style.transform = 'translateX(0)'
+  }
+ });
+ nextBlog.addEventListener('click', () => {
+   if (card >= 1 && card < 5) {   
+    containerBlog.style.transform += "translateX(-20%)";  
+    card++;
+  } 
+  
+ });
 
   renderProd(estado.product[0]);
   renderOffer(productosData);

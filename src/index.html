@@ -28,9 +28,9 @@
         </figure>
       </div>
       <!-- buscador -->
-      <div  class="w-2/5 flex justify-around [&>label]:cursor-pointer">
+      <div class="w-2/5 flex justify-around [&>label]:cursor-pointer">
 
-        <details id="ACsearch" class="text-white" >
+        <details id="ACsearch" class="text-white">
           <summary class="list-none">
             <i class="fa-solid fa-magnifying-glass  text-white text-xl hover:text-gray-500"></i>
           </summary>
@@ -51,7 +51,7 @@
                         class="fa-solid fa-magnifying-glass "></i>
                     </button>
                   </div>
-                 
+
 
                 </form>
 
@@ -65,8 +65,8 @@
           </div>
 
           <div id="titleSearch" class="bg-[#101010]  w-full absolute top-[70px] left-0 z-50  hidden">
-            <h2  class=" font-semibold my-4 ">Products</h2>
-            <ul id="searchContainer" class="">       
+            <h2 class=" font-semibold my-4 ">Products</h2>
+            <ul id="searchContainer" class="">
           </div>
         </details>
 
@@ -84,8 +84,8 @@
         <ul id="menu-list"
           class="absolute pl-4 top-0 left-0 w-3/4 h-screen text-white text-l font-semibold leading-[2.5rem] bg-[#1a1a1a] border-r border-r-slate-50 z-50 hidden ">
           <li class="text-end text-2xl pr-8 pt-8 "> <span class="cursor-pointer" id="closeMenu">X</span></li>
-          
-          <li><a  class="hover:text-orange-500" href="/src/assets/pages/collection.html">Products</a></li>
+
+          <li><a class="hover:text-orange-500" href="/src/assets/pages/collection.html">Products</a></li>
           <li><a id="menuFoot" class="hover:text-orange-500" href="#footerContainer">Information</a></li>
           <li><a class="hover:text-orange-500" href="/src/assets/pages/contact.html">Contact</a></li>
           <li><a class="hover:text-orange-500" href="#">Blog</a></li>
@@ -149,7 +149,7 @@
         <img class="opacity-40" src="./assets/img/banner1.jpg" alt="" />
         <div class="absolute text-white text-center">
           <p class="text-sm">Star Wars Up Coming</p>
-          <h2 class="text-2xl uppercase my-4 font-bold font-serif">
+          <h2 class="text-2xl uppercase my-4 font-bold font-serif ">
             game guide unofficial
           </h2>
         </div>
@@ -173,14 +173,14 @@
           </button>
         </li>
         <li class="my-2">
-          <button id="btnBanner2" class="text-center bg-white rounded-[20px] text-xs block w-4 text-white" >
+          <button id="btnBanner2" class="text-center bg-white rounded-[20px] text-xs block w-4 text-white">
             1
           </button>
         </li>
       </ol>
     </section>
     <!-- seccion  -->
-    <section class="mt-8 flex flex-col items-center text-center">
+    <section class="mt-8 flex flex-col items-center text-center sm:grid sm:grid-cols-2 sm:mb-8">
       <div class="flex flex-col items-center mt-4">
         <i class="fa-solid fa-truck text-4xl text-white mb-4"></i>
         <div>
@@ -218,31 +218,28 @@
 
   <main>
     <!-- subir -->
-    <i id="arrowUp" class="hidden fa-solid fa-circle-chevron-up  right-0 bottom-0 m-8 text-4xl animate-bounce hover:text-blue-500 cursor-pointer z-50"></i>
+    <i id="arrowUp"
+      class="hidden fa-solid fa-circle-chevron-up  right-0 bottom-0 m-8 text-4xl animate-bounce hover:text-blue-500 cursor-pointer z-50"></i>
 
 
-    <section class="my-10 overflow-hidden">
-      <div class="bg-[url('https://wallpaperset.com/w/full/6/8/0/5963.jpg')] bg-cover w-11/12 mx-auto  text-white">
+    <section class="my-10 grid gap-8 overflow-hidden sm:grid sm:grid-cols-2 sm:gap-0">
+      <div class="bg-[url('/src/assets/img/btf.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center">
         <div class="w-1/2 ml-auto mb-4 py-2">
-          <p class="text-lg">Best Action Game</p>
-          <h2 class="uppercase font-serif font-bold my-4 text-xl">
+          <p class="text-lg scroll-reveal">Best Action Game</p>
+          <h2 class="uppercase font-serif font-bold my-4 text-xl scroll-reveal">
             dead rising zombies
           </h2>
-          <button type="button" class="bg-white px-8 py-2 mb-8 text-black font-semibold hover:bg-gray-500">
-            Shop Now
-          </button>
+
         </div>
       </div>
 
-      <div class="bg-[url('https://wallpaperset.com/w/full/f/d/c/5876.jpg')] bg-cover w-11/12 mx-auto text-white">
+      <div class="bg-[url('/src/assets/img/Banner2.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center">
         <div class="w-1/2 ml-auto mb-4 py-2">
-          <p class="text-lg">3D Pixel Racing</p>
-          <h2 class="uppercase font-serif font-bold my-4 text-xl">
+          <p class="text-lg scroll-reveal">3D Pixel Racing</p>
+          <h2 class="uppercase font-serif font-bold my-4 text-xl scroll-reveal">
             Fast Drive Racing
           </h2>
-          <button type="button" class="bg-white px-8 py-2 mb-8 text-black font-semibold hover:bg-gray-500">
-            Shop Now
-          </button>
+
         </div>
       </div>
     </section>
@@ -250,22 +247,22 @@
     <!-- seccion especial  -->
 
     <section>
-      <h2 class="text-white text-center text-xl font-bold">
+      <h2 class="text-white text-center text-xl font-bold sm:text-3xl sm:mt-8">
         Special Category
       </h2>
-      <span class="border border-blue-700 w-12 mx-auto block my-4"></span>
+      <span class="border border-blue-700 w-12 mx-auto block my-4 sm:mb-8"></span>
 
       <div class="w-screen relative mb-8">
-        <figure  class="relative w-11/12 mx-auto flex justify-center items-center">
-          <div id="contentSpl" class="flex gap-6 overflow-hidden ">
-         <img src="https://wallpaperset.com/w/full/1/5/a/5937.jpg" alt="image" />
-          <img src="https://wallpaperset.com/w/full/2/e/9/5945.jpg" alt="image" />
-          <img src="https://wallpaperset.com/w/full/2/3/4/5935.jpg" alt="image" />
-          <img src="https://wallpaperset.com/w/full/e/d/2/5818.jpg" alt="image" />
-          <img src="https://wallpaperset.com/w/full/6/5/8/5823.jpg" alt="image" />
+        <figure class="relative w-11/12 mx-auto flex justify-center items-center mb-16">
+          <div id="contentSpl" class="flex gap-6 overflow-hidden sm:">
+            <img class="sm:w-80 sm:h-80 sm:object-cover" src="/src/assets/img/special1.jpg" alt="image" />
+            <img class="sm:w-80 sm:h-80 sm:object-cover" src="/src/assets/img/special2.jpg" alt="image" />
+            <img class="sm:w-80 sm:h-80 sm:object-cover" src="/src/assets/img/special3.jpg" alt="image" />
+            <img class="sm:w-80 sm:h-80 sm:object-cover" src="/src/assets/img/special4.jpg" alt="image" />
+            <img class="sm:w-80 sm:h-80 sm:object-cover" src="/src/assets/img/special5.jpg" alt="image" />
           </div>
-     
-          
+
+
           <div class="absolute left-0 flex justify-between w-full p-4">
             <button id="prevSpl" class="rounded-full border block">
               <i class="fa-solid fa-chevron-left drop-shadow-[2px_2px_1px_black] px-2"></i>
@@ -276,12 +273,7 @@
           </div>
         </figure>
 
-        <h3 class="text-center my-4 text-white font-semibold">
-          Latest Pubg Lite Game
-        </h3>
-        <button class="w-full mx-auto text-gray-500 underline font-semibold hover:no-underline text-lg" type="button">
-          Shop Now
-        </button>
+
       </div>
     </section>
 
@@ -290,8 +282,8 @@
     <!-- our Products -->
 
     <section>
-      <h2 class="text-white text-center text-xl font-bold">Our Products</h2>
-      <span class="border border-blue-700 w-12 mx-auto block my-4"></span>
+      <h2 class=" text-center text-xl font-bold sm:text-3xl sm:mt-8">Our Products</h2>
+      <span class="border border-blue-700 w-12 mx-auto block my-4 sm:mb-8"></span>
 
       <ul class="flex justify-around w-3/4 mx-auto my-4 text-white">
         <li class="cursor-pointer" id="Featured">Featured</li>
@@ -312,10 +304,12 @@
       </div>
     </section>
 
-    <section class="bg-[url('https://wallpaperset.com/w/full/9/4/c/5965.jpg')] bg-fixed bg-cover p-8 relative">
+    <section
+      class="bg-[url('https://wallpaperset.com/w/full/9/4/c/5965.jpg')] bg-fixed bg-cover sm:bg-contain sm:bg-center sm:bg-no-repeat p-8 relative">
       <div>
         <figure class="flex justify-center items-center mb-8">
-          <img class="w-28 border-gray-500 border rounded-full mx-auto" src="/src/assets/img/avatar.jpg" alt="avatar" />
+          <img class="w-28 border-gray-500 border rounded-full mx-auto" loading="lazy" src="/src/assets/img/avatar.jpg"
+            alt="avatar" />
           <div class="absolute mb-16 mr-16 w-8 h-8 flex justify-center items-center rounded-full border bg-black">
             <svg class="w-4 h-4" version="1.0" xmlns="http://www.w3.org/2000/svg" width="512.000000pt"
               height="512.000000pt" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
@@ -336,67 +330,69 @@
         </figure>
 
         <div class="flex flex-col justify-center items-center">
-          <h2 class="">Gaston Alonso</h2>
+          <h2 class="text-xl font-extrabold">Gaston Alonso</h2>
 
-          <p class="text-center text-white">
-          Este proyecto fue una experiencia valiosa que me permitió aprender y practicar las habilidades de desarrollo web front-end. Estoy satisfecho con los resultados del proyecto y estoy seguro de que las habilidades que aprendí serán útiles en futuros proyectos.
+          <p class="text-center sm:px-8">
+            Este proyecto fue una experiencia valiosa que me permitió aprender y practicar las habilidades de desarrollo
+            web front-end. Estoy satisfecho con los resultados del proyecto y estoy seguro de que las habilidades que
+            aprendí serán útiles en futuros proyectos.
           </p>
-    
+
         </div>
       </div>
     </section>
 
-    <section class="my-10 overflow-hidden">
-      <div class="bg-[url('https://wallpaperset.com/w/full/8/a/e/5928.jpg')] bg-cover w-11/12 mx-auto text-white">
+    <section class="my-10 overflow-hidden sm:grid sm:grid-cols-2">
+      <div class="bg-[url('/src/assets/img/Banner3.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center">
         <div class="w-1/2 ml-auto mb-4 py-2">
-          <p class="text-lg">Best Action Game</p>
-          <h2 class="uppercase font-serif font-bold my-4 text-xl">
+          <p class="text-lg scroll-reveal">Best Action Game</p>
+          <h2 class="uppercase font-serif font-bold my-4 text-xl scroll-reveal">
             dead rising zombies
           </h2>
-          <button type="button" class="bg-white px-8 py-2 mb-8 text-black font-semibold hover:bg-gray-500">
-            Shop Now
-          </button>
+
         </div>
       </div>
 
-      <div class="bg-[url('https://wallpaperset.com/w/full/4/c/4/5920.jpg')] bg-cover w-11/12 mx-auto text-white">
+      <div class="bg-[url('/src/assets/img/Banner4.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center">
         <div class="w-1/2 ml-auto mb-4 py-2">
-          <p class="text-lg">3D Pixel Racing</p>
-          <h2 class="uppercase font-serif font-bold my-4 text-xl">
+          <p class="text-lg scroll-reveal">3D Pixel Racing</p>
+          <h2 class="uppercase font-serif font-bold my-4 text-xl scroll-reveal">
             Fast Drive Racing
           </h2>
-          <button type="button" class="bg-white px-8 py-2 mb-8 text-black font-semibold hover:bg-gray-500">
-            Shop Now
-          </button>
+
         </div>
       </div>
     </section>
 
     <section>
-      <h2 class="text-white text-center text-xl font-bold">
+      <h2 class="text-white text-center text-xl font-bold sm:text-3xl sm:mt-8">
         Deal Of The Day
       </h2>
-      <span class="border border-blue-700 w-12 mx-auto block my-4"></span>
+      <span class="border border-blue-700 w-12 mx-auto block my-4 sm:mb-8"></span>
 
       <!-- reloj de oferta -->
 
-      <div id="offerClock" class="w-11/12 mx-auto flex justify-center text-white">
-        <div class="border border-gray-500 w-16 flex flex-col justify-center items-center">
+      <div id="offerClock" class="w-11/12 mx-auto flex justify-center">
+        <div
+          class="border border-gray-500 w-16 flex flex-col justify-center items-center sm:flex-row sm:gap-2 sm:w-28 sm:h-12">
           <span id="day" class="block">5</span>
           <span>Days</span>
         </div>
 
-        <div class="border border-gray-500 w-16 flex flex-col justify-center items-center">
+        <div
+          class="border border-gray-500 w-16 flex flex-col justify-center items-center sm:flex-row sm:gap-2 sm:w-28 sm:h-12">
           <span id="hours" class="block">22</span>
           <span>Hour</span>
         </div>
 
-        <div class="border border-gray-500 w-16 flex flex-col justify-center items-center">
+        <div
+          class="border border-gray-500 w-16 flex flex-col justify-center items-center sm:flex-row sm:gap-2 sm:w-28 sm:h-12">
           <span id="min" class="block">15</span>
           <span>Min</span>
         </div>
 
-        <div class="border border-gray-500 w-16 flex flex-col justify-center items-center">
+        <div
+          class="border border-gray-500 w-16 flex flex-col justify-center items-center sm:flex-row sm:gap-2 sm:w-28 sm:h-12">
           <span id="sec" class="block">52</span>
           <span>Sec</span>
         </div>
@@ -406,67 +402,216 @@
       <div class="relative flex items-center mt-16">
         <div id="containerOfer" class=" flex relative mx-4  items-center overflow-hidden">
 
-          <div id="containerOf"
-          class="flex gap-3 "></div >
+          <div id="containerOf" class="flex gap-3 "></div>
 
         </div>
         <div class="absolute left-0 flex justify-between w-full">
-          <button id="prevOf" class="w-10 bg-blue-500 rounded-full h-10"> <i class="fa-solid fa-chevron-left text-white px-2"></i></button>
-          <button id="nextOf" class="w-10 bg-blue-500 rounded-full h-10"> <i class="fa-solid fa-chevron-right text-white px-2"></i></button>
+          <button id="prevOf" class="w-10 bg-gray-500 opacity-80 rounded-full h-10"> <i
+              class="fa-solid fa-chevron-left text-white px-2"></i></button>
+          <button id="nextOf" class="w-10 bg-gray-500 opacity-80 rounded-full h-10"> <i
+              class="fa-solid fa-chevron-right text-white px-2"></i></button>
         </div>
       </div>
 
       <!-- botones left & right -->
     </section>
 
-    <article>
-      <h2 class="text-white text-center text-xl font-bold">From The Blog</h2>
-      <span class="border border-blue-700 w-12 mx-auto block my-4"></span>
 
-      <div class="w-screen relative mb-8">
-        <figure class="relative w-11/12 mx-auto flex justify-center items-center">
-          <img src="https://wallpaperset.com/w/full/6/8/1/5807.jpg" alt="" />
-          <div class="absolute flex justify-between w-full p-4">
-            <button class="rounded-full border block">
-              <i class="fa-solid fa-chevron-left text-white px-2"></i>
-            </button>
-            <button class="rounded-full border block">
-              <i class="fa-solid fa-chevron-right text-white px-2"></i>
-            </button>
-          </div>
-        </figure>
+    <section class=" flex flex-col justify-center">
+      <h2 class="text-white text-center text-xl font-bold sm:text-3xl">From The Blog</h2>
+      <span class="border border-blue-700 w-12 mx-auto block my-8 sm:mb-8"></span>
+      <div class="relative flex items-center overflow-hidden sm:my-8">
+        <!-- btn -->
+        <div class="absolute flex justify-between w-full p-4 left-0 z-40">
+          <button id="prevBlog" class="rounded-full border block">
+            <i class="fa-solid fa-chevron-left text-white px-2"></i>
+          </button>
+          <button id="nextBlog" class="rounded-full border block">
+            <i class="fa-solid fa-chevron-right text-white px-2"></i>
+          </button>
+        </div>
+        <!-- !artc                 -->
+        <div class="flex items-center duration-1000 blog">
+          <article >
 
-        <!-- art-card-info -->
 
-        <header class="">
-          <div class="flex justify-between items-center px-4 text-gray-500 my-4">
-            <span>
-              <i class="fa-regular fa-calendar"></i>
-              <time>18 feb, 2022</time>
-            </span>
-            <div>
-              <i class="fa-regular fa-comment"></i>
-              <span>0 commments</span>
+            <div class="w-screen relative mb-8">
+              <figure class="relative w-11/12 mx-auto flex justify-center items-center">
+                <img loading="lazy" src="/src/assets/img/blog1.jpg" alt="" />
+
+              </figure>
+
+              <!-- art-card-info -->
+
+              <header class="">
+                <div class="flex justify-between items-center px-4 text-gray-500 my-4">
+                  <span>
+                    <i class="fa-regular fa-calendar"></i>
+                    <time>18 feb, 2022</time>
+                  </span>
+                  <div>
+                    <i class="fa-regular fa-comment"></i>
+                    <span>0 commments</span>
+                  </div>
+                </div>
+
+                <div class="px-4 my-2 w-11/12 text-white font-semibold hover:text-blue-700">
+                  <a href="">
+                    <h2>
+                      Remote collaboration, digital twins, and the metaverse iot
+                      applications
+                    </h2>
+                  </a>
+                </div>
+              </header>
             </div>
-          </div>
+          </article>
 
-          <div class="px-4 my-2 w-11/12 text-white font-semibold hover:text-blue-700">
-            <a href="">
-              <h2>
-                Remote collaboration, digital twins, and the metaverse iot
-                applications
-              </h2>
-            </a>
-          </div>
-        </header>
+          <article>
+                        <div class="w-screen relative mb-8 sm:w-80 sm:overflow-hidden">
+              <figure class="relative w-11/12 mx-auto flex justify-center items-center">
+                <img loading="lazy" src="/src/assets/img/blog2.jpg" alt="" />
+
+              </figure>
+
+              <!-- art-card-info -->
+
+              <header class="">
+                <div class="flex justify-between items-center px-4 text-gray-500 my-4">
+                  <span>
+                    <i class="fa-regular fa-calendar"></i>
+                    <time>18 March, 2022</time>
+                  </span>
+                  <div>
+                    <i class="fa-regular fa-comment"></i>
+                    <span>0 commments</span>
+                  </div>
+                </div>
+
+                <div class="px-4 my-2 w-11/12 text-white font-semibold hover:text-blue-700">
+                  <a href="">
+                    <h2>
+                      Embedded forecast better hardware, suspect software latest development
+                    </h2>
+                  </a>
+                </div>
+              </header>
+            </div>
+          </article>
+
+          <article>
+           
+
+            <div class="w-screen relative mb-8 sm:w-80 sm:overflow-hidden">
+              <figure class="relative w-11/12 mx-auto flex justify-center items-center">
+                <img loading="lazy" src="/src/assets/img/blog4.jpg" alt="" />
+
+              </figure>
+
+              <!-- art-card-info -->
+
+              <header class="">
+                <div class="flex justify-between items-center px-4 text-gray-500 my-4">
+                  <span>
+                    <i class="fa-regular fa-calendar"></i>
+                    <time>18 April, 2022</time>
+                  </span>
+                  <div>
+                    <i class="fa-regular fa-comment"></i>
+                    <span>0 commments</span>
+                  </div>
+                </div>
+
+                <div class="px-4 my-2 w-11/12 text-white font-semibold hover:text-blue-700">
+                  <a href="">
+                    <h2>
+                      Security must be top priority in bringing critical infrastructure online
+                    </h2>
+                  </a>
+                </div>
+              </header>
+            </div>
+          </article>
+
+          <article>
+            
+
+            <div class="w-screen relative mb-8 sm:w-80 sm:overflow-hidden">
+              <figure class="relative w-11/12 mx-auto flex justify-center items-center">
+                <img loading="lazy" src="/src/assets/img/blog3.jpg" alt="" />
+
+              </figure>
+
+              <!-- art-card-info -->
+
+              <header class="">
+                <div class="flex justify-between items-center px-4 text-gray-500 my-4">
+                  <span>
+                    <i class="fa-regular fa-calendar"></i>
+                    <time>15 May, 2022</time>
+                  </span>
+                  <div>
+                    <i class="fa-regular fa-comment"></i>
+                    <span>0 commments</span>
+                  </div>
+                </div>
+
+                <div class="px-4 my-2 w-11/12 text-white font-semibold hover:text-blue-700">
+                  <a href="">
+                    <h2>
+                      The complexities of electronic design and scheduling top games
+                    </h2>
+                  </a>
+                </div>
+              </header>
+            </div>
+          </article>
+
+          <article>
+           
+
+            <div class="w-screen relative mb-8 sm:w-80 sm:overflow-hidden">
+              <figure class="relative w-11/12 mx-auto flex justify-center items-center">
+                <img loading="lazy" src="/src/assets/img/blog5.jpg" alt="" />
+
+              </figure>
+
+              <!-- art-card-info -->
+
+              <header class="">
+                <div class="flex justify-between items-center px-4 text-gray-500 my-4">
+                  <span>
+                    <i class="fa-regular fa-calendar"></i>
+                    <time>01 Nov, 2021</time>
+                  </span>
+                  <div>
+                    <i class="fa-regular fa-comment"></i>
+                    <span>7 commments</span>
+                  </div>
+                </div>
+
+                <div class="px-4 my-2 w-11/12 text-white font-semibold hover:text-blue-700">
+                  <a href="">
+                    <h2>
+                      Our kit close-up video series highlights some of the latest
+                    </h2>
+                  </a>
+                </div>
+              </header>
+            </div>
+          </article>
+        </div>
+
       </div>
-    </article>
 
+
+
+    </section>
     <hr class="my-16" />
   </main>
 
-  
-    <footer id="footerContainer" class="pt-16 pb-2 my-8"></footer>
+
+  <footer id="footerContainer" class="pt-16 pb-2 my-8"></footer>
   <!-- fontawesome -->
   <script src="https://kit.fontawesome.com/b8d7fad790.js" crossorigin="anonymous"></script>
   <!-- db -->

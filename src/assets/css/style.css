@@ -3,3 +3,16 @@ background:gray !important;
 color:gray !important;
 cursor:default !important;
 }
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(100px); /* Puedes ajustar la cantidad de desplazamiento */
+  transition: opacity 1s ease, transform 0.5s ease;
+}
+
+.scroll-reveal.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 1s;
+}
+
