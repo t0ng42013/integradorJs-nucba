@@ -19,11 +19,11 @@
     <nav class="w-screen flex items-center justify-between py-4">
       <div class="flex items-center">
         <!-- btn menu  -->
-        <figure class="w-9 mx-2 cursor-pointer">
+        <figure class="w-9 mx-2 cursor-pointer lg:hidden">
           <i id="menu" class="fa-solid fa-bars-staggered text-white text-2xl hover:text-gray-500"></i>
         </figure>
         <!-- logo -->
-        <figure class="w-24">
+        <figure class="w-24 lg:ml-8">
           <img class="drop-shadow-[2px_2px_2px_gray]" src="/src/assets/img/logo2.svg" alt="logo" />
         </figure>
       </div>
@@ -64,9 +64,11 @@
 
           </div>
 
-          <div id="titleSearch" class="bg-[#101010]  w-full absolute top-[70px] left-0 z-50  hidden">
-            <h2 class=" font-semibold my-4 ">Products</h2>
-            <ul id="searchContainer" class="">
+          <div id="titleSearch"
+            class="bg-[#101010]  w-full absolute top-[70px] left-0 z-50  hidden lg:flex lg:flex-col lg:justify-center lg:w-full lg:bg-transparent">
+            <h2 class=" font-semibold my-4 lg:hidden">Products</h2>
+            <ul id="searchContainer"
+              class="lg:flex lg:flex-col lg:justify-center lg:items-center lg:w-2/6 lg:mx-auto  lg:bg-[#101010]">
           </div>
         </details>
 
@@ -82,15 +84,16 @@
         </label>
         <!-- menu opciones -->
         <ul id="menu-list"
-          class="absolute pl-4 top-0 left-0 w-3/4 h-screen text-white text-l font-semibold leading-[2.5rem] bg-[#1a1a1a] border-r border-r-slate-50 z-50 hidden ">
-          <li class="text-end text-2xl pr-8 pt-8 "> <span class="cursor-pointer" id="closeMenu">X</span></li>
+          class="absolute pl-4 top-0 left-0 w-3/4 h-screen text-white text-l font-semibold leading-[2.5rem] bg-[#1a1a1a] border-r border-r-slate-50 z-50 hidden lg:flex lg:h-16 lg:justify-evenly lg:items-center lg:bg-transparent lg:border-none lg:left-48 lg:w-2/5 lg:z-10">
 
-          <li><a class="hover:text-orange-500" href="/src/assets/pages/collection.html">Products</a></li>
-          <li><a id="menuFoot" class="hover:text-orange-500" href="#footerContainer">Information</a></li>
-          <li><a class="hover:text-orange-500" href="/src/assets/pages/contact.html">Contact</a></li>
-          <li><a class="hover:text-orange-500" href="#">Blog</a></li>
+          <li class="text-end text-2xl pr-8 pt-8 lg:hidden"> <span class="cursor-pointer" id="closeMenu">X</span></li>
+
+          <li><a class="hover:text-gray-500" href="/src/assets/pages/collection.html">Products</a></li>
+          <li><a id="menuFoot" class="hover:text-gray-500" href="#footerContainer">Information</a></li>
+          <li><a class="hover:text-gray-500" href="/src/assets/pages/contact.html">Contact</a></li>
+          <li><a class="hover:text-gray-500" href="#">Blog</a></li>
           <!-- redes -->
-          <ul class="absolute left-0 bottom-0 w-full flex justify-around bg-neutral-900 p-8">
+          <ul class="absolute left-0 bottom-0 w-full flex justify-around bg-neutral-900 p-8 lg:hidden">
             <li>
               <a href="https://www.facebook.com/?locale=es_LA" target="_blank" rel="noopener noreferrer"><i
                   class="fa-brands fa-facebook w-6 hover:text-gray-500"></i></a>
@@ -107,7 +110,7 @@
         </ul>
         <!-- user menu -->
         <ul id="userMenu"
-          class="border absolute top-[70px] right-0 pl-8 pr-16 py-4 text-white text-lg font-semibold leading-[2.5rem] bg-[#101010] z-50 hidden ">
+          class="border absolute top-[70px] right-0 pl-8 pr-16 py-4 text-white text-lg font-semibold leading-[2.5rem] bg-[#101010] z-50 hidden lg:right-[10%]">
           <li><a id="logeo" class="hover:text-gray-500" href="./assets/pages/login.html">Log in</a></li>
           <li><a id="account" class="hover:text-gray-500" href="./assets/pages/register.html">Register</a></li>
         </ul>
@@ -115,7 +118,7 @@
 
         <!--! shop -->
         <div id="menuShop"
-          class="border overflow-y-auto pb-24 h-screen w-3/4 fixed top-[70px] right-0  p-4 text-white text-lg font-semibold leading-[2.5rem] bg-[#101010] z-50 hidden">
+          class="border overflow-y-auto pb-24 h-screen w-3/4 fixed top-[70px] right-0  p-4 text-white text-lg font-semibold leading-[2.5rem] bg-[#101010] z-50 hidden lg:w-2/5">
           <ul id="menuShopUl"></ul>
 
           <hr class="mb-4 mt-16">
@@ -180,7 +183,7 @@
       </ol>
     </section>
     <!-- seccion  -->
-    <section class="mt-8 flex flex-col items-center text-center sm:grid sm:grid-cols-2 sm:mb-8">
+    <section class="mt-8 flex flex-col items-center text-center sm:grid sm:grid-cols-2 sm:mb-8 lg:grid-cols-4">
       <div class="flex flex-col items-center mt-4">
         <i class="fa-solid fa-truck text-4xl text-white mb-4"></i>
         <div>
@@ -223,7 +226,7 @@
 
 
     <section class="my-10 grid gap-8 overflow-hidden sm:grid sm:grid-cols-2 sm:gap-0">
-      <div class="bg-[url('/src/assets/img/btf.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center">
+      <div class="bg-[url('/src/assets/img/btf.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center lg:h-56">
         <div class="w-1/2 ml-auto mb-4 py-2">
           <p class="text-lg scroll-reveal">Best Action Game</p>
           <h2 class="uppercase font-serif font-bold my-4 text-xl scroll-reveal">
@@ -233,7 +236,7 @@
         </div>
       </div>
 
-      <div class="bg-[url('/src/assets/img/Banner2.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center">
+      <div class="bg-[url('/src/assets/img/Banner2.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center  lg:h-56">
         <div class="w-1/2 ml-auto mb-4 py-2">
           <p class="text-lg scroll-reveal">3D Pixel Racing</p>
           <h2 class="uppercase font-serif font-bold my-4 text-xl scroll-reveal">
@@ -247,10 +250,10 @@
     <!-- seccion especial  -->
 
     <section>
-      <h2 class="text-white text-center text-xl font-bold sm:text-3xl sm:mt-8">
+      <h2 class="text-white text-center text-xl font-bold sm:text-3xl lg:text-4xl lg:mt-16 lg:mb-4">
         Special Category
       </h2>
-      <span class="border border-blue-700 w-12 mx-auto block my-4 sm:mb-8"></span>
+      <span class="border border-blue-700 w-12 mx-auto block my-4 sm:mb-8 lg:w-32 lg:mb-16"></span>
 
       <div class="w-screen relative mb-8">
         <figure class="relative w-11/12 mx-auto flex justify-center items-center mb-16">
@@ -282,8 +285,8 @@
     <!-- our Products -->
 
     <section>
-      <h2 class=" text-center text-xl font-bold sm:text-3xl sm:mt-8">Our Products</h2>
-      <span class="border border-blue-700 w-12 mx-auto block my-4 sm:mb-8"></span>
+      <h2 class="text-white text-center text-xl font-bold sm:text-3xl lg:text-4xl lg:mt-16 lg:mb-4">Our Products</h2>
+      <span class="border border-blue-700 w-12 mx-auto block my-4 sm:mb-8 lg:w-32 lg:mb-16"></span>
 
       <ul class="flex justify-around w-3/4 mx-auto my-4 text-white">
         <li class="cursor-pointer" id="Featured">Featured</li>
@@ -306,7 +309,7 @@
 
     <section
       class="bg-[url('https://wallpaperset.com/w/full/9/4/c/5965.jpg')] bg-fixed bg-cover sm:bg-contain sm:bg-center sm:bg-no-repeat p-8 relative">
-      <div>
+      <div class="lg:my-16">
         <figure class="flex justify-center items-center mb-8">
           <img class="w-28 border-gray-500 border rounded-full mx-auto" loading="lazy" src="/src/assets/img/avatar.jpg"
             alt="avatar" />
@@ -329,10 +332,10 @@
           </div>
         </figure>
 
-        <div class="flex flex-col justify-center items-center">
-          <h2 class="text-xl font-extrabold">Gaston Alonso</h2>
+        <div class="flex flex-col justify-center items-center ">
+          <h2 class="text-xl font-extrabold lg:my-8">Gastón Alonso</h2>
 
-          <p class="text-center sm:px-8">
+          <p class="text-center sm:px-8 lg:px-24">
             Este proyecto fue una experiencia valiosa que me permitió aprender y practicar las habilidades de desarrollo
             web front-end. Estoy satisfecho con los resultados del proyecto y estoy seguro de que las habilidades que
             aprendí serán útiles en futuros proyectos.
@@ -343,7 +346,7 @@
     </section>
 
     <section class="my-10 overflow-hidden sm:grid sm:grid-cols-2">
-      <div class="bg-[url('/src/assets/img/Banner3.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center">
+      <div class="bg-[url('/src/assets/img/Banner3.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center lg:h-56">
         <div class="w-1/2 ml-auto mb-4 py-2">
           <p class="text-lg scroll-reveal">Best Action Game</p>
           <h2 class="uppercase font-serif font-bold my-4 text-xl scroll-reveal">
@@ -353,7 +356,7 @@
         </div>
       </div>
 
-      <div class="bg-[url('/src/assets/img/Banner4.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center">
+      <div class="bg-[url('/src/assets/img/Banner4.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center lg:h-56">
         <div class="w-1/2 ml-auto mb-4 py-2">
           <p class="text-lg scroll-reveal">3D Pixel Racing</p>
           <h2 class="uppercase font-serif font-bold my-4 text-xl scroll-reveal">
@@ -365,10 +368,10 @@
     </section>
 
     <section>
-      <h2 class="text-white text-center text-xl font-bold sm:text-3xl sm:mt-8">
+      <h2 class="text-white text-center text-xl font-bold sm:text-3xl lg:text-4xl lg:mt-16 lg:mb-4">
         Deal Of The Day
       </h2>
-      <span class="border border-blue-700 w-12 mx-auto block my-4 sm:mb-8"></span>
+      <span class="border border-blue-700 w-12 mx-auto block my-4 sm:mb-8 lg:w-32 lg:mb-16"></span>
 
       <!-- reloj de oferta -->
 
@@ -418,8 +421,8 @@
 
 
     <section class=" flex flex-col justify-center">
-      <h2 class="text-white text-center text-xl font-bold sm:text-3xl">From The Blog</h2>
-      <span class="border border-blue-700 w-12 mx-auto block my-8 sm:mb-8"></span>
+      <h2 class="text-white text-center text-xl font-bold sm:text-3xl lg:text-4xl lg:mt-16 lg:mb-4">From The Blog</h2>
+      <span class="border border-blue-700 w-12 mx-auto block my-4 sm:mb-8 lg:w-32 lg:mb-16"></span>
       <div class="relative flex items-center overflow-hidden sm:my-8">
         <!-- btn -->
         <div class="absolute flex justify-between w-full p-4 left-0 z-40">
@@ -430,12 +433,12 @@
             <i class="fa-solid fa-chevron-right text-white px-2"></i>
           </button>
         </div>
-        <!-- !artc                 -->
-        <div class="flex items-center duration-1000 blog">
-          <article >
+        <!-- !contenedor de artc                 -->
+        <div class="flex items-center duration-1000 blog ">
 
+          <article class="">
 
-            <div class="w-screen relative mb-8">
+            <div class="w-screen relative mb-8 sm:w-96 ">
               <figure class="relative w-11/12 mx-auto flex justify-center items-center">
                 <img loading="lazy" src="/src/assets/img/blog1.jpg" alt="" />
 
@@ -454,21 +457,21 @@
                     <span>0 commments</span>
                   </div>
                 </div>
-
-                <div class="px-4 my-2 w-11/12 text-white font-semibold hover:text-blue-700">
-                  <a href="">
-                    <h2>
-                      Remote collaboration, digital twins, and the metaverse iot
-                      applications
-                    </h2>
-                  </a>
-                </div>
               </header>
+              <div class="px-4 my-2 w-11/12 text-white font-semibold hover:text-blue-700">
+
+                <h2>
+                  Remote collaboration, digital twins, and the metaverse iot
+                  applications
+                </h2>
+
+              </div>
+
             </div>
           </article>
 
           <article>
-                        <div class="w-screen relative mb-8 sm:w-80 sm:overflow-hidden">
+            <div class="w-screen relative mb-8 sm:w-96 ">
               <figure class="relative w-11/12 mx-auto flex justify-center items-center">
                 <img loading="lazy" src="/src/assets/img/blog2.jpg" alt="" />
 
@@ -500,9 +503,9 @@
           </article>
 
           <article>
-           
 
-            <div class="w-screen relative mb-8 sm:w-80 sm:overflow-hidden">
+
+            <div class="w-screen relative mb-8 sm:w-96">
               <figure class="relative w-11/12 mx-auto flex justify-center items-center">
                 <img loading="lazy" src="/src/assets/img/blog4.jpg" alt="" />
 
@@ -534,9 +537,9 @@
           </article>
 
           <article>
-            
 
-            <div class="w-screen relative mb-8 sm:w-80 sm:overflow-hidden">
+
+            <div class="w-screen relative mb-8 sm:w-96 ">
               <figure class="relative w-11/12 mx-auto flex justify-center items-center">
                 <img loading="lazy" src="/src/assets/img/blog3.jpg" alt="" />
 
@@ -568,9 +571,9 @@
           </article>
 
           <article>
-           
 
-            <div class="w-screen relative mb-8 sm:w-80 sm:overflow-hidden">
+
+            <div class="w-screen relative mb-8 sm:w-96 ">
               <figure class="relative w-11/12 mx-auto flex justify-center items-center">
                 <img loading="lazy" src="/src/assets/img/blog5.jpg" alt="" />
 
@@ -611,7 +614,10 @@
   </main>
 
 
-  <footer id="footerContainer" class="pt-16 pb-2 my-8"></footer>
+
+  <footer id="footerContainer" class="pt-16 pb-2 my-8">
+    <!-- laskfdolsdakflñs -->
+  </footer>
   <!-- fontawesome -->
   <script src="https://kit.fontawesome.com/b8d7fad790.js" crossorigin="anonymous"></script>
   <!-- db -->

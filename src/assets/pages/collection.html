@@ -16,18 +16,18 @@
      <nav class="w-screen flex items-center justify-between py-4">
       <div class="flex items-center">
         <!-- btn menu  -->
-        <figure class="w-9 mx-2 cursor-pointer">
+        <figure class="w-9 mx-2 cursor-pointer lg:hidden">
           <i id="menu" class="fa-solid fa-bars-staggered text-white text-2xl hover:text-gray-500"></i>
         </figure>
         <!-- logo -->
-        <figure class="w-24">
+        <figure class="w-24 lg:ml-8">
           <img class="drop-shadow-[2px_2px_2px_gray]" src="/src/assets/img/logo2.svg" alt="logo" />
         </figure>
       </div>
       <!-- buscador -->
-      <div  class="w-2/5 flex justify-around [&>label]:cursor-pointer">
+      <div class="w-2/5 flex justify-around [&>label]:cursor-pointer">
 
-        <details id="ACsearch" class="text-white" >
+        <details id="ACsearch" class="text-white">
           <summary class="list-none">
             <i class="fa-solid fa-magnifying-glass  text-white text-xl hover:text-gray-500"></i>
           </summary>
@@ -48,7 +48,7 @@
                         class="fa-solid fa-magnifying-glass "></i>
                     </button>
                   </div>
-                 
+
 
                 </form>
 
@@ -61,9 +61,9 @@
 
           </div>
 
-          <div id="titleSearch" class="bg-[#101010]  w-full absolute top-[70px] left-0 z-50  hidden">
-            <h2  class=" font-semibold my-4 ">Products</h2>
-            <ul id="searchContainer" class="">       
+          <div id="titleSearch" class="bg-[#101010]  w-full absolute top-[70px] left-0 z-50  hidden lg:flex lg:flex-col lg:justify-center lg:w-full lg:bg-transparent">
+            <h2 class=" font-semibold my-4 lg:hidden">Products</h2>
+            <ul id="searchContainer" class="lg:flex lg:flex-col lg:justify-center lg:items-center lg:w-2/6 lg:mx-auto  lg:bg-[#101010]">
           </div>
         </details>
 
@@ -79,15 +79,16 @@
         </label>
         <!-- menu opciones -->
         <ul id="menu-list"
-          class="absolute pl-4 top-0 left-0 w-3/4 h-screen text-white text-l font-semibold leading-[2.5rem] bg-[#1a1a1a] border-r border-r-slate-50 z-50 hidden ">
-          <li class="text-end text-2xl pr-8 pt-8 "> <span class="cursor-pointer" id="closeMenu">X</span></li>
-          
-          <li><a  class="hover:text-orange-500" href="/src/assets/pages/collection.html">Products</a></li>
-          <li><a id="menuFoot" class="hover:text-orange-500" href="#footerContainer">Information</a></li>
-          <li><a class="hover:text-orange-500" href="/src/assets/pages/contact.html">Contact</a></li>
-          <li><a class="hover:text-orange-500" href="#">Blog</a></li>
+          class="absolute pl-4 top-0 left-0 w-3/4 h-screen text-white text-l font-semibold leading-[2.5rem] bg-[#1a1a1a] border-r border-r-slate-50 z-50 hidden lg:flex lg:h-16 lg:justify-evenly lg:items-center lg:bg-transparent lg:border-none lg:left-48 lg:w-2/5 lg:z-10">
+
+          <li class="text-end text-2xl pr-8 pt-8 lg:hidden"> <span class="cursor-pointer" id="closeMenu">X</span></li>
+
+          <li><a class="hover:text-gray-500" href="/src/assets/pages/collection.html">Products</a></li>
+          <li><a id="menuFoot" class="hover:text-gray-500" href="#footerContainer">Information</a></li>
+          <li><a class="hover:text-gray-500" href="/src/assets/pages/contact.html">Contact</a></li>
+          <li><a class="hover:text-gray-500" href="#">Blog</a></li>
           <!-- redes -->
-          <ul class="absolute left-0 bottom-0 w-full flex justify-around bg-neutral-900 p-8">
+          <ul class="absolute left-0 bottom-0 w-full flex justify-around bg-neutral-900 p-8 lg:hidden">
             <li>
               <a href="https://www.facebook.com/?locale=es_LA" target="_blank" rel="noopener noreferrer"><i
                   class="fa-brands fa-facebook w-6 hover:text-gray-500"></i></a>
@@ -104,7 +105,7 @@
         </ul>
         <!-- user menu -->
         <ul id="userMenu"
-          class="border absolute top-[70px] right-0 pl-8 pr-16 py-4 text-white text-lg font-semibold leading-[2.5rem] bg-[#101010] z-50 hidden ">
+          class="border absolute top-[70px] right-0 pl-8 pr-16 py-4 text-white text-lg font-semibold leading-[2.5rem] bg-[#101010] z-50 hidden lg:right-[10%]">
           <li><a id="logeo" class="hover:text-gray-500" href="./assets/pages/login.html">Log in</a></li>
           <li><a id="account" class="hover:text-gray-500" href="./assets/pages/register.html">Register</a></li>
         </ul>
@@ -112,7 +113,7 @@
 
         <!--! shop -->
         <div id="menuShop"
-          class="border overflow-y-auto pb-24 h-screen w-3/4 fixed top-[70px] right-0  p-4 text-white text-lg font-semibold leading-[2.5rem] bg-[#101010] z-50 hidden">
+          class="border overflow-y-auto pb-24 h-screen w-3/4 fixed top-[70px] right-0  p-4 text-white text-lg font-semibold leading-[2.5rem] bg-[#101010] z-50 hidden lg:w-2/5">
           <ul id="menuShopUl"></ul>
 
           <hr class="mb-4 mt-16">

@@ -181,10 +181,11 @@ const init = async () => {
  });
  nextBlog.addEventListener('click', () => {
    if (card >= 1 && card < 5) {   
-    containerBlog.style.transform += "translateX(-20%)";  
+    containerBlog.style.transform += "translateX(-320px)";  
+    
     card++;
   } 
-  
+  console.log(containerBlog.scrollWidth,window.innerWidth);  
  });
 
   renderProd(estado.product[0]);

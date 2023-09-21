@@ -1,4 +1,4 @@
-const btnShop = document.getElementById("shop");
+  const btnShop = document.getElementById("shop");
 const menuShop = document.getElementById("menuShop");
 const menuShopUl = document.getElementById("menuShopUl");
 const overlay = document.getElementById("overlay");
@@ -139,7 +139,7 @@ const templateProductCart = (product) => {
   const { id, image, name, price, cantidad } = product;
   templateResumeCard(product);
   return `
-     <li class="py-4">
+     <li class="py-4 hover:bg-gray-800">
                     <div class="flex gap-4">
                         <img class="w-12 object-cover" src="${image}" alt="${name}">
                         <div class="flex flex-col text-sm">
@@ -233,7 +233,7 @@ const UserActive = () => {
 const templateSearch = (prod) => {
   const {id,name,price,image} = prod
   return `
-   <li class="my-2 w-full"> <a class="flex" href="/src/assets/pages/products.html?id=${id}&name=${name}">
+   <li class="my-2 w-full"> <a class="flex hover:bg-gray-500" href="/src/assets/pages/products.html?id=${id}&name=${name}">
                   <img class="h-10 m-2" src=${image} alt="name">
                   <div>
                     <h3>${name}name</h3>
@@ -264,7 +264,15 @@ window.scrollTo({
   behavior: "smooth"
 });
 });
-//traigo los datos y los filtro por el input
+ACsearch.addEventListener('click', () =>{
+  menuList.classList.add('hidden');
+  menuShop.classList.add('hidden');
+  menuUser.classList.add('hidden');
+  document.body.style.overflow = 'visible';
+
+})
+
+//traigo los datos y los filtro por el input de la  lupa
 search.addEventListener('input',async ()=> {
     let valor = search.value.toLowerCase();
     let products = await requestProd();
@@ -282,6 +290,7 @@ closeSearch.addEventListener("click", () =>{
 search.value = '';
 searchContainer.innerHTML = '';
  titleSearch.classList.add("hidden");
+ overlay.classList.add("hidden");
 });
   //cuando abro la lupa resetea los valores de busqueda
 ACsearch.addEventListener('click', () =>{
