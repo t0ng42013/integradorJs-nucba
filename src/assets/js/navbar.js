@@ -66,7 +66,7 @@ function traerProductos() {
 //HTML NOTIFICATION
 const templateResumeCard = async (producto) => {
 return (cardNotification.innerHTML = `
-<div class=" bg-[#1a1a1a] w-11/12 flex flex-col justify-center items-center mx-auto">
+<div class=" bg-[#1a1a1a] w-11/12 flex flex-col justify-center items-center mx-auto ">
     <div class="flex m-4 justify-between">
         <img class="border" src=${producto.image} alt="${
   producto.name

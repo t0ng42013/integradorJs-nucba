@@ -2,18 +2,17 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProductsAll</title>
-
-    <!-- <link href="/src/dist/output.css" rel="stylesheet" /> -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <link rel="stylesheet" href="./assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProductsAll</title>
+  <link rel="shortcut icon" href="/src/assets/img/productos31_6383.png" type="image/x-icon" />
+  <link rel="stylesheet" href="/src/style.css">
+  <link rel="stylesheet" href="/src/assets/css/style.css" />
 </head>
 
-<body class="bg-[#101010]">
-     <nav class="w-screen flex items-center justify-between py-4">
+<body class="bg-[#101010] text-white lg:overflow-x-hidden 2xl:max-w-[1500px] 2xl:mx-auto relative">
+  <header>
+    <nav class="w-screen flex items-center justify-between py-4 lg:w-full">
       <div class="flex items-center">
         <!-- btn menu  -->
         <figure class="w-9 mx-2 cursor-pointer lg:hidden">
@@ -61,9 +60,11 @@
 
           </div>
 
-          <div id="titleSearch" class="bg-[#101010]  w-full absolute top-[70px] left-0 z-50  hidden lg:flex lg:flex-col lg:justify-center lg:w-full lg:bg-transparent">
+          <div id="titleSearch"
+            class="bg-[#101010]  w-full absolute top-[70px] left-0 z-50  hidden lg:flex lg:flex-col lg:justify-center lg:w-full lg:bg-transparent">
             <h2 class=" font-semibold my-4 lg:hidden">Products</h2>
-            <ul id="searchContainer" class="lg:flex lg:flex-col lg:justify-center lg:items-center lg:w-2/6 lg:mx-auto  lg:bg-[#101010]">
+            <ul id="searchContainer"
+              class="lg:flex lg:flex-col lg:justify-center lg:items-center lg:w-2/6 lg:mx-auto  lg:bg-[#101010]">
           </div>
         </details>
 
@@ -106,8 +107,8 @@
         <!-- user menu -->
         <ul id="userMenu"
           class="border absolute top-[70px] right-0 pl-8 pr-16 py-4 text-white text-lg font-semibold leading-[2.5rem] bg-[#101010] z-50 hidden lg:right-[10%]">
-          <li><a id="logeo" class="hover:text-gray-500" href="./assets/pages/login.html">Log in</a></li>
-          <li><a id="account" class="hover:text-gray-500" href="./assets/pages/register.html">Register</a></li>
+          <li><a id="logeo" class="hover:text-gray-500" href="/src/assets/pages/login.html">Log in</a></li>
+          <li><a id="account" class="hover:text-gray-500" href="/src/assets/pages/register.html">Register</a></li>
         </ul>
 
 
@@ -142,159 +143,171 @@
     </nav>
 
     <section
-        class="bg-[url('https://wallpaperset.com/w/full/8/e/0/5819.jpg')] bg-cover w-full p-16 flex flex-col justify-center items-center text-white">
+       class="bg-[url('https://wallpaperset.com/w/full/8/e/0/5819.jpg')] bg-cover py-16 flex flex-col justify-center items-center md:h-96">
 
-        <h2 id="ProductName" class=" my-4 text-2xl font-semibold">Product</h2>
-        <span><a href="/src/index.html">Home</a></span>
+      <h2 id="ProductName" class=" my-4 text-2xl font-semibold">Product</h2>
+      <span><a href="/src/index.html">Home</a></span>
     </section>
+  </header>
+
+  <main class="relative ">
+     <!-- subir -->
+    <i id="arrowUp"
+      class="hidden fa-solid fa-circle-chevron-up  right-0 bottom-0 m-8 text-4xl animate-bounce hover:text-blue-500 cursor-pointer z-50 2xl:opacity-0"></i>
+
 
     <section>
-        <div id="btnFilterSort">
-            <button class="px-8 py-2 text-white bg-blue-500 my-16 ml-8"> filter by</button>
-            <span></span>
-        </div>
+      <div class="lg:hidden" id="btnFilterSort">
+        <button class="px-8 py-2 text-white bg-blue-500 my-16 ml-8"> filter by</button>
+        <span></span>
+      </div>
+      <!--! nav a trabajar -->
+      <!--! Filter and sort  -->
+      <!-- ************************************************************** -->
+      <nav id="menuFilter&sort"
+        class="fixed top-0 left-0 w-3/4 h-screen text-white text-l font-semibold leading-[2.5rem] bg-[#101010] border-r border-r-slate-50 z-50 hidden lg:w-1/5 lg:absolute lg:top-0 lg:h-auto lg:flex lg:flex-col-reverse lg:border">
+        <h2 class="text-center lg:hidden">Filter and sort </h2>
+        <p id="navProducts" class="text-center lg:hidden">14 products </p>
 
-        <nav id="menuFilter&sort"
-            class="fixed top-0 left-0 w-3/4 h-screen text-white text-l font-semibold leading-[2.5rem] bg-[#101010] border-r border-r-slate-50 z-50 hidden">
-            <h2 class="text-center">Filter and sort </h2>
-            <p id="navProducts" class="text-center">14 products </p>
+        <hr>
 
-            <hr>
+        <div>
+          <details class="py-2 px-4 lg:px-2">
+            <summary class="relative cursor-pointer list-none">
+              <div class="flex  justify-between items-center">
+                <span>Availability</span>
+                <span>
+                  <svg class="w-4" viewBox="0 0 14 10" fill="none" aria-hidden="true" focusable="false"
+                    role="presentation" class="icon icon-arrow" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
+                      fill="currentColor">
+                    </path>
+                  </svg>
+              </div>
+            </summary>
 
-            <div >
-                <details class="py-2 px-4">
-                    <summary class="relative cursor-pointer list-none">
-                        <div class="flex  justify-between items-center">
-                            <span>Availability</span>
-                            <span>
-                                <svg class="w-4" viewBox="0 0 14 10" fill="none" aria-hidden="true" focusable="false"
-                                    role="presentation" class="icon icon-arrow" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
-                                        fill="currentColor">
-                                    </path>
-                                </svg>
-                        </div>
-                    </summary>
+            <div class="absolute top-[100px] left-0 w-full bottom-0 bg-[#101010] z-30 py-1 px-4 lg:static lg:px-0">
+              <!-- btn cerrar details -->
+              <button class="closeDetail w-full flex items-center lg:hidden" aria-expanded="true" type="button">
+                <i class="fa-solid fa-arrow-right rotate-180 mr-4"></i>
+                Availability
+              </button>
+              <ul id="ulConta" role="list">
 
-                    <div class="absolute top-[100px] left-0 w-full bottom-0 bg-[#101010] z-30 py-1 px-4">
-                        <!-- btn cerrar details -->
-                        <button class="closeDetail w-full flex items-center" aria-expanded="true" type="button">
-                            <i class="fa-solid fa-arrow-right rotate-180 mr-4"></i>
-                            Availability
-                        </button>
-                        <ul id="ulConta" role="list">
-                           
-                        </ul>
-                        <!-- botones -->
-                        <div class="relative z-40 flex justify-between pt-16">
-                            <button id="btnClearAvail" class="btnClearAvail px-10 py-1 border">
-                               Clear
-                            </button>
-                            <button id="btnApply" type="button" class="px-10 py-1 border">Apply</button>
-                        </div>
-                    </div>
-
-                </details>
-
-                <details class="py-2 px-4">
-                    <summary class="relative cursor-pointer list-none">
-                        <div class="flex  justify-between items-center">
-                            <span>Price</span>
-                            <span><i class="fa-solid fa-arrow-right"></i></span>
-                        </div>
-                    </summary>
-
-                    <div class="absolute top-[100px] left-0 w-full bottom-0 bg-[#101010] z-30 py-1 px-4">
-                        <button class="closeDetail w-full flex items-center" aria-expanded="true" type="button">
-                            <i class="fa-solid fa-arrow-right rotate-180 mr-4"></i>
-                            Price
-                        </button>
-                        <p id="hightPrice" class="my-4 text-center">The highest price is $370.00</p>
-                        <div class="flex w-full justify-evenly">
-                            <span>$</span>
-                            <input id="iptPriceMin" class="w-2/6 bg-transparent border" type="number" placeholder="from">
-                            <span>$</span>
-                            <input id="iptPriceMax" class="w-2/6 bg-transparent border" type="number" placeholder="to">
-                        </div>
-
-                        <!-- botones -->
-                        <div class="flex justify-between pt-16">
-                            <button class="btnClearAvail px-10 py-1 border">
-                                Clear
-                            </button>
-                            <button id="aplyPrice" type="button" class="px-10 py-1 border">Apply</button>
-                        </div>
-                    </div>
-
-
-                </details>
-
-                <details id="details-brands" class="py-2 px-4">
-                    <summary class="relative cursor-pointer list-none">
-                        <div id="brandFil" class="flex  justify-between items-center">
-                            <span>Brand</span>
-                            <span><i class="fa-solid fa-arrow-right"></i></span>
-                        </div>
-                    </summary>
-
-                    <div class="absolute top-[100px] left-0 w-full bottom-0 bg-[#101010] z-30 py-1 px-4">
-                        <button class="closeDetail w-full flex items-center" aria-expanded="true" type="button">
-                            <i class="fa-solid fa-arrow-right rotate-180 mr-4"></i>
-                            Brand
-                        </button>
-                        <ul class="overflow-y-scroll h-2/5" id="ulBrand" role="list">
-                            
-                        </ul>
-                        <!-- botones -->
-                        <div class="flex justify-between pt-16">
-                            <button class="btnClearAvail px-10 py-1 border">
-                               Clear
-                            </button>
-                            <button id="btnBrandAppl" type="button" class="px-10 py-1 border">Apply</button>
-                        </div>
-                    </div>
-
-                </details>
+              </ul>
+              <!-- botones -->
+              <div class="relative z-40 flex justify-between pt-16 lg:justify-start">
+                <button id="btnClearAvail" class="btnClearAvail px-10 py-1 border">
+                  Clear
+                </button>
+                <button id="btnApply" type="button" class="px-10 py-1 border">Apply</button>
+              </div>
             </div>
 
-            <hr>
+          </details>
 
-            <div class="p-4">
-                <label for="SortBy-mobile">sort by:</label>
-                <select name="sort_by" class="select__select bg-transparent border py-4 [&_option]:bg-[#101010]" id="SortBy-mobile"
-                    aria-describedby="a11y-refresh-page-message">
-                    <option value="title-ascending">Alphabetically, A-Z</option>
-                    <option value="title-descending">Alphabetically, Z-A</option>
-                    <option value="price-ascending">Price, low to high</option>
-                    <option value="price-descending">Price, high to low</option>
-                </select>
-             
-                <div class="flex justify-between pt-16">
-                    <button class="btnClearAvail px-10 py-1 border">
-                        Clear
-                    </button>
-                </div>
+          <details class="py-2 px-4">
+            <summary class="relative cursor-pointer list-none">
+              <div class="flex  justify-between items-center">
+                <span>Price</span>
+                <span><i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </summary>
 
+            <div class="absolute top-[100px] left-0 w-full bottom-0 bg-[#101010] z-30 py-1 px-4 lg:static lg:px-0">
+              <button class="closeDetail w-full flex items-center lg:hidden" aria-expanded="true" type="button">
+                <i class="fa-solid fa-arrow-right rotate-180 mr-4"></i>
+                Price
+              </button>
+              <p id="hightPrice" class="my-4 text-center">The highest price is $370.00</p>
+              <div class="flex w-full justify-evenly">
+                <span>$</span>
+                <input id="iptPriceMin" class="w-2/6 bg-transparent border" type="number" placeholder="from">
+                <span>$</span>
+                <input id="iptPriceMax" class="w-2/6 bg-transparent border" type="number" placeholder="to">
+              </div>
+
+              <!-- botones -->
+              <div class="flex justify-between pt-16">
+                <button class="btnClearAvail px-10 py-1 border">
+                  Clear
+                </button>
+                <button id="aplyPrice" type="button" class="px-10 py-1 border">Apply</button>
+              </div>
             </div>
 
-        </nav>
-        <!-- contenedor productos -->
-        <div class="flex flex-wrap gap-4 justify-center items-center" id="productContainer"></div>
 
-        <!-- efecto overlay -->
-        <div id="overlay" class="bg-black opacity-90 blur-xl fixed top-[70px] left-0 w-screen h-screen z-10 hidden ">
+          </details>
+
+          <details id="details-brands" class="py-2 px-4">
+            <summary class="relative cursor-pointer list-none">
+              <div id="brandFil" class="flex  justify-between items-center ">
+                <span>Brand</span>
+                <span><i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </summary>
+
+            <div class="absolute top-[100px] left-0 w-full bottom-0 bg-[#101010] z-30 py-1 px-4 lg:static lg:px-0">
+              <button class="closeDetail w-full flex items-center lg:hidden" aria-expanded="true" type="button">
+                <i class="fa-solid fa-arrow-right rotate-180 mr-4"></i>
+                Brand
+              </button>
+              <ul class="overflow-y-scroll h-2/5" id="ulBrand" role="list">
+
+              </ul>
+              <!-- botones -->
+              <div class="flex justify-between pt-16 lg:hidden">
+                <button class="btnClearAvail px-10 py-1 border">
+                  Clear
+                </button>
+                <button id="btnBrandAppl" type="button" class="px-10 py-1 border">Apply</button>
+              </div>
+            </div>
+
+          </details>
         </div>
+
+        <hr>
+          <!--! sort by -->
+        <div class="p-4">
+          <label for="SortBy-mobile">sort by:</label>
+          <select name="sort_by" class="select__select bg-transparent border py-4 [&_option]:bg-[#101010]"
+            id="SortBy-mobile" aria-describedby="a11y-refresh-page-message">
+            <option value="title-ascending">Alphabetically, A-Z</option>
+            <option value="title-descending">Alphabetically, Z-A</option>
+            <option value="price-ascending">Price, low to high</option>
+            <option value="price-descending">Price, high to low</option>
+          </select>
+
+          <div class="flex justify-between pt-16 lg:hidden">
+            <button class="btnClearAvail px-10 py-1 border">
+              Clear
+            </button>
+          </div>
+
+        </div>
+
+      </nav>
+      
+      <!-- contenedor productos -->
+      <div class="flex flex-wrap gap-4 justify-center items-center lg:w-2/3 lg:ml-auto lg:mr-16 lg:mt-24" id="productContainer"></div>
+
+      <!-- efecto overlay -->
+      <div id="overlay" class="bg-black opacity-90 blur-xl fixed top-[70px] left-0 w-screen h-screen z-10 hidden ">
+      </div>
     </section>
 
-    <footer id="footerContainer" class="pt-16 pb-2 my-8"></footer>
-    <!-- fontawesome -->
-    <script src="https://kit.fontawesome.com/b8d7fad790.js" crossorigin="anonymous"></script>
-    <!-- foot -->
-    <script src="/src/assets/js/request.js"></script>
-    <script src="/src/assets/js/newsletter.js"></script>
-    <script src="/src/assets/js/navbar.js"></script>
-    <script src="/src/assets/js/collection.js"></script>
+  </main>
+
+  <footer id="footerContainer" class="pt-16 pb-2 my-8"></footer>
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/b8d7fad790.js" crossorigin="anonymous"></script>
+  <!-- foot -->
+  <script src="/src/assets/js/request.js"></script>
+  <script src="/src/assets/js/newsletter.js"></script>
+  <script src="/src/assets/js/navbar.js"></script>
+  <script src="/src/assets/js/collection.js"></script>
 
 
 </body>

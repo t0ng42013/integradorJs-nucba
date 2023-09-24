@@ -31,7 +31,7 @@ const createProdTemplate = (productos) => {
   return `
         <div class="flex flex-col  w-32 my-4 sm:w-44 sm:ml-4">
             <figure class="overflow-hidden">
-                <img class="hover:scale-125 transition" src="${image}" alt="${category}">
+                <img class="hover:scale-125 transition xl:mx-auto xl:h-40" src="${image}" alt="${category}">
             </figure>
             <!-- card-info -->
             <div class="flex flex-col justify-center items-center my-2 overflow-hidden">

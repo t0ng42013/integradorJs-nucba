@@ -373,6 +373,7 @@ select.addEventListener("change", ({ target }) => {
   });
 });
 
+
 const load = () => {
   document.addEventListener("DOMContentLoaded", obtenerCantProductos);
   closeDetail.forEach((btn) => btn.addEventListener("click", closeDetailFunc));

@@ -6,17 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GameBattle | Integrador JS</title>
 
-  <link rel="shortcut icon" href="./assets/img/search.svg" type="image/x-icon" />
-
-  <!-- <link href="/src/dist/output.css" rel="stylesheet" /> -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
+  <link rel="shortcut icon" href="./assets/img/productos31_6383.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
-<body class="bg-[#101010] text-white">
+<body class="bg-[#101010] text-white lg:overflow-x-hidden 2xl:max-w-[1500px] 2xl:mx-auto">
   <header>
-    <nav class="w-screen flex items-center justify-between py-4">
+    <nav class="w-screen flex items-center justify-between py-4 lg:w-full">
       <div class="flex items-center">
         <!-- btn menu  -->
         <figure class="w-9 mx-2 cursor-pointer lg:hidden">
@@ -111,8 +108,8 @@
         <!-- user menu -->
         <ul id="userMenu"
           class="border absolute top-[70px] right-0 pl-8 pr-16 py-4 text-white text-lg font-semibold leading-[2.5rem] bg-[#101010] z-50 hidden lg:right-[10%]">
-          <li><a id="logeo" class="hover:text-gray-500" href="./assets/pages/login.html">Log in</a></li>
-          <li><a id="account" class="hover:text-gray-500" href="./assets/pages/register.html">Register</a></li>
+          <li><a id="logeo" class="hover:text-gray-500" href="/src/assets/pages/login.html">Log in</a></li>
+          <li><a id="account" class="hover:text-gray-500" href="/src/assets/pages/register.html">Register</a></li>
         </ul>
 
 
@@ -146,7 +143,7 @@
       </div>
     </nav>
     <!-- seccion de banner -->
-    <section class="w-screen flex relative overflow-x-hidden">
+    <section class="w-screen flex relative overflow-x-hidden lg:w-full">
       <!-- banner 1 -->
       <figure id="banner1" class="w-screen min-w-full relative flex flex-col items-center justify-center duration-1000">
         <img class="opacity-40" src="./assets/img/banner1.jpg" alt="" />
@@ -222,11 +219,11 @@
   <main>
     <!-- subir -->
     <i id="arrowUp"
-      class="hidden fa-solid fa-circle-chevron-up  right-0 bottom-0 m-8 text-4xl animate-bounce hover:text-blue-500 cursor-pointer z-50"></i>
+      class="hidden fa-solid fa-circle-chevron-up  right-0 bottom-0 m-8 text-4xl animate-bounce hover:text-blue-500 cursor-pointer z-50 2xl:opacity-0"></i>
 
 
     <section class="my-10 grid gap-8 overflow-hidden sm:grid sm:grid-cols-2 sm:gap-0">
-      <div class="bg-[url('/src/assets/img/btf.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center lg:h-56">
+      <div class="bg-[url('/src/assets/img/btf.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center lg:h-56 xl:h-80">
         <div class="w-1/2 ml-auto mb-4 py-2">
           <p class="text-lg scroll-reveal">Best Action Game</p>
           <h2 class="uppercase font-serif font-bold my-4 text-xl scroll-reveal">
@@ -236,7 +233,8 @@
         </div>
       </div>
 
-      <div class="bg-[url('/src/assets/img/Banner2.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center  lg:h-56">
+      <div
+        class="bg-[url('/src/assets/img/Banner2.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center  lg:h-56 xl:h-80">
         <div class="w-1/2 ml-auto mb-4 py-2">
           <p class="text-lg scroll-reveal">3D Pixel Racing</p>
           <h2 class="uppercase font-serif font-bold my-4 text-xl scroll-reveal">
@@ -255,7 +253,7 @@
       </h2>
       <span class="border border-blue-700 w-12 mx-auto block my-4 sm:mb-8 lg:w-32 lg:mb-16"></span>
 
-      <div class="w-screen relative mb-8">
+      <div class="w-screen relative mb-8 lg:w-full">
         <figure class="relative w-11/12 mx-auto flex justify-center items-center mb-16">
           <div id="contentSpl" class="flex gap-6 overflow-hidden sm:">
             <img class="sm:w-80 sm:h-80 sm:object-cover" src="/src/assets/img/special1.jpg" alt="image" />
@@ -280,7 +278,7 @@
       </div>
     </section>
 
-    <hr class="my-8" />
+    <hr class="my-8 w-11/12 mx-auto" />
 
     <!-- our Products -->
 
@@ -301,14 +299,14 @@
       </div>
       <div class="w-screen flex justify-center my-8">
         <button id="btnView" type="button"
-          class="bg-gray-500 px-16 py-2 font-semibold text-white hover:bg-white hover:text-gray-500">
+          class="bg-gray-500 px-16 py-2 font-semibold text-white hover:bg-white hover:text-gray-500 xl:my-16">
           View All Pro
         </button>
       </div>
     </section>
 
     <section
-      class="bg-[url('https://wallpaperset.com/w/full/9/4/c/5965.jpg')] bg-fixed bg-cover sm:bg-contain sm:bg-center sm:bg-no-repeat p-8 relative">
+      class="bg-[url('https://wallpaperset.com/w/full/9/4/c/5965.jpg')] bg-fixed bg-cover sm:bg-contain sm:bg-center sm:bg-no-repeat p-8 relative xl:bg-cover">
       <div class="lg:my-16">
         <figure class="flex justify-center items-center mb-8">
           <img class="w-28 border-gray-500 border rounded-full mx-auto" loading="lazy" src="/src/assets/img/avatar.jpg"
@@ -346,7 +344,8 @@
     </section>
 
     <section class="my-10 overflow-hidden sm:grid sm:grid-cols-2">
-      <div class="bg-[url('/src/assets/img/Banner3.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center lg:h-56">
+      <div
+        class="bg-[url('/src/assets/img/Banner3.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center lg:h-56 xl:h-80">
         <div class="w-1/2 ml-auto mb-4 py-2">
           <p class="text-lg scroll-reveal">Best Action Game</p>
           <h2 class="uppercase font-serif font-bold my-4 text-xl scroll-reveal">
@@ -356,7 +355,8 @@
         </div>
       </div>
 
-      <div class="bg-[url('/src/assets/img/Banner4.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center lg:h-56">
+      <div
+        class="bg-[url('/src/assets/img/Banner4.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center lg:h-56 xl:h-80">
         <div class="w-1/2 ml-auto mb-4 py-2">
           <p class="text-lg scroll-reveal">3D Pixel Racing</p>
           <h2 class="uppercase font-serif font-bold my-4 text-xl scroll-reveal">
