@@ -6,7 +6,7 @@
     "brand": "Logitech",
     "price": 129.99,
     "description": "El mouse para juegos Logitech G502 Hero cuenta con un sensor HERO 25K de próxima generación que proporciona una precisión incomparable y un seguimiento de 25.600 DPI. También tiene 11 botones programables, una rueda de desplazamiento hiperrápida y un diseño ergonómico que se adapta a cualquier estilo de agarre.",
-    "image": "/src/assets/img/1058-producto-2-9547.jpg",
+    "image": "/assets/img/1058-producto-2-9547.jpg",
     "cantidad": 25
   },
   {
@@ -16,7 +16,7 @@
     "brand": "Razer",
     "price": 129.99,
     "description": "El mouse para juegos Razer Viper Ultimate es un mouse inalámbrico ligero y ultrarrápido con un sensor óptico Razer Focus+ de 20.000 DPI. También tiene 8 botones programables, un cable Speedflex y un diseño ergonómico que se adapta a la forma de tu mano.",
-    "image": "/src/assets/img/RazerViperUltimate.jpg",
+    "image": "/assets/img/RazerViperUltimate.jpg",
     "cantidad": 55
   },
   {
@@ -26,7 +26,7 @@
     "brand": "ASUS",
     "price": 79.99,
     "description": "El mouse para juegos ASUS ROG Gladius III es un mouse ergonómico para juegos con un sensor óptico PixArt PMW3360 de 12.000 DPI. También tiene 7 botones programables, una rueda de desplazamiento de 16.000 DPI y un diseño duradero que puede soportar los rigores del juego.",
-    "image": "/src/assets/img/ASUSROGGladiusIII.jpg",
+    "image": "/assets/img/ASUSROGGladiusIII.jpg",
     "cantidad": 20
   },
   {
@@ -36,7 +36,7 @@
     "brand": "Corsair",
     "price": 109.99,
     "description": "El mouse para juegos Corsair Sabre RGB Pro es un mouse para juegos ambidiestro con un sensor óptico PMW3391 de 18.000 DPI. También tiene 6 botones programables, una rueda de desplazamiento de 18.000 DPI y un diseño ligero que lo hace ideal para sesiones de juego prolongadas.",
-    "image": "/src/assets/img/CorsairSabreRGBPro.jpg",
+    "image": "/assets/img/CorsairSabreRGBPro.jpg",
     "cantidad": 45
   },
   {
@@ -46,7 +46,7 @@
     "brand": "HyperX",
     "price": 49.99,
     "description": "El mouse para juegos HyperX Pulsefire Haste es un mouse para juegos ligero y duradero con un sensor óptico Pixart 3325 de 8.500 DPI. También tiene 6 botones programables, una rueda de desplazamiento de 8.500 DPI y un diseño honeycomb que lo hace ideal para sesiones de juego prolongadas.",
-    "image": "/src/assets/img/HyperXPulsefireHaste.jpg",
+    "image": "/assets/img/HyperXPulsefireHaste.jpg",
     "cantidad": 5
   },
   {
@@ -56,7 +56,7 @@
     "brand": "Logitech",
     "price": 199.99,
     "description": "El teclado para juegos Logitech G915 TKL es un teclado mecánico inalámbrico con interruptores GX de baja latencia y retroiluminación RGB LIGHTSYNC personalizable. El teclado tiene un diseño compacto y ligero que lo hace perfecto para juegos portátiles. También cuenta con una batería de larga duración que puede durar hasta 40 horas con una sola carga.",
-    "image": "/src/assets/img/LogitechG915TKL.jpg",
+    "image": "/assets/img/LogitechG915TKL.jpg",
     "cantidad": 30
   },
   {
@@ -66,7 +66,7 @@
     "brand": "Logitech",
     "price": 199.99,
     "description": "Los auriculares para juegos Logitech G Pro X son unos auriculares con cable para juegos con audio envolvente DTS Headphone:X 7.1, micrófono cardioide con cancelación de ruido y almohadillas de espuma viscoelástica para una comodidad prolongada.",
-    "image": "/src/assets/img/LogitechGProX.jpg",
+    "image": "/assets/img/LogitechGProX.jpg",
     "cantidad": 46
   },
   {
@@ -76,7 +76,7 @@
     "brand": "Razer",
     "price": 299.99,
     "description": "Los auriculares para juegos Razer BlackShark V2 Pro son unos auriculares inalámbricos para juegos con audio envolvente THX Spatial Audio, micrófono HyperClear Cardioid y almohadillas de espuma viscoelástica para una comodidad prolongada.",
-    "image": "/src/assets/img/RazerBlackSharkV2Pro.jpg",
+    "image": "/assets/img/RazerBlackSharkV2Pro.jpg",
     "cantidad": 2
   },
   {
@@ -86,7 +86,7 @@
     "brand": "ASUS",
     "price": 149.99,
     "description": "Los auriculares para juegos ASUS ROG Strix Go 2.4 son unos auriculares inalámbricos para juegos con audio envolvente ASUS Essence, micrófono omnidireccional y almohadillas de espuma viscoelástica para una comodidad prolongada.",
-    "image": "/src/assets/img/ASUSROGStrixGo2.4.jpg",
+    "image": "/assets/img/ASUSROGStrixGo2.4.jpg",
     "cantidad": 8
   },
   {
@@ -96,7 +96,7 @@
     "brand": "Corsair",
     "price": 199.99,
     "description": "Los auriculares para juegos Corsair HS80 RGB Wireless son unos auriculares inalámbricos para juegos con audio envolvente Dolby Atmos, micrófono omnidireccional con cancelación de ruido y almohadillas de espuma viscoelástica para una comodidad prolongada.",
-    "image": "/src/assets/img/CorsairHS8RGBWireless.jpg",
+    "image": "/assets/img/CorsairHS8RGBWireless.jpg",
     "cantidad": 17
   },
   {
@@ -106,7 +106,7 @@
     "brand": "ASUS",
     "price": 1.499,
     "description": "El monitor para juegos ASUS ROG Swift PG27UQ es un monitor de 27 pulgadas con resolución 4K, frecuencia de actualización de 144 Hz, tiempo de respuesta de 1 ms y compatibilidad con G-Sync Ultimate.",
-    "image": "/src/assets/img/ASUSROGSwift.jpg",
+    "image": "/assets/img/ASUSROGSwift.jpg",
     "cantidad": 13
   },
   {
@@ -116,7 +116,7 @@
     "brand": "Acer",
     "price": 1.499,
     "description": "El monitor para juegos Acer Predator X27 es un monitor de 27 pulgadas con resolución 4K, frecuencia de actualización de 144 Hz, tiempo de respuesta de 1 ms y compatibilidad con G-Sync Ultimate.",
-    "image": "/src/assets/img/AcerPredatorX27.jpg",
+    "image": "/assets/img/AcerPredatorX27.jpg",
     "cantidad": 4
   },
   {
@@ -126,7 +126,7 @@
     "brand": "LG",
     "price": 1.299,
     "description": "El monitor para juegos LG UltraGear 27GN950 es un monitor de 27 pulgadas con resolución 4K, frecuencia de actualización de 144 Hz, tiempo de respuesta de 1 ms y compatibilidad con G-Sync Ultimate. También cuenta con una pantalla Nano IPS que ofrece colores precisos y vivos.",
-    "image": "/src/assets/img/LGUltraGear.jpg",
+    "image": "/assets/img/LGUltraGear.jpg",
     "cantidad": 2
   },
   {
@@ -136,7 +136,7 @@
     "brand": "Samsung",
     "price": 2.599,
     "description": "El monitor para juegos Samsung Odyssey Neo G9 es un monitor de 49 pulgadas con resolución 1440p, frecuencia de actualización de 240 Hz, tiempo de respuesta de 1 ms y compatibilidad con G-Sync Ultimate. También cuenta con una pantalla QLED que ofrece colores vibrantes y detalles nítidos.",
-    "image": "/src/assets/img/SamsungOdyssey.jpg",
+    "image": "/assets/img/SamsungOdyssey.jpg",
     "cantidad": 1
   },
   {
@@ -146,7 +146,7 @@
     "brand": "ASUS",
     "price": 1.999,
     "description": "El monitor para juegos ASUS ROG Swift PG35VQ es un monitor de 35 pulgadas con resolución 3440x1440, frecuencia de actualización de 165 Hz, tiempo de respuesta de 1 ms y compatibilidad con G-Sync Ultimate. También cuenta con una pantalla IPS que ofrece una amplia gama de colores y ángulos de visión amplios.",
-    "image": "/src/assets/img/ASUSROG.jpg",
+    "image": "/assets/img/ASUSROG.jpg",
     "cantidad": 15
   },
   {
@@ -156,7 +156,7 @@
     "brand": "Acer",
     "price": 1.999,
     "description": "El monitor para juegos Acer Predator X35 es un monitor de 35 pulgadas con resolución 3440x1440, frecuencia de actualización de 165 Hz, tiempo de respuesta de 1 ms y compatibilidad con G-Sync Ultimate. También cuenta con una pantalla IPS que ofrece una amplia gama de colores y ángulos de visión amplios.",
-    "image": "/src/assets/img/juegosAcerpredatorX35.jpg",
+    "image": "/assets/img/juegosAcerpredatorX35.jpg",
     "cantidad": 8
   },
   {
@@ -166,7 +166,7 @@
     "brand": "Dell",
     "price": 1.899,
     "description": "El monitor para juegos Dell Alienware AW3423DW es un monitor de 34 pulgadas con resolución 3440x1440, frecuencia de actualización de 175 Hz, tiempo de respuesta de 1 ms y compatibilidad con G-Sync Ultimate. También cuenta con una pantalla OLED que ofrece colores increíblemente precisos y negros profundos.",
-    "image": "/src/assets/img/ellAlienware.jpg",
+    "image": "/assets/img/ellAlienware.jpg",
     "cantidad": 11
   }
 ]

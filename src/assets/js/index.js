@@ -37,7 +37,7 @@ const createProdTemplate = (productos) => {
             <div class="flex flex-col justify-center items-center my-2 overflow-hidden">
                 <span></span>
                 <span class="text-white text-center cursor-pointer">
-                     <a href="/src/assets/pages/products.html?id=${id}&name=${name}">${name}</a>
+                     <a href="/assets/pages/products.html?id=${id}&name=${name}">${name}</a>
                 </span>
                 <span class="text-gray-500 font-semibold">$${price}</span>
             </div>
@@ -101,7 +101,7 @@ const divideProduct = (size, products) => {
 };
 
 const productsAll = (productosData) => {
-  window.location.href = ('/src/assets/pages/collection.html');
+  window.location.href = ('/assets/pages/collection.html');
 };
 
  const bannerFun = () => {
