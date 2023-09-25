@@ -23,6 +23,7 @@ const searchContainer = document.getElementById("searchContainer");
 const titleSearch = document.getElementById("titleSearch");
 const menuFoot = document.getElementById("menuFoot");
 const arrowUp = document.getElementById("arrowUp");
+const formSearch = document.getElementById("formSearch");
 
 
 
@@ -273,18 +274,7 @@ ACsearch.addEventListener('click', () =>{
 
 })
 
-//traigo los datos y los filtro por el input de la  lupa
-search.addEventListener('input',async (e)=> {
-e.preventDefault();
-    let valor = search.value.toLowerCase();
-    let products = await requestProd();
 
-    resul = products.filter( product =>
-      product.name.toLowerCase().includes(valor) 
-    )
-     titleSearch.classList.remove("hidden");
-    searchContainer.innerHTML += resul.map(product => templateSearch(product)).join('');
-});
 
 //cerrar details search
 closeSearch.addEventListener("click", () =>{
@@ -301,8 +291,29 @@ ACsearch.addEventListener('click', () =>{
  
 });
 
+const formSearchProduct = (e) =>{
+  e.preventDefault();
+  
+  //traigo los datos y los filtro por el input de la  lupa
+  search.addEventListener("input", async () => {
+    let valor = search.value.toLowerCase();
+    let products = await requestProd();
+
+    resul = products.filter((product) =>
+      product.name.toLowerCase().includes(valor)
+    );
+    titleSearch.classList.remove("hidden");
+    searchContainer.innerHTML += resul
+      .map((product) => templateSearch(product))
+      .join("");
+  });
+};
+
+
 window.addEventListener("DOMContentLoaded", renderMiniCard);
 window.addEventListener("DOMContentLoaded", UserActive);
+formSearch.addEventListener("submit", formSearchProduct);
+
 window.addEventListener("DOMContentLoaded", ()=>{
   window.addEventListener("scroll", () => {
     arrowUp.style.display = "none";
