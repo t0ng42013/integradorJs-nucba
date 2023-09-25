@@ -199,6 +199,13 @@ const renderMiniCard = async () => {
 const btnBuyActive = async () => {
  let compras =  await cantidadCompras()
  !compras?btnBuy.style.cursor ='not-allowed':btnBuy.style.cursor='pointer'; 
+ if(!compras) {
+  btnBuy.setAttribute('disabled', 'disabled');
+  
+ }else{
+  btnBuy.removeAttribute('disabled', '');
+  
+ }
 };
 
 //funcion para boton de compras comprueba la session storage
@@ -208,6 +215,10 @@ if(getActiveUser() === null){
   window.location.href = "/assets/pages/login.html";
   return;
 }
+guardarProductos("");
+setTimeout(() => {
+  window.location.href = "/index.html";
+}, 1000);
 alert('Gracias por su compra!');
 };
 //funcion para menejo de usuario y logeo

@@ -3,7 +3,7 @@ const inputEmail = document.getElementById('email');
 const inputPassword = document.getElementById('password');
 const message = document.getElementById("message-error");
 
-const users = JSON.parse(localStorage.getItem('users'));
+const users = JSON.parse(localStorage.getItem('users')) || [];
 
 const saveToSessionStorage = (user) => {
   sessionStorage.setItem("activeUser", JSON.stringify(user));

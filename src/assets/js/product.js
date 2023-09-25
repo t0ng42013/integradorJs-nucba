@@ -99,6 +99,21 @@ btnCart.addEventListener("click", async () => {
 });
 
 window.addEventListener('DOMContentLoaded',renderMiniCard());
-btnBuyNow.addEventListener("click", () => BuyNow());
+btnBuyNow.addEventListener("click",async() =>{
+let compras = await cantidadCompras();
+console.log(compras) 
+if (compras === 0 ) {
+   btnBuy.setAttribute("disabled", "disabled");
+   
+ } else {
+   btnBuy.removeAttribute("disabled", "");
+   BuyNow();
+   guardarProductos('');
+   setTimeout(() => {
+    window.location.href = "/index.html";
+
+   }, 1000);
+ }
+});
 
 
