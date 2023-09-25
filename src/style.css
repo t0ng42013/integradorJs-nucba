@@ -1090,20 +1090,20 @@ video {
   background-image: url(${background});
 }
 
-.bg-\[url\(\'\/src\/assets\/img\/Banner2\.jpg\'\)\] {
-  background-image: url('/src/assets/img/Banner2.jpg');
+.bg-\[url\(\'\/assets\/img\/Banner2\.jpg\'\)\] {
+  background-image: url('/assets/img/Banner2.jpg');
 }
 
-.bg-\[url\(\'\/src\/assets\/img\/Banner3\.jpg\'\)\] {
-  background-image: url('/src/assets/img/Banner3.jpg');
+.bg-\[url\(\'\/assets\/img\/Banner3\.jpg\'\)\] {
+  background-image: url('/assets/img/Banner3.jpg');
 }
 
-.bg-\[url\(\'\/src\/assets\/img\/Banner4\.jpg\'\)\] {
-  background-image: url('/src/assets/img/Banner4.jpg');
+.bg-\[url\(\'\/assets\/img\/Banner4\.jpg\'\)\] {
+  background-image: url('/assets/img/Banner4.jpg');
 }
 
-.bg-\[url\(\'\/src\/assets\/img\/btf\.jpg\'\)\] {
-  background-image: url('/src/assets/img/btf.jpg');
+.bg-\[url\(\'\/assets\/img\/btf\.jpg\'\)\] {
+  background-image: url('/assets/img/btf.jpg');
 }
 
 .bg-\[url\(\'https\:\/\/wallpaperset\.com\/w\/full\/8\/e\/0\/5819\.jpg\'\)\] {

@@ -205,6 +205,7 @@ const BuyNow = () => {
 
 if(getActiveUser() === null){
   window.location.href = "/assets/pages/login.html";
+  return;
 }
 alert('Gracias por su compra!');
 };
