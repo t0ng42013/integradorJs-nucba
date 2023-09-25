@@ -274,7 +274,8 @@ ACsearch.addEventListener('click', () =>{
 })
 
 //traigo los datos y los filtro por el input de la  lupa
-search.addEventListener('input',async ()=> {
+search.addEventListener('input',async (e)=> {
+e.preventDefault();
     let valor = search.value.toLowerCase();
     let products = await requestProd();
 

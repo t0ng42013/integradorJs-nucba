@@ -119,7 +119,7 @@ const createFooter = () => `
         <p class="my-4 text-gray-500">There are many variations of passages of form humour, or randomised</p>
         
         <form id="form_news" class="relative w-full flex justify-center items-center">
-        <input class="w-full px-4 py-2 my-4 peer" type="email" name="" id="newsletter--footer" placeholder="Your email" required=""
+        <input class="w-full px-4 py-2 my-4 peer text-black" type="email" name="" id="newsletter--footer" placeholder="Your email" required=""
         autocomplete="email" id="newsletter">
         <label for="newsletter--footer" class="absolute pl-4 pointer-events-none left-0 peer-focus:text-[8px] peer-focus:top-4 peer-[:not(:placeholder-shown)]:text-[8px] peer-[:not(:placeholder-shown)]:top-4">Your email</label>
         <button id="subscribe" type="submit" class="text-[0px] flex justify-center items-center">
