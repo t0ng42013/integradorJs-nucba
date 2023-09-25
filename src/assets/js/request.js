@@ -1,6 +1,6 @@
 const requestProd = async () => {
 try {
-      const response = await fetch("/src/assets/db/data.json");
+      const response = await fetch("/assets/db/data.json");
       const data = await response.json();
       
       return data;
