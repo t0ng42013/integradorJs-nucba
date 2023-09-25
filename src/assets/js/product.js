@@ -8,6 +8,7 @@ const btnMenos = document.getElementById("btnMenos");
 const iptNumber = document.getElementById("iptNumber");
 const btnMas = document.getElementById("btnMas");
 const btnCart = document.getElementById("btnCart");
+const btnBuyNow = document.getElementById("btnBuyNow");
 
 const PRODUCT_ID_PARAM = "id";
 
@@ -98,6 +99,6 @@ btnCart.addEventListener("click", async () => {
 });
 
 window.addEventListener('DOMContentLoaded',renderMiniCard());
-
+btnBuyNow.addEventListener("click", () => BuyNow());
 
 
