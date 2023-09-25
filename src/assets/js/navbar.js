@@ -274,7 +274,18 @@ ACsearch.addEventListener('click', () =>{
 
 })
 
+//traigo los datos y los filtro por el input de la  lupa
+search.addEventListener('input',async ()=> {
 
+    let valor = search.value.toLowerCase();
+    let products = await requestProd();
+
+    resul = products.filter( product =>
+      product.name.toLowerCase().includes(valor) 
+    )
+     titleSearch.classList.remove("hidden");
+    searchContainer.innerHTML += resul.map(product => templateSearch(product)).join('');
+});
 
 //cerrar details search
 closeSearch.addEventListener("click", () =>{
@@ -293,20 +304,6 @@ ACsearch.addEventListener('click', () =>{
 
 const formSearchProduct = (e) =>{
   e.preventDefault();
-  
-  //traigo los datos y los filtro por el input de la  lupa
-  search.addEventListener("input", async () => {
-    let valor = search.value.toLowerCase();
-    let products = await requestProd();
-
-    resul = products.filter((product) =>
-      product.name.toLowerCase().includes(valor)
-    );
-    titleSearch.classList.remove("hidden");
-    searchContainer.innerHTML += resul
-      .map((product) => templateSearch(product))
-      .join("");
-  });
 };
 
 
