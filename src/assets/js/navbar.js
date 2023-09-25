@@ -1,4 +1,4 @@
-  const btnShop = document.getElementById("shop");
+const btnShop = document.getElementById("shop");
 const menuShop = document.getElementById("menuShop");
 const menuShopUl = document.getElementById("menuShopUl");
 const overlay = document.getElementById("overlay");
@@ -29,17 +29,17 @@ const formSearch = document.getElementById("formSearch");
 
 //funcion para navegacion de nav
 const toggleElement = (element1, element2, element3, element4) => {
-    element1.classList.toggle("hidden");  
-    element3.classList.add("hidden");
-    element4.classList.add("hidden");
+  element1.classList.toggle("hidden");
+  element3.classList.add("hidden");
+  element4.classList.add("hidden");
 
-    element1.classList.contains("hidden")
-    ?element2.classList.add("hidden")
-    :element2.classList.remove("hidden");
+  element1.classList.contains("hidden")
+    ? element2.classList.add("hidden")
+    : element2.classList.remove("hidden");
 
-     element1.classList.contains("hidden")
-     ? document.body.style.overflow = "visible"
-     : document.body.style.overflow = "hidden"
+  element1.classList.contains("hidden")
+    ? document.body.style.overflow = "visible"
+    : document.body.style.overflow = "hidden"
 
 }
 
@@ -66,17 +66,15 @@ function traerProductos() {
 /*************************CARD NOTIFICATION****************/
 //HTML NOTIFICATION
 const templateResumeCard = async (producto) => {
-return (cardNotification.innerHTML = `
+  return (cardNotification.innerHTML = `
 <div class=" bg-[#1a1a1a] w-11/12 flex flex-col justify-center items-center mx-auto ">
     <div class="flex m-4 justify-between">
-        <img class="border" src=${producto.image} alt="${
-  producto.name
-}" width="70" height="70" loading="lazy">
+        <img class="border" src=${producto.image} alt="${producto.name
+    }" width="70" height="70" loading="lazy">
 
          <div class=" w-3/4 pl-8">
-        <h3 class="cart-notification-product__name h4 font-semibold">${
-          producto.name
-        }</h3></div>
+        <h3 class="cart-notification-product__name h4 font-semibold">${producto.name
+    }</h3></div>
 
         <div class=" px-4">
             <button><i id="btnCloseNofification" class="fa-solid fa-xmark text-2xl"></i></button>
@@ -100,30 +98,30 @@ const mostrarNotificacion = () => {
 };
 
 cardNotification.addEventListener('click', (e) => {
-if (e.target.id === "btnCloseNofification" || e.target.id === "btnContinue") {
-  cardNotification.classList.add("hidden");
-  overlay.classList.add("hidden"); 
-   document.body.style.overflow = "visible";
-   alturaVentana = window.screenY;
-   overlay.style.top = `${alturaVentana}px`; 
-}
+  if (e.target.id === "btnCloseNofification" || e.target.id === "btnContinue") {
+    cardNotification.classList.add("hidden");
+    overlay.classList.add("hidden");
+    document.body.style.overflow = "visible";
+    alturaVentana = window.screenY;
+    overlay.style.top = `${alturaVentana}px`;
+  }
 
-if (e.target.id === "btnViewCart") {
-   cardNotification.classList.add("hidden");  
-   overlay.classList.add("hidden");
-  window.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: "smooth",
-  });
+  if (e.target.id === "btnViewCart") {
+    cardNotification.classList.add("hidden");
+    overlay.classList.add("hidden");
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
 
-  setTimeout(() => {
-    menuShop.classList.remove("hidden");   
-    overlay.classList.remove("hidden"); 
-    overlay.style.top = '80px';
-  }, 1000);
+    setTimeout(() => {
+      menuShop.classList.remove("hidden");
+      overlay.classList.remove("hidden");
+      overlay.style.top = '80px';
+    }, 1000);
 
-}
+  }
 
 
 });
@@ -151,7 +149,7 @@ const templateProductCart = (product) => {
                     </div>
                 </li>
     `;
-    
+
 };
 
 //borrar producto del carro (tachito)
@@ -189,54 +187,54 @@ const renderMiniCard = async () => {
     .reduce((total, producto) => {
       return total + conversor(producto.price) * producto.cantidad;
     }, 0)
-    .toFixed(2); 
-    btnBuyActive();
+    .toFixed(2);
+  btnBuyActive();
 };
 
 //****************************
 
 //verifica que tenga compras
 const btnBuyActive = async () => {
- let compras =  await cantidadCompras()
- !compras?btnBuy.style.cursor ='not-allowed':btnBuy.style.cursor='pointer'; 
- if(!compras) {
-  btnBuy.setAttribute('disabled', 'disabled');
-  
- }else{
-  btnBuy.removeAttribute('disabled', '');
-  
- }
+  let compras = await cantidadCompras()
+  !compras ? btnBuy.style.cursor = 'not-allowed' : btnBuy.style.cursor = 'pointer';
+  if (!compras) {
+    btnBuy.setAttribute('disabled', 'disabled');
+
+  } else {
+    btnBuy.removeAttribute('disabled', '');
+
+  }
 };
 
 //funcion para boton de compras comprueba la session storage
 const BuyNow = () => {
 
-if(getActiveUser() === null){
-  window.location.href = "/assets/pages/login.html";
-  return;
-}
-guardarProductos("");
-setTimeout(() => {
-  window.location.href = "/index.html";
-}, 1000);
-alert('Gracias por su compra!');
+  if (getActiveUser() === null) {
+    window.location.href = "/assets/pages/login.html";
+    return;
+  }
+  guardarProductos("");
+  setTimeout(() => {
+    window.location.href = "/index.html";
+  }, 1000);
+  alert('Gracias por su compra!');
 };
 //funcion para menejo de usuario y logeo
 const UserActive = () => {
   if (getActiveUser() === null) {
     logeo.innerHTML = `Log In  <i class="fa-solid fa-right-to-bracket w-4 ml-4"></i>`;
     account.textContent = "Register";
-  }else{
-   logeo.innerHTML = `Log Out  <i class="fa-solid fa-right-from-bracket w-4 ml-4"></i>`;
-   logeo.addEventListener('click', () => {
-     sessionStorage.removeItem('activeUser')
-     logeo.href = "";
-     window.location.reload;
-   });
-  
+  } else {
+    logeo.innerHTML = `Log Out  <i class="fa-solid fa-right-from-bracket w-4 ml-4"></i>`;
+    logeo.addEventListener('click', () => {
+      sessionStorage.removeItem('activeUser')
+      logeo.href = "";
+      window.location.reload;
+    });
+
     account.innerHTML = `Account  <i class="fa-solid fa-user-pen w-4 ml-4"></i>`;
     account.addEventListener('click', () => {
-      account.href="";
+      account.href = "";
     })
   }
 };
@@ -244,7 +242,7 @@ const UserActive = () => {
 
 //template para search
 const templateSearch = (prod) => {
-  const {id,name,price,image} = prod
+  const { id, name, price, image } = prod
   return `
    <li class="my-2 w-full"> <a class="flex hover:bg-gray-500" href="/assets/pages/products.html?id=${id}&name=${name}">
                   <img class="h-10 m-2" src=${image} alt="name">
@@ -257,7 +255,8 @@ const templateSearch = (prod) => {
   `;
 };
 
-btnShop.addEventListener("click", () => toggleElement(menuShop,overlay,menuUser,menuList));
+//toggle para navbar
+btnShop.addEventListener("click", () => toggleElement(menuShop, overlay, menuUser, menuList));
 btnMenu.addEventListener("click", () => toggleElement(menuList, overlay, menuUser, menuShop)
 );
 btnUser.addEventListener("click", () =>
@@ -266,54 +265,57 @@ btnUser.addEventListener("click", () =>
 closeMenu.addEventListener("click", () =>
   toggleElement(menuList, overlay, menuUser, menuShop)
 );
-btnBuy.addEventListener("click", () =>BuyNow());
-menuFoot.addEventListener('click', ()=> {
+//boton de compras de carrito
+btnBuy.addEventListener("click", () => BuyNow());
+//menu de informacion al pie de la pagina
+menuFoot.addEventListener('click', () => {
   overlay.classList.add('hidden')
   menuList.classList.add('hidden')
   document.body.style.overflow = 'visible';
-window.scrollTo({
-  top: document.body.scrollHeight, // Desplazarse hasta el final de la página
-  left: 0,
-  behavior: "smooth"
+  window.scrollTo({
+    top: document.body.scrollHeight, // Desplazarse hasta el final de la página
+    left: 0,
+    behavior: "smooth"
+  });
 });
-});
-ACsearch.addEventListener('click', () =>{
+//icono de la lupa o search
+ACsearch.addEventListener('click', () => {
   menuList.classList.add('hidden');
   menuShop.classList.add('hidden');
   menuUser.classList.add('hidden');
   document.body.style.overflow = 'visible';
-
-})
-
-//traigo los datos y los filtro por el input de la  lupa
-search.addEventListener('input',async ()=> {
-
-    let valor = search.value.toLowerCase();
-    let products = await requestProd();
-
-    resul = products.filter( product =>
-      product.name.toLowerCase().includes(valor) 
-    )
-     titleSearch.classList.remove("hidden");
-    searchContainer.innerHTML += resul.map(product => templateSearch(product)).join('');
 });
 
-//cerrar details search
-closeSearch.addEventListener("click", () =>{
- ACsearch.removeAttribute('open')
-search.value = '';
-searchContainer.innerHTML = '';
- titleSearch.classList.add("hidden");
- overlay.classList.add("hidden");
+//funcion de filtro de lupa
+search.addEventListener('input', async () => {
+
+  let valor = search.value.toLowerCase();
+  let products = await requestProd();
+console.log(valor)
+  resul = products.filter(product =>
+    product.name.toLowerCase().includes(valor)
+  )
+  console.log(resul)
+  titleSearch.classList.remove("hidden");
+  searchContainer.innerHTML = resul.map(product => templateSearch(product)).join('');
 });
-  //cuando abro la lupa resetea los valores de busqueda
-ACsearch.addEventListener('click', () =>{
+
+//cerrar details de lupa o search
+closeSearch.addEventListener("click", () => {
+  ACsearch.removeAttribute('open')
   search.value = '';
   searchContainer.innerHTML = '';
- 
+  titleSearch.classList.add("hidden");
+  overlay.classList.add("hidden");
+});
+//cuando abro la lupa resetea los valores de busqueda
+ACsearch.addEventListener('click', () => {
+  search.value = '';
+  searchContainer.innerHTML = '';
+
 });
 
-const formSearchProduct = (e) =>{
+const formSearchProduct = (e) => {
   e.preventDefault();
 };
 
@@ -322,20 +324,22 @@ window.addEventListener("DOMContentLoaded", renderMiniCard);
 window.addEventListener("DOMContentLoaded", UserActive);
 formSearch.addEventListener("submit", formSearchProduct);
 
-window.addEventListener("DOMContentLoaded", ()=>{
+window.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", () => {
     arrowUp.style.display = "none";
     if (document.documentElement.scrollTop > 400) {
-      // Muestra el botón cuando se hace suficiente scroll (ajusta este valor según tu preferencia)
+      // Muestra el botón cuando se hace suficiente scroll 
       arrowUp.style.display = "block";
       arrowUp.style.position = "fixed";
-      arrowUp.addEventListener('click',()=>{window.scrollTo({
-        top:0,
-        left:0,
-        behavior:"smooth"
+      arrowUp.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth"
         })
-        ;})
-        
+        ;
+      })
+
     } else {
       // Oculta el botón si no se ha hecho suficiente scroll
       arrowUp.style.display = "none";
