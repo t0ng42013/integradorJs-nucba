@@ -63,7 +63,7 @@ const validateLogin = (e) => {
         saveToSessionStorage(user);
         console.log('Ingreso exitoso');
         e.preventDefault();
-        window.location.href ='/src/index.html';
+        window.location.href ='/index.html';
     }
 };
 

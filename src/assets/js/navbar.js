@@ -204,7 +204,7 @@ const btnBuyActive = async () => {
 const BuyNow = () => {
 
 if(getActiveUser() === null){
-  window.location.href = "/src/assets/pages/login.html";
+  window.location.href = "/assets/pages/login.html";
 }
 alert('Gracias por su compra!');
 };
@@ -233,7 +233,7 @@ const UserActive = () => {
 const templateSearch = (prod) => {
   const {id,name,price,image} = prod
   return `
-   <li class="my-2 w-full"> <a class="flex hover:bg-gray-500" href="/src/assets/pages/products.html?id=${id}&name=${name}">
+   <li class="my-2 w-full"> <a class="flex hover:bg-gray-500" href="/assets/pages/products.html?id=${id}&name=${name}">
                   <img class="h-10 m-2" src=${image} alt="name">
                   <div>
                     <h3>${name}name</h3>

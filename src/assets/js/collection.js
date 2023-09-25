@@ -49,7 +49,7 @@ const createProdTemplate = (productos) => {
             <div class="flex flex-col justify-center items-center my-2 overflow-hidden">
                 <span></span>
                 <span class="text-white text-center">
-                        <a href="/src/assets/pages/products.html?id=${id}&name=${name}" rel="noopener noreferrer">${name}</a>
+                        <a href="/assets/pages/products.html?id=${id}&name=${name}" rel="noopener noreferrer">${name}</a>
                 </span>
                 <span class="text-gray-500 font-semibold">$${price}</span>
             </div>

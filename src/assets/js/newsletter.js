@@ -33,15 +33,15 @@ const createFooter = () => `
     <div class="max-w-1/4">
       <h2 class=" text-3xl mb-8">Information</h2>
       <ul class=" text-gray-200 [&_li]:my-2">
-        <li><a href="/src/assets/pages/information.html?name=Refund"> Shipping & Refund
+        <li><a href="/assets/pages/information.html?name=Refund"> Shipping & Refund
           </a></li>
-        <li><a href="/src/assets/pages/information.html?name=Terms">
+        <li><a href="/assets/pages/information.html?name=Terms">
             Terms and Conditions
           </a></li>
-        <li><a href="/src/assets/pages/information.html?name=Buyers">
+        <li><a href="/assets/pages/information.html?name=Buyers">
             Policy for Buyers
           </a></li>
-        <li><a href="/src/assets/pages/information.html?name=Sellers">Policy for Sellers</a>
+        <li><a href="/assets/pages/information.html?name=Sellers">Policy for Sellers</a>
         </li>
       </ul>
     </div>
@@ -98,15 +98,15 @@ const createFooter = () => `
               <i class="fa-solid fa-chevron-down"></i>
             </summary>
             <ul class=" text-gray-500 [&_li]:my-2">
-             <li><a href="/src/assets/pages/information.html?name=Refund">                           Shipping & Refund
+             <li><a href="/assets/pages/information.html?name=Refund">                           Shipping & Refund
                           </a></li>
-             <li><a href="/src/assets/pages/information.html?name=Terms">
+             <li><a href="/assets/pages/information.html?name=Terms">
                             Terms and Conditions 
                           </a></li>            
-             <li><a href="/src/assets/pages/information.html?name=Buyers">
+             <li><a href="/assets/pages/information.html?name=Buyers">
                             Policy for Buyers
                           </a></li>
-             <li><a href="/src/assets/pages/information.html?name=Sellers">Policy for Sellers</a>                     
+             <li><a href="/assets/pages/information.html?name=Sellers">Policy for Sellers</a>                     
                           </li>
             </ul>
           </details>
