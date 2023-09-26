@@ -291,7 +291,6 @@ search.addEventListener('input', async () => {
 
   let valor = search.value.toLowerCase();
   let products = await requestProd();
-console.log(valor)
   resul = products.filter(product =>
     product.name.toLowerCase().includes(valor)
   )

@@ -6,113 +6,118 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GameBattle | Integrador JS</title>
 
-  <link rel="shortcut icon" href="./assets/img/productos31_6383.png" type="image/x-icon" />
-  <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="shortcut icon" href="/assets/img/productos31_6383.png" type="image/x-icon" />
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
-<body class="bg-[#101010] text-white lg:overflow-x-hidden 2xl:max-w-[1500px] 2xl:mx-auto">
+<body class="bg-[#101010] text-white lg:overflow-x-hidden 2xl:max-w-[1500px] 2xl:mx-auto ">
   <header>
-    <nav class="w-screen flex items-center justify-between py-4 lg:w-full">
-      <div class="flex items-center">
+    <nav class="w-screen flex items-center justify-between py-4 lg:w-full lg:relative ">
+      <div class="flex items-center w-48">
         <!-- btn menu  -->
-        <figure class="w-9 mx-2 cursor-pointer lg:hidden">
+        <figure class="w-12 mx-2 cursor-pointer lg:hidden">
           <i id="menu" class="fa-solid fa-bars-staggered text-white text-2xl hover:text-gray-500"></i>
         </figure>
         <!-- logo -->
         <figure class="w-24 lg:ml-8">
-          <img class="drop-shadow-[2px_2px_2px_gray]" src="./assets/img/logo2.svg" alt="logo" />
+          <img class="drop-shadow-[2px_2px_2px_gray]" src="/assets/img/logo2.svg" alt="logo" />
         </figure>
       </div>
-      <!-- buscador -->
-      <div class="w-2/5 flex justify-around [&>label]:cursor-pointer">
+      <!-- contenedor grupo 2 -->
+      <div class="flex  items-center justify-end w-full">
+        <!-- menu opciones -->
+        
+        <div class=" flex justify-end items-center [&>label]:cursor-pointer w-full ">
+          <ul id="menu-list"
+            class="absolute pl-4 top-0 left-0 w-3/4 max-w-md h-screen  text-lg font-semibold leading-[2.5rem] bg-[#1a1a1a] border-r border-r-slate-50 z-50 hidden lg:flex lg:h-16 lg:justify-evenly lg:items-center lg:bg-transparent lg:border-none  lg:w-2/3 lg:z-10 lg:static lg:max-w-2xl xl:max-w-4xl xl:w-5/6">
+  
+            <li class="text-end text-2xl pr-8 pt-8 lg:hidden"> <span class="cursor-pointer" id="closeMenu">X</span></li>
+  
+            <li><a class="hover:text-gray-500" href="/assets/pages/collection.html">Products</a></li>
+            <li><a id="menuFoot" class="hover:text-gray-500" href="#footerContainer">Information</a></li>
+            <li><a class="hover:text-gray-500" href="/assets/pages/contact.html">Contact</a></li>
+            <li><a class="hover:text-gray-500" href="#">Blog</a></li>
+            <!-- redes -->
+            <ul class="absolute left-0 bottom-0 w-full flex justify-around bg-neutral-900 p-8 lg:hidden">
+              <li>
+                <a href="https://www.facebook.com/?locale=es_LA" target="_blank" rel="noopener noreferrer"><i
+                    class="fa-brands fa-facebook w-6 hover:text-gray-500"></i></a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i
+                    class="fa-brands fa-instagram w-6 hover:text-gray-500"></i></a>
+              </li>
+              <li>
+                <a href="https://ar.pinterest.com/" target="_blank" rel="noopener noreferrer"><i
+                    class="fa-brands fa-pinterest w-6 hover:text-gray-500"></i></a>
+              </li>
+            </ul>
+          </ul>
 
-        <details id="ACsearch" class="text-white">
-          <summary class="list-none">
-            <i class="fa-solid fa-magnifying-glass  text-white text-xl hover:text-gray-500"></i>
-          </summary>
+          <!-- search user shop -->
+          <div class="h-20 w-full max-w-xs justify-evenly items-center flex   ">
+            <!-- search -->
+            <details id="ACsearch" class="text-white">
+              <summary class="list-none">
+                <i class="fa-solid fa-magnifying-glass  text-white text-xl hover:text-gray-500"></i>
+              </summary>
 
-          <div class="absolute top-0 left-0 right-0 z-50 flex justify-center items-center  bg-[#101010]">
-            <div class="flex items-center ">
-              <div class="w-full">
-                <form id="formSearch" action="" class="w-full">
-                  <div class="relative w-full flex items-center">
-                    <input id="search" class="text-black pr-20 py-2 px-4 my-4 peer" placeholder="Search Product Here..."
-                      type="search" />
+              <div class="absolute top-0 left-0 right-0 z-50 flex justify-center items-center  bg-[#101010]">
+                <div class="flex items-center ">
+                  <div class="w-full">
+                    <form id="formSearch" class="w-full">
+                      <div class="relative w-full flex items-center">
+                        <input id="search" class="text-black pr-20 py-2 px-4 my-4 peer"
+                          placeholder="Search Product Here..." type="search" />
 
-                    <label
-                      class="absolute pl-4 pointer-events-none left-0 peer-focus:text-[8px] peer-focus:top-4 peer-[:not(:placeholder-shown)]:text-[8px] peer-[:not(:placeholder-shown)]:top-4 text-black"
-                      for="search">Search Product Here...</label>
+                        <label
+                          class="absolute pl-4 pointer-events-none left-0 peer-focus:text-[8px] peer-focus:top-4 peer-[:not(:placeholder-shown)]:text-[8px] peer-[:not(:placeholder-shown)]:top-4 text-black"
+                          for="search">Search Product Here...</label>
 
-                    <button class="absolute right-0 pr-2 text-black flex items-center"> <i
-                        class="fa-solid fa-magnifying-glass "></i>
-                    </button>
+                        <button class="absolute right-0 pr-2 text-black flex items-center"> <i
+                            class="fa-solid fa-magnifying-glass "></i>
+                        </button>
+                      </div>
+                    </form>
+
                   </div>
 
-
-                </form>
+                  <button id="closeSearch" class="flex justify-center items-center h-8 w-8">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
 
               </div>
 
-              <button id="closeSearch" class="flex justify-center items-center h-8 w-8">
-                <i class="fa-solid fa-xmark"></i>
-              </button>
-            </div>
+              <div id="titleSearch"
+                class="bg-[#101010]  w-full absolute top-[70px] left-0 z-50  hidden lg:flex lg:flex-col lg:justify-center lg:w-full lg:bg-transparent">
+                <h2 class=" font-semibold my-4 lg:hidden">Products</h2>
+                <ul id="searchContainer"
+                  class="lg:flex lg:flex-col lg:justify-center lg:items-center lg:w-2/6 lg:mx-auto  lg:bg-[#101010]">
+              </div>
+            </details>
 
+            <!-- btn user -->
+            <label id="user" class="w-8 text-center mx-4">
+              <i class="fa-regular fa-user text-white text-xl hover:text-gray-500"></i>
+            </label>
+
+            <!-- carrito -->
+            <label id="shop" class="w-8 flex text-gray-500 mr-8 font-bold">
+              <i class="fa-solid fa-bag-shopping text-white text-xl hover:text-gray-500"></i>
+              <span id="cantidadShop" class="ml-2">(0)</span>
+            </label>
           </div>
+        </div>
 
-          <div id="titleSearch"
-            class="bg-[#101010]  w-full absolute top-[70px] left-0 z-50  hidden lg:flex lg:flex-col lg:justify-center lg:w-full lg:bg-transparent">
-            <h2 class=" font-semibold my-4 lg:hidden">Products</h2>
-            <ul id="searchContainer"
-              class="lg:flex lg:flex-col lg:justify-center lg:items-center lg:w-2/6 lg:mx-auto  lg:bg-[#101010]">
-          </div>
-        </details>
-
-        <!-- btn user -->
-        <label id="user" class="w-6">
-          <i class="fa-regular fa-user text-white text-xl hover:text-gray-500"></i>
-        </label>
-
-        <!-- carrito -->
-        <label id="shop" class="w-6 flex text-gray-500 mr-8 font-bold">
-          <i class="fa-solid fa-bag-shopping text-white text-xl hover:text-gray-500"></i>
-          <span id="cantidadShop" class="ml-2">(0)</span>
-        </label>
-        <!-- menu opciones -->
-        <ul id="menu-list"
-          class="absolute pl-4 top-0 left-0 w-3/4 h-screen text-white text-l font-semibold leading-[2.5rem] bg-[#1a1a1a] border-r border-r-slate-50 z-50 hidden lg:flex lg:h-16 lg:justify-evenly lg:items-center lg:bg-transparent lg:border-none lg:left-48 lg:w-2/5 lg:z-10">
-
-          <li class="text-end text-2xl pr-8 pt-8 lg:hidden"> <span class="cursor-pointer" id="closeMenu">X</span></li>
-
-          <li><a class="hover:text-gray-500" href="/assets/pages/collection.html">Products</a></li>
-          <li><a id="menuFoot" class="hover:text-gray-500" href="#footerContainer">Information</a></li>
-          <li><a class="hover:text-gray-500" href="/assets/pages/contact.html">Contact</a></li>
-          <li><a class="hover:text-gray-500" href="#">Blog</a></li>
-          <!-- redes -->
-          <ul class="absolute left-0 bottom-0 w-full flex justify-around bg-neutral-900 p-8 lg:hidden">
-            <li>
-              <a href="https://www.facebook.com/?locale=es_LA" target="_blank" rel="noopener noreferrer"><i
-                  class="fa-brands fa-facebook w-6 hover:text-gray-500"></i></a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i
-                  class="fa-brands fa-instagram w-6 hover:text-gray-500"></i></a>
-            </li>
-            <li>
-              <a href="https://ar.pinterest.com/" target="_blank" rel="noopener noreferrer"><i
-                  class="fa-brands fa-pinterest w-6 hover:text-gray-500"></i></a>
-            </li>
-          </ul>
-        </ul>
         <!-- user menu -->
         <ul id="userMenu"
           class="border absolute top-[70px] right-0 pl-8 pr-16 py-4 text-white text-lg font-semibold leading-[2.5rem] bg-[#101010] z-50 hidden lg:right-[10%]">
-          <li><a id="logeo" class="hover:text-gray-500" href="./assets/pages/login.html">Log in</a></li>
-          <li><a id="account" class="hover:text-gray-500" href="./assets/pages/register.html">Register</a></li>
+          <li><a id="logeo" class="hover:text-gray-500" href="/assets/pages/login.html">Log in</a></li>
+          <li><a id="account" class="hover:text-gray-500" href="/assets/pages/register.html">Register</a></li>
         </ul>
-
 
         <!--! shop -->
         <div id="menuShop"
@@ -147,7 +152,7 @@
     <section class="w-screen flex relative overflow-x-hidden lg:w-full">
       <!-- banner 1 -->
       <figure id="banner1" class="w-screen min-w-full relative flex flex-col items-center justify-center duration-1000">
-        <img class="opacity-40" src="./assets/img/banner1.jpg" alt="" />
+        <img class="opacity-40" src="/assets/img/banner1.jpg" alt="" />
         <div class="absolute text-center" data-aos="fade-up">
           <p class="text-sm">Star Wars Up Coming</p>
           <h2 class="text-2xl uppercase my-4 font-bold font-serif ">
@@ -157,7 +162,7 @@
       </figure>
       <!-- banner 2 -->
       <figure id="banner2" class="w-screen min-w-full relative flex flex-col items-center justify-center duration-1000">
-        <img class="opacity-40" src="./assets/img/banner2_.jpg" alt="" />
+        <img class="opacity-40" src="/assets/img/banner2_.jpg" alt="" />
         <div class="absolute text-white text-center">
           <p class="text-sm">Best Shooting Game</p>
 
@@ -199,7 +204,7 @@
       </div>
 
       <div class="flex flex-col items-center mt-8">
-        <img class="w-10 mb-4" src="./assets/img/discount.svg" alt="discount" />
+        <img class="w-10 mb-4" src="/assets/img/discount.svg" alt="discount" />
         <div>
           <p class="text-white font-bold">Member Discount</p>
           <p class="text-gray-400">On every order over $130.00</p>
@@ -221,8 +226,6 @@
     <!-- subir -->
     <i id="arrowUp"
       class="hidden fa-solid fa-circle-chevron-up  right-0 bottom-0 m-8 text-4xl animate-bounce hover:text-blue-500 cursor-pointer z-50 2xl:opacity-0"></i>
-
-
     <section class="my-10 grid gap-8 overflow-hidden sm:grid sm:grid-cols-2 sm:gap-0">
       <div class="bg-[url('/assets/img/btf.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center lg:h-56 xl:h-80">
         <div class="w-1/2 ml-auto mb-4 py-2">
@@ -230,18 +233,15 @@
           <h2 class="uppercase font-serif font-bold my-4 text-xl scroll-reveal">
             dead rising zombies
           </h2>
-
         </div>
       </div>
 
-      <div
-        class="bg-[url('/assets/img/Banner2.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center  lg:h-56 xl:h-80">
+      <div class="bg-[url('/assets/img/Banner2.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center  lg:h-56 xl:h-80">
         <div class="w-1/2 ml-auto mb-4 py-2">
           <p class="text-lg scroll-reveal">3D Pixel Racing</p>
           <h2 class="uppercase font-serif font-bold my-4 text-xl scroll-reveal">
             Fast Drive Racing
           </h2>
-
         </div>
       </div>
     </section>
@@ -253,15 +253,18 @@
         Special Category
       </h2>
       <span class="border border-blue-700 w-12 mx-auto block my-4 sm:mb-8 lg:w-32 lg:mb-16"></span>
-
       <div class="w-screen relative mb-8 lg:w-full">
         <figure class="relative w-11/12 mx-auto flex justify-center items-center mb-16">
           <div id="contentSpl" class="flex gap-6 overflow-hidden ">
-            <img class="sm:w-80 sm:h-80 sm:object-cover" data-aos="fade-right" data-aos-delay="1000" src="./assets/img/special1.jpg" alt="image" />
-            <img class="sm:w-80 sm:h-80 sm:object-cover" data-aos="fade-up" data-aos-delay="1000"src="./assets/img/special2.jpg" alt="image" />
-            <img class="sm:w-80 sm:h-80 sm:object-cover"data-aos="fade-left" data-aos-delay="1000" src="./assets/img/special3.jpg" alt="image" />
-            <img class="sm:w-80 sm:h-80 sm:object-cover"data-aos="fade-down" data-aos-delay="1000" src="./assets/img/special4.jpg" alt="image" />
-            <img class="sm:w-80 sm:h-80 sm:object-cover" src="./assets/img/special5.jpg" alt="image" />
+            <img class="sm:w-80 sm:h-80 sm:object-cover" data-aos="fade-right" data-aos-delay="1000"
+              src="/assets/img/special1.jpg" alt="image" />
+            <img class="sm:w-80 sm:h-80 sm:object-cover" data-aos="fade-up" data-aos-delay="1000"
+              src="/assets/img/special2.jpg" alt="image" />
+            <img class="sm:w-80 sm:h-80 sm:object-cover" data-aos="fade-left" data-aos-delay="1000"
+              src="/assets/img/special3.jpg" alt="image" />
+            <img class="sm:w-80 sm:h-80 sm:object-cover" data-aos="fade-down" data-aos-delay="1000"
+              src="/assets/img/special4.jpg" alt="image" />
+            <img class="sm:w-80 sm:h-80 sm:object-cover" src="/assets/img/special5.jpg" alt="image" />
           </div>
 
 
@@ -298,7 +301,7 @@
       <div class="w-full flex justify-center items-center my-8">
         <i id="btnMore" class="fa-solid fa-circle-chevron-down text-gray-800 text-3xl animate-pulse cursor-pointer"></i>
       </div>
-      <div class="w-screen flex justify-center my-8">
+      <div class="w-full flex justify-center my-8">
         <button id="btnView" type="button"
           class="bg-gray-500 px-16 py-2 font-semibold text-white hover:bg-white hover:text-gray-500 xl:my-16">
           View All Pro
@@ -310,7 +313,7 @@
       class="bg-[url('https://wallpaperset.com/w/full/9/4/c/5965.jpg')] bg-fixed bg-cover sm:bg-contain sm:bg-center sm:bg-no-repeat p-8 relative xl:bg-cover">
       <div class="lg:my-16">
         <figure class="flex justify-center items-center mb-8">
-          <img class="w-28 border-gray-500 border rounded-full mx-auto" loading="lazy" src="./assets/img/avatar.jpg"
+          <img class="w-28 border-gray-500 border rounded-full mx-auto" loading="lazy" src="/assets/img/avatar.jpg"
             alt="avatar" />
           <div class="absolute mb-16 mr-16 w-8 h-8 flex justify-center items-center rounded-full border bg-black">
             <svg class="w-4 h-4" version="1.0" xmlns="http://www.w3.org/2000/svg" width="512.000000pt"
@@ -345,8 +348,7 @@
     </section>
 
     <section class="my-10 overflow-hidden sm:grid sm:grid-cols-2">
-      <div
-        class="bg-[url('/assets/img/Banner3.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center lg:h-56 xl:h-80">
+      <div class="bg-[url('/assets/img/Banner3.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center lg:h-56 xl:h-80">
         <div class="w-1/2 ml-auto mb-4 py-2">
           <p class="text-lg scroll-reveal">Best Action Game</p>
           <h2 class="uppercase font-serif font-bold my-4 text-xl scroll-reveal">
@@ -356,8 +358,7 @@
         </div>
       </div>
 
-      <div
-        class="bg-[url('/assets/img/Banner4.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center lg:h-56 xl:h-80">
+      <div class="bg-[url('/assets/img/Banner4.jpg')] bg-cover w-11/12 mx-auto h-44 flex items-center lg:h-56 xl:h-80">
         <div class="w-1/2 ml-auto mb-4 py-2">
           <p class="text-lg scroll-reveal">3D Pixel Racing</p>
           <h2 class="uppercase font-serif font-bold my-4 text-xl scroll-reveal">
@@ -434,14 +435,14 @@
             <i class="fa-solid fa-chevron-right text-white px-2"></i>
           </button>
         </div>
-        <!-- !contenedor de artc                 -->
+        <!-- !contenedor de artc-->
         <div class="flex items-center duration-1000 blog ">
 
           <article class="">
 
             <div class="w-screen relative mb-8 sm:w-96 ">
               <figure class="relative w-11/12 mx-auto flex justify-center items-center">
-                <img loading="lazy" src="./assets/img/blog1.jpg" alt="" />
+                <img loading="lazy" src="/assets/img/blog1.jpg" alt="" />
 
               </figure>
 
@@ -474,7 +475,7 @@
           <article>
             <div class="w-screen relative mb-8 sm:w-96 ">
               <figure class="relative w-11/12 mx-auto flex justify-center items-center">
-                <img loading="lazy" src="./assets/img/blog2.jpg" alt="" />
+                <img loading="lazy" src="/assets/img/blog2.jpg" alt="" />
 
               </figure>
 
@@ -508,7 +509,7 @@
 
             <div class="w-screen relative mb-8 sm:w-96">
               <figure class="relative w-11/12 mx-auto flex justify-center items-center">
-                <img loading="lazy" src="./assets/img/blog4.jpg" alt="" />
+                <img loading="lazy" src="/assets/img/blog4.jpg" alt="" />
 
               </figure>
 
@@ -542,7 +543,7 @@
 
             <div class="w-screen relative mb-8 sm:w-96 ">
               <figure class="relative w-11/12 mx-auto flex justify-center items-center">
-                <img loading="lazy" src="./assets/img/blog3.jpg" alt="" />
+                <img loading="lazy" src="/assets/img/blog3.jpg" alt="" />
 
               </figure>
 
@@ -576,7 +577,7 @@
 
             <div class="w-screen relative mb-8 sm:w-96 ">
               <figure class="relative w-11/12 mx-auto flex justify-center items-center">
-                <img loading="lazy" src="./assets/img/blog5.jpg" alt="" />
+                <img loading="lazy" src="/assets/img/blog5.jpg" alt="" />
 
               </figure>
 
@@ -621,18 +622,18 @@
   <!-- AOS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-			AOS.init({
-				easing: 'ease-out-back',
-				duration: 2000
-			});
-		</script>
+    AOS.init({
+      easing: 'ease-out-back',
+      duration: 2000
+    });
+  </script>
   <!-- fontawesome -->
   <script src="https://kit.fontawesome.com/b8d7fad790.js" crossorigin="anonymous"></script>
   <!-- db -->
-  <script src="./assets/js/request.js"></script>
-  <script src="./assets/js/newsletter.js"></script>
-  <script src="./assets/js/navbar.js"></script>
-  <script src="./assets/js/index.js"></script>
+  <script src="/assets/js/request.js"></script>
+  <script src="/assets/js/newsletter.js"></script>
+  <script src="/assets/js/navbar.js"></script>
+  <script src="/assets/js/index.js"></script>
 </body>
 
 </html>
